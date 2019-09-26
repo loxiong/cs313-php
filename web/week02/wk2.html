@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Week 02 Team Activity</title>
+        <meta name="author" content="Ching Lo | CS313:03">
+        <meta name="description" content="Week 2 Team Activity">
+
+        <!--link to external CSS Style-->
+        <link href="css/styles.css" rel="stylesheet"> 
+        <!--link to external JavaScript-->
+        <script type="text/javascript" src="scripts/color.js"></script>
+        <!--jQuery library-->
+        <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <main>
+            <div id="div1">
+                <h1>Div 1</h1>
+                
+                <p>Change the Text Color:</p>
+                <label for="textcolor">Type a color here, and then click the button to see the change: </label>
+                <input id="textcolor" type="text" placeholder="blue"><br>
+                <button onclick="changeTextColor();">Change Text Color</button><br>
+                <span id="coltext">This text is now the color you entered in the text box.</span>
+                
+                <p>Change the Background Color:</p>
+                <label for="bgColor">Color:</label> 
+                <input id="bgColor" type="text" placeholder="#cccccc"><br>
+                <button onclick="changeBackground();">Change Background</button>
+            </div>
+            
+            <div id="div2">
+                <h2>Div 2</h2>
+                <p>Hello!</p>
+                <p>Change the Background Color Using jQuery</p>
+                <label for="bgColor">Color:</label> 
+                <input id="bgColor" type="text" placeholder="#cccccc"><br>
+                <button id="button1;">Change Background</button>
+            </div>
+            
+            <div id="div3">
+                <h3>Div 3</h3>
+                <p>This div will fade out when you click on the button. Refresh the page to reset.</p>
+            </div>
+            <button id="button2">Click to Fade In/Out</button>
+            <br>
+            
+            
+            <button id="click" onclick="myButton();">Click Me</button>
+        </main>
+    </body>
+    
+    <footer>
+    <script>
+        $(document).ready(function(){
+            $("#button1").click(function(){ 
+                $("#div2").css("background-color", $(this).val());
+               }); 
+        })
+
+        $(document).ready(function(){
+          $("#button2").click(function(){
+            $("#div3").fadeToggle(1000);
+          });
+        });
+    </script>
+    </footer>
+
+</html>

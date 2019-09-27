@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Ching Lo's Homepage for CS313</title>
+        <meta name="author" content="Ching Lo | CS313:03">
+        <meta name="description" content="homepage">
+
+        <!--link to external CSS Style-->
+        <link href="css/styles.css" rel="stylesheet"> 
+        <!--link to external JavaScript-->
+        <script src="scripts/color.js"></script>
+        <!--jQuery library-->
+        <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <main>
+            <div id="div1">
+                <h1>Introduction</h1>
+                
+                <h2>About Me:</h2>
+                <p>My name is C. Lo. I am an online student at BYU-Idaho. I have earned a degree in communications, and now I am studying website design and development, because I think that the web is central to communications. Outside of school, I enjoy biking, running, hiking, going on family "field trips" with my children, traveling, attending concerts and eating. So far, my favorite travel destination is Quebec City (at Christmas), and my favorite ice cream is a Concrete Mixer from Culver's.</p>
+                
+                <p>Just for Fun: Click here to see a me or hide me!
+                    <button id="button2">Click to Fade In/Out</button></p>
+                <div id="div1img">
+                    <img> 
+                    
+                </div>
+                
+                <label for="textcolor">Type a color here, and then click the button to see the change: </label>
+                <input id="textcolor" type="text" placeholder="blue"><br>
+                <button onclick="changeTextColor();">Change Text Color</button><br>
+                <span id="coltext">This text is now the color you entered in the text box.</span>
+                
+                <p>Change the Background Color:</p>
+                <label for="bgColor">Color:</label> 
+                <input id="bgColor" type="text" placeholder="#cccccc"><br>
+                <button onclick="changeBackground();">Change Background</button>
+            </div>
+            
+            <div id="div2">
+                <h2>About BYU CS313 - Web Engineering II</h2>
+                <p>Web Engineering II is a course that allows students to create more advanced web applications and services. The emphasis of this course will be on server-side technologies and n-tier applications using relational database technology. Different server-side technologies will be used for creating dynamic n-tier web applications. Client side technologies will be enhanced and combined with server-side technologies to create rich; web applications.</p>
+                
+                <p>Change the Background Color Using jQuery</p>
+                <label for="color">Color:</label> 
+                <input id="color" type="text" placeholder="#cccccc"><br>
+                <button id="button1;">Change Background</button>
+            </div>
+            
+            <div id="div3">
+                <h3>Assignments</h3>
+                <p><a href="assignment.html">Click here to see my assignments or Click the button below</a></p>
+                <button id="click" onclick="myButton();">Go To Assignments</button>
+            </div>
+            <br>
+            
+            
+            
+        </main>
+    </body>
+    
+    <footer>
+    <script>
+        $(document).ready(function(){
+            $("#button1").click(function(){ 
+                $("#div2").css("background-color", $(this).val());
+               }); 
+        })
+
+        $(document).ready(function(){
+          $("#button2").click(function(){
+            $("#div3").fadeToggle(1000);
+          });
+        });
+    </script>
+    </footer>
+
+</html>

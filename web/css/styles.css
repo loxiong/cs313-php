@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Handlee|Poppins&display=swap');
+
+* { box-sizing: border-box;}
+
+body {
+    font-family: "Poppins", "Aerial", sans-serif;
+    background-color: #FCF3CF;
+    margin: 100px;
+    padding: 2em;
+    color: #4A4B4A;
+}
+
+h1, h2, h3 {
+    font-family: "Handlee", "Lucida Handwriting", cursive;
+    margin: 5px;
+    color: #154360;
+}
+
+header {
+    background: #A9CCE3;
+    text-align: center;
+    padding: 32px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5px;
+}
+
+#div1, #div4 {
+    flex: 75%;
+    max-width: 75%;
+    padding: 0 5px;
+}
+
+#div2, #div3 {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 5px;
+}
+
+.contents {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+/* Responsive Layout */
+@media (max-width: 800px) {
+    .divs {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .divs {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+/* End of Responsive Layout */
+
+a:link, a:visited {
+  background-color: #8BF154;
+  color: #575957;
+  padding: 75px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #F7DC6F;
+}
+
+.footer {
+  background: #A9CCE3;
+}
+
+#butterfly {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    margin: 10px;
+    border: solid #B3B6B7 3px;
+}
+#butterfly img {
+    width: 200px;
+    height: 200px;
+}

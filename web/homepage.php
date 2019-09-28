@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     
-    <body class=container>
+    <body>
         <header><h1>My Introduction to CS313</h1></header>
         
         <main>            

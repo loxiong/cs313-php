@@ -75,11 +75,17 @@ a:hover, a:active {
 }
 
 .footer {
-    background: #A9CCE3;
-    font-size: 12px;
     display: flex;
     max-width: 100%;
+    margin: 10px;
     padding: 0 10px;
+    background: #A9CCE3;
+    font-size: 12px;
+    text-align: center;
+}
+
+footer p {
+    margin: auto;
 }
 
 #butterfly {

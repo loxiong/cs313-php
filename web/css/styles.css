@@ -79,6 +79,7 @@ a:hover, a:active {
     font-size: 12px;
     display: flex;
     flex-wrap: wrap;
+    max-width: 100%;
     padding: 0 5px;
 }
 

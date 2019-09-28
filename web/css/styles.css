@@ -47,14 +47,14 @@ header {
 
 /* Responsive Layout */
 @media (max-width: 800px) {
-    .divs {
+    .container {
         flex: 50%;
         max-width: 50%;
     }
 }
 
 @media (max-width: 600px) {
-    .divs {
+    .container {
         flex: 100%;
         max-width: 100%;
     }

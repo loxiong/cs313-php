@@ -16,9 +16,9 @@
     </head>
     
     <body class=container>
-        <main>
-            <header><h1>My Introduction to CS313</h1></header>
-            
+        <header><h1>My Introduction to CS313</h1></header>
+        
+        <main>            
             <div class="container">
                 <div class="divs" id="div1"> 
                     <div class="contents">
@@ -58,9 +58,8 @@
         </main>
         
         <footer class="footer">
-            <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
         </footer>
-        
     </body>
     
 <script>

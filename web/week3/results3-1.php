@@ -17,7 +17,7 @@ $contMap = array('na'=>'North American',
     }
     else {
         $N = count($continent);
-        echo("You selected $N " . "<br>");
+        echo("You selected $N continents:" . "<br>");
         for($i=0; $i < $N; $i++){
             echo($contMap[$continent[$i]] . '<br>');
         }

@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Week 03 Team Activity</title>
+        <title>PHP Form Stretch Challenges</title>
         <meta name="author" content="Ching Lo | CS313:03">
-        <meta name="description" content="PHP Form">        
+        <meta name="description" content="Week 3 Team Activity">        
     </head>
     
     <body>
@@ -13,7 +13,7 @@
             <form method="post" action="results3-1.php">
                 Name: <input type="text" name="name"><br><br>
                 Email: <input type="text" name="email"><br><br>
-                Major: <br><br>
+                Major: <br>
                 <!--loop over an PHP array to generate radio buttons--> 
                 <?php 
                     $majors = array('Computer Science','Web Design and Development','Computer Information Technology','Computer Engineering');
@@ -21,7 +21,7 @@
                         echo "<input type='radio' name='major' value='$major'>$major<br>";
                     }
                 ?>
-                <br><br>
+                <br>
                 Comments: <br><textarea type="text" name="comments" rows="10" cols="30"></textarea><br>
                 <p>Which continent(s) have you visited?</p>
                 <input type="checkbox" name="continent[]" value="na">North America<br>

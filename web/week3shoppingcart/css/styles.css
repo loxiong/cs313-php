@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Emilys+Candy|Krub|Nixie+One|Unica+One&display=swap');
+/*
+font-family: 'Krub', sans-serif;
+font-family: 'Nixie One', cursive;
+font-family: 'Emilys Candy', cursive;
+font-family: 'Unica One', cursive;
+*/
+
+body {
+    font-family: 'Krub', sans-serif;
+    font-weight: 500;
+    margin: 10px auto;
+    text-align: center;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Emilys Candy', cursive;
+}
+
+.table {
+    margin: 0 auto;
+    width: 600px;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+}
+
+/* buttons */
+.primary-button button {
+    background: #204161;
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+}
+button a {
+    font-family: 'Nixie One', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.secondary-button button {
+    background: #8d99a5;
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+}
+
+/* cart page */
+.shopping-cart {
+    margin: 0 auto;
+    width: 700px;
+}
+#cart-item {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+    column-width: 20px;
+    margin: 0 auto;
+}
+.txt-heading a {
+    margin-left: 20px;
+}
+.cart-heading {
+    text-align: left;
+    font-weight: 700;
+}
+.total {
+    color: blue;
+    font-weight: 500;
+}
+
+/* checkout page */
+.checkout {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+}
+label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+input {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.primary-button input {
+    background: #204161;
+    border-radius: 4px;
+    width: 250px;
+    font-family: 'Nixie One', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+}
+/* confirmation page */
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 700px;
+}
+.conf-item {
+    display: flex;
+    flex-direction: column;
+    border: solid #817b69 2.5px;
+}
+
+.conf-item th, td {
+    padding-right: 10px;
+    text-align: center;
+}
+.shipping-address {
+    padding: 10px;
+    margin: 10px;
+    color: blue;
+}

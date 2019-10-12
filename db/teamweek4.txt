@@ -1,0 +1,107 @@
+CONFERENCE NOTES DATABASE
+
+1) Create user table: id, first_name, last_name
+2) Create the notes table: id, note, user_id, talk_id, speaker_id
+3) Create talks table: id, month, year, speaker_id
+4) Create speaker table: id, first name, last name
+
+USERS TABLE
+CREATE TABLE users (
+    id          SERIAL PRIMARY KEY, 
+    first_name  VARCHAR(20),
+    last_name   VARCHAR(20)
+);
+
+// "serial" makes it an integer that will automatically increment the value of each item that is inserted.
+
+NOTES TABLE
+CREATE TABLE notes (
+    id          SERIAL PRIMARY KEY,
+    note        VARCHAR(100),
+    user_id     INTEGER REFERENCES users(id),
+    talk_id     INTEGER REFERENCES talks(id),
+    speaker_id  INTEGER REFERENCES speaker(id)
+);
+
+TALKS TABLE
+CREATE TABLE talks (
+    id          SERIAL PRIMARY KEY,
+    talk_date   DATE,
+    year        SMALLINT,
+    is_spring   BOOLEAN NOT NULL,
+    speaker_id  INTEGER REFERENCES speaker(id)
+);
+
+//Note from Instructor Solution:
+//Because we know there are only two conferences (Spring and Fall), we can restrict the data type to a boolean.
+//It is impossible to put bad data in, such as month "2", which would not correspond to a valid conference.
+
+SPEAKER TABLE
+CREATE TABLE speaker (
+    id          SERIAL PRIMARY KEY,
+    first_name  VARCHAR(50),
+    last_name   VARCHAR(50)
+);
+
+
+
+//PRACTICE ADDING COLUMNS TO TABLE 
+
+ALTER TABLE talks
+ADD COLUMN is_fall  BOOLEAN NOT NULL;
+
+ALTER TABLE talks
+ADD COLUMN title    VARCHAR(100);
+
+
+//PRACTICE INSERTING INTO THE TABLES
+INSERT INTO users (first_name, last_name) VALUES ('Ching', 'Lo');
+INSERT INTO users (first_name, last_name) VALUES ('Jeni', 'Owen');
+INSERT INTO users (first_name, last_name) VALUES ('Vincent', 'Xi');
+
+//INSERT USING MULTIPLE ROWS
+INSERT INTO speaker (first_name, last_name) 
+VALUES 
+    ('Dieter', 'Uchtdorf'),
+    ('Thomas', 'Monson'),
+    ('Russell', 'Nelson'),
+    ('Gordon', 'Hinckley'),
+    ('Jean', 'Bingham'),
+    ('Linda', 'Burton');
+
+INSERT INTO talks (year, is_spring, is_fall, speaker_id, title)
+VALUES
+    (2016, FALSE, TRUE, 5, 'I Will Bring the Light of the Gospel into My Home'),
+    (2017, FALSE, TRUE, 5, 'That Your Joy Might Be Full'),
+    (2018, TRUE, FALSE, 5, 'Ministering As The Savior Does');
+    
+INSERT INTO talks (year, is_spring, is_fall, speaker_id, title)
+VALUES
+    (2012, FALSE, TRUE, 6, 'First Observe, Then Serve'),
+    (2017, TRUE, FALSE, 6, 'Certain Women'),
+    (2016, TRUE, FALSE, 6, 'I Was A Stranger'),
+    (2014, TRUE, FALSE, 6, 'Hasten The Work'),
+    (2007, FALSE, TRUE, 4, 'Slow To Anger'),
+    (2007, TRUE, FALSE, 4, 'Let Virtue Garnish Thy Thoughts'),
+    (2004, TRUE, FALSE, 4, 'Stay On The High Road'),
+    (2003, FALSE, TRUE, 4, 'An Ensign To The Nations, A Light To The World'),
+    (2003, TRUE, FALSE, 3, 'Sweet Power of Prayer'),
+    (2005, TRUE, FALSE, 3, 'Now Is The Time To Prepare'),
+    (2005, FALSE, TRUE, 3, 'Jesus Christ - The Master Healer'),
+    (2010, FALSE, TRUE, 2, 'Charity Never Faileth'),
+    (2010, FALSE, TRUE, 2, 'The Three Rs of Choice'),
+    (2013, TRUE, FALSE, 2, 'Obedience Brings Blessings'),
+    (2008, FALSE, TRUE, 2, 'Finding Joy In The Journey'),
+    (2009, TRUE, FALSE, 2, 'Be Your Best Self'),
+    (2013, FALSE, TRUE, 1, 'You Can Do It Now'),
+    (2014, TRUE, FALSE, 1, 'Grateful In Any Circumstances'),
+    (2011, FALSE, TRUE, 1, 'You Matter To Him'),
+    (2011, TRUE, FALSE, 1, 'Your Potential, Your Privilege');
+
+INSERT INTO notes (note, user_id, talk_id, speaker_id)
+VALUES
+    ('There has come to you as your birthright something beautiful and sacred and divine.', 1, 10, 4),
+    ('You are not invisible to Heavenly Father.', 3, 22, 1),
+    ('You matter to him. God loves the humble and meek.', 3, 22, 1),
+    ('The Lord entrusts the Gospel to the proclaimed by the weak and simple.', 3, 22, 1),
+    ('What you see and experience now is not what forever will be.', 3, 22, 1);

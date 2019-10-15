@@ -18,11 +18,12 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-$stmt = $db->prepare('SELECT * FROM note_user WHERE id=:id AND username=:username');
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->bindValue(':username', $username, PDO::PARAM_STR);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//Prepared Statements
+//$stmt = $db->prepare('SELECT * FROM note_user WHERE id=:id AND username=:username');
+//$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+//$stmt->bindValue(':username', $username, PDO::PARAM_STR);
+//$stmt->execute();
+//$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -32,10 +33,22 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <title>Basic Queries in PHP</title>
     </head>
     <body>
+        <h1>Basic Query in PHP</h1>
+        <p>Display the username and password</p>
         <?php
             foreach ($db->query('SELECT username, password FROM note_user') as $row) {
                 echo 'user: ' . $row['username'];
                 echo ' password: ' . $row['password'];
+                echo '<br/>';
+            }
+        ?>
+        <p>Display notes only written by John</p>
+        <?php 
+            foreach ($db->query('SELECT n.content FROM note_user AS u
+                                    JOIN note AS n
+                                    ON u.id = n.userId
+                                    WHERE u.username = "john" ') as $row) {
+                echo 'NOTE: ' . $row['n.content'];
                 echo '<br/>';
             }
         ?>

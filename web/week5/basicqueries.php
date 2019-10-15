@@ -52,5 +52,11 @@ catch (PDOException $ex)
                 echo '<br/>';
             }
         ?>
+        <p>Testing Query</p>
+        <?php
+            foreach ($db-> ('SELECT * FROM note_user AS u JOIN note AS n ON u.id = n.userId') as $row {
+                echo 'Content: ' . $row['*'];
+            }
+        ?>
     </body>
 </html>

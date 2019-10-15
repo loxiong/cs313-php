@@ -38,7 +38,7 @@ catch (PDOException $ex)
         <?php
             foreach ($db->query('SELECT username, password FROM note_user') as $row) {
                 echo 'user: ' . $row['username'];
-                echo ' password: ' . $row['password'];
+                echo 'password: ' . $row['password'];
                 echo '<br/>';
             }
         ?>
@@ -46,9 +46,9 @@ catch (PDOException $ex)
         <?php 
             foreach ($db->query('SELECT n.content FROM note_user AS u
                                     JOIN note AS n
-                                    ON u.id = n.userId
+                                    ON u.id = n.userid
                                     WHERE u.username = "john" ') as $row) {
-                echo 'NOTE: ' . $row['n.content'];
+                echo 'NOTE: ' . $row['content'];
                 echo '<br/>';
             }
         ?>

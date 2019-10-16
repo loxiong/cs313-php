@@ -45,7 +45,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p>Display notes only written by John</p>
         <?php
             //Prepare the statements
-            $statement = $db->prepare('SELECT content FROM note WHERE username="john" ');
+            $statement = $db->prepare('SELECT content FROM note WHERE userID=1');
             $statement->execute();
             // Go through each result
             while ($row = $statement->fetch(PDO::FETCH_ASSOC))

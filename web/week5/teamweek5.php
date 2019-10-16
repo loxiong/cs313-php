@@ -18,6 +18,18 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+//Prepared Statements
+$id = -1;
+        if(isset($_GET["id"]))
+        {
+            $id = $_GET["id"];
+        }
+        if (isset($db) && $id > 0)
+        {
+            $statement = $db->prepare('SELECT * FROM scriptures WHERE id=:id');
+            $statement->execute(array(':id' => $id));
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,14 +45,8 @@ catch (PDOException $ex)
         <main>
             <h1>Scripture Resources</h1>
             <?php
-            foreach ($db->query('SELECT book, chapter, verse, content FROM scriptures') as $row) {
-                echo <p></b> . $row['book'];
-                echo . $row['chapter'] ':';
-                echo . $row['verse'] '- ';
-                echo '"'. $row['content'] '"';
-                echo '<br/>';
-            }
-        ?>
+            echo '<p><b>' . $result['book'] . ' ' . $result['chapter'] . ':' . $result['verse'] . '</b> - "' . $result['content'] . '"</p>';
+            ?>
         </main>
     </body>
     

@@ -43,20 +43,23 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         ?>
         <p>Display notes only written by John</p>
-        <?php 
-            foreach ($db->query('SELECT n.content FROM note_user AS u
-                                    JOIN note AS n
-                                    ON u.id = n.userid
-                                    WHERE u.username = "john" ') as $row) {
-                echo 'NOTE: ' . $row['n.content'];
-                echo '<br/>';
-            }
-        ?>
-        <p>Testing Query</p>
         <?php
-            foreach ($db-> ('SELECT * FROM note_user AS u JOIN note AS n ON u.id = n.userId') as $row {
-                echo 'Content: ' . $row['*'];
+            //Prepare the statements
+            $statement = $db->prepare('SELECT content FROM note WHERE username="john" ');
+            $statement->execute();
+            // Go through each result
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+                // The variable "row" now holds the complete record for that
+                // row, and we can access the different values based on their
+                // name
+                $book = $row['book'];
+                $chapter = $row['chapter'];
+                $verse = $row['verse'];
+                $content = $row['content'];
+                echo "<p>$content </p>";
             }
-        ?>
+            ?>
+        
     </body>
 </html>

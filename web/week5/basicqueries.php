@@ -19,11 +19,11 @@ catch (PDOException $ex)
   die();
 }
 //Prepared Statements
-//$stmt = $db->prepare('SELECT * FROM note_user WHERE id=:id AND username=:username');
-//$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-//$stmt->bindValue(':username', $username, PDO::PARAM_STR);
-//$stmt->execute();
-//$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $db->prepare('SELECT * FROM note_user WHERE id=:id AND username=:username');
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':username', $username, PDO::PARAM_STR);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang='en'>

@@ -36,7 +36,7 @@ $result = pg_query($query);
         <input type="text" name="query" />
         <input type="submit" value="Search" />
     </form>
-    <form method="post" action="details.php">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <select name="scripture-input">
           <option value="John">John</option>
           <option value="Mosiah">Mosiah</option>

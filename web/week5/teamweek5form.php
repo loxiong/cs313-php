@@ -32,7 +32,11 @@ $result = pg_query($query);
     <title>Scripture</title>
     </head>
 <body>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+    <form action="search.php" method="GET">
+        <input type="text" name="query" />
+        <input type="submit" value="Search" />
+    </form>
+    <form method="post" action="details.php">
         <select name="scripture-input">
           <option value="John">John</option>
           <option value="Mosiah">Mosiah</option>
@@ -44,17 +48,17 @@ $result = pg_query($query);
 
       <?php
         if (isset($_POST["scripture-input"]) && $_POST["scripture-input"] != "all") {
-          $stmt = $db->prepare('SELECT scriptures_id, book, chapter, verse, content FROM scriptures WHERE book=:book');
+          $stmt = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures WHERE book=:book');
           $stmt->bindValue(':book', $_POST["scripture-input"], PDO::PARAM_STR);
           $stmt->execute();
         }
         else {
-          $stmt = $db->query('SELECT scriptures_id, book, chapter, verse, content FROM scriptures');
+          $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scriptures');
         }
         $count = 0;
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           echo '<div>';
-          echo '<p><a href="./teamweek5details.php?content=' . $row['scripture_id'] . '">';
+          echo '<p><a href="./details.php?content=' . $row['scripture_id'] . '">';
           echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
           echo $row['verse'] . '</strong>';
           echo '</a></p>';

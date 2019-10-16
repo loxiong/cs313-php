@@ -34,7 +34,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </head>
     <body>
         <h1>Basic Query in PHP</h1>
-        <p>Display the username and password</p>
+        <h2>Display the username and password</h2>
         <?php
             foreach ($db->query('SELECT username, password FROM note_user') as $row) {
                 echo 'user: ' . $row['username'];
@@ -42,7 +42,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo '<br/>';
             }
         ?>
-        <p>Display notes only written by John</p>
+        <h2>Display notes only written by John</h2>
         <?php
             //Prepare the statements
             $statement = $db->prepare('SELECT content FROM note WHERE userID=1');
@@ -53,9 +53,6 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 // The variable "row" now holds the complete record for that
                 // row, and we can access the different values based on their
                 // name
-                $book = $row['book'];
-                $chapter = $row['chapter'];
-                $verse = $row['verse'];
                 $content = $row['content'];
                 echo "<p>$content </p>";
             }

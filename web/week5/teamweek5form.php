@@ -17,8 +17,7 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=");
-$query = "INSERT INTO book VALUES ('$_POST[book]','$_POST[chapter]',
+$query = "INSERT INTO scriptures VALUES ('$_POST[book]','$_POST[chapter]',
 '$_POST[verse]','$_POST[content]')";
 $result = pg_query($query); 
 ?>

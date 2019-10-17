@@ -33,21 +33,35 @@ catch (PDOException $ex)
     <form action="teamweek5result.php" method="post">
         <p>
             <label for="book">Book:</label>
-            <input type="text" name="book" id="_book">
+            <input type="text" name="book" id="book">
         </p>
         <p>
             <label for="chapter">Chapter:</label>
-            <input type="text" name="chapter" id="_chapter">
+            <input type="text" name="chapter" id="chapter">
         </p>
         <p>
             <label for="verse">Verse:</label>
-            <input type="text" name="verse" id="_verse">
+            <input type="text" name="verse" id="verse">
         </p>
         <p>
             <label for="content">Content:</label>
-            <input type="text" name="content" id="_content">
+            <input type="text" name="content" id="content">
         </p>
         <input type="submit" value="Submit">
+        <?php
+        //Insert new records
+                    $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
+
+                    // Bind parameters to statement
+                    $stmt->bindValue(':book', $_REQUEST['book'], PDO::PARAM_STR);
+                    $stmt->bindValue(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
+                    $stmt->bindValue(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
+                    $stmt->bindValue(':content', $_REQUEST['content'], PDO::PARAM_STR);
+
+                    // Execute the prepared statement
+                    $stmt->execute();
+                    echo "Records inserted successfully.";
+        ?>
     </form>
     <br>
 </body>

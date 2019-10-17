@@ -34,10 +34,10 @@ catch (PDOException $ex)
                 $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
 
                 // Bind parameters to statement
-                $stmt->bindValue(':book', $_REQUEST['book'], PDO::PARAM_STR);
-                $stmt->bindValue(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
-                $stmt->bindValue(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
-                $stmt->bindValue(':content', $_REQUEST['content'], PDO::PARAM_STR);
+                $stmt->bindValue(':book', $_POST['book'], PDO::PARAM_STR);
+                $stmt->bindValue(':chapter', $_POST['chapter'], PDO::PARAM_INT);
+                $stmt->bindValue(':verse', $_POST['verse'], PDO::PARAM_INT);
+                $stmt->bindValue(':content', $_POST['content'], PDO::PARAM_STR);
 
                 // Execute the prepared statement
                 $stmt->execute();

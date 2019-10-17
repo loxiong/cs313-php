@@ -43,25 +43,27 @@ $result = $statement->fetch(PDO::FETCH_ASSOC);
     <body>
         <main>
             <h1>Scripture Detail</h1>
+            <div class="container">
             <?php
-        if (isset($resultSet))
-        {
-            if ($search)
-            {
-                foreach ($resultSet as $row)
+                if (isset($resultSet))
                 {
-                    echo '<div class="row"><a href="details.php?id=' . $row['id'] . '">' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a></div>';
+                    if ($search)
+                    {
+                        foreach ($resultSet as $row)
+                        {
+                            echo '<div class="row"><a href="details.php?id=' . $row['id'] . '">' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a></div>';
+                        }
+                    }
+                    else
+                    {
+                        foreach ($resultSet as $row)
+                        {
+                            echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"</p>';
+                        }
+                    }
                 }
-            }
-            else
-            {
-                foreach ($resultSet as $row)
-                {
-                    echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"</p>';
-                }
-            }
-        }
-        ?>
+            ?>
+            </div>
             <?php
                 echo '<p><b>' . $result['book'] . ' ' . $result['chapter'] . ':' . $result['verse'] . '</b> - "' . $result['content'] . '"</p>';
             ?>

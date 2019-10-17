@@ -33,19 +33,19 @@ catch (PDOException $ex)
     <form action="teamweek5result.php" method="post">
         <p>
             <label for="book">Book:</label>
-            <input type="text" name="book" id="book">
+            <input type="text" name="book" id="_book">
         </p>
         <p>
             <label for="chapter">Chapter:</label>
-            <input type="text" name="chapter" id="chapter">
+            <input type="text" name="chapter" id="_chapter">
         </p>
         <p>
             <label for="verse">Verse:</label>
-            <input type="text" name="verse" id="verse">
+            <input type="text" name="verse" id="_verse">
         </p>
         <p>
             <label for="content">Content:</label>
-            <input type="text" name="content" id="content">
+            <input type="text" name="content" id="_content">
         </p>
         <input type="submit" value="Submit">
     </form>

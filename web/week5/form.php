@@ -49,7 +49,7 @@ else if (isset($db))
     
     <body>
         <main>
-            <form action="retrieve.php" method="post" class="form-inline ml-3 my-2 my-lg-0">
+            <form action="details.php" method="post" class="form-inline ml-3 my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" name="Search" placeholder="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>

@@ -17,9 +17,6 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-$query = "INSERT INTO scriptures VALUES ('$_POST[book]','$_POST[chapter]',
-'$_POST[verse]','$_POST[content]')";
-$result = pg_query($query); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +29,29 @@ $result = pg_query($query);
     <title>Scripture</title>
     </head>
 <body>
-    <form action="search.php" method="GET">
-        <input type="text" name="query" />
-        <input type="submit" value="Search" />
+    <H2>Add More To Scripture Resource</H2>
+    <form action="teamweek5.php" method="post">
+        <p>
+            <label for="book">Book:</label>
+            <input type="text" name="book" id="book">
+        </p>
+        <p>
+            <label for="chapter">Chapter:</label>
+            <input type="text" name="chapter" id="chapter">
+        </p>
+        <p>
+            <label for="verse">Verse:</label>
+            <input type="text" name="verse" id="verse">
+        </p>
+        <p>
+            <label for="content">Content:</label>
+            <input type="text" name="content" id="content">
+        </p>
+        <input type="submit" value="Submit">
     </form>
+    <br>
+    
+    <h2>Select From Available Scripture Resource</h2>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <select name="scripture-input">
           <option value="John">John</option>
@@ -58,7 +74,7 @@ $result = pg_query($query);
         $count = 0;
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           echo '<div>';
-          echo '<p><a href="./teamweek5.php?content=' . $row['scripture_id'] . '">';
+          echo '<p><a href="./details.php?content=' . $row['scripture_id'] . '">';
           echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
           echo $row['verse'] . '</strong>';
           echo '</a></p>';

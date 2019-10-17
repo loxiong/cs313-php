@@ -49,14 +49,13 @@ catch (PDOException $ex)
       die();
     }
     //Insert new records
-                $sql = "INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)";
-                $stmt = $pdo->prepare($sql);
+                $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
 
                 // Bind parameters to statement
-                $stmt->bindParam(':book', $_REQUEST['book'], PDO::PARAM_STR);
-                $stmt->bindParam(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
-                $stmt->bindParam(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
-                $stmt->bindParam(':content', $_REQUEST['content'], PDO::PARAM_STR);
+                $stmt->bindValue(':book', $_REQUEST['book'], PDO::PARAM_STR);
+                $stmt->bindValue(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
+                $stmt->bindValue(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
+                $stmt->bindValue(':content', $_REQUEST['content'], PDO::PARAM_STR);
 
                 // Execute the prepared statement
                 $stmt->execute();

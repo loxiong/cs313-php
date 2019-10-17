@@ -60,7 +60,7 @@ catch (PDOException $ex)
 
                 // Execute the prepared statement
                 $stmt->execute();
-    
+                echo "Records inserted successfully.";
                 
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                 {

@@ -18,6 +18,18 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+//Insert new records
+            $sql = "INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)";
+            $stmt = $pdo->prepare($sql);
+
+            // Bind parameters to statement
+            $stmt->bindParam(':book', $_REQUEST['book'], PDO::PARAM_STR);
+            $stmt->bindParam(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
+            $stmt->bindParam(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
+            $stmt->bindParam(':content', $_REQUEST['content'], PDO::PARAM_STR);
+
+            // Execute the prepared statement
+            $stmt->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,20 +60,6 @@ catch (PDOException $ex)
                 $content = $row['content'];
                 echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
             }
-            
-            //Insert new records
-            $sql = "INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)";
-            $stmt = $pdo->prepare($sql);
-
-            // Bind parameters to statement
-            $stmt->bindParam(':book', $_REQUEST['book']);
-            $stmt->bindParam(':chapter', $_REQUEST['chapter']);
-            $stmt->bindParam(':verse', $_REQUEST['verse']);
-            $stmt->bindParam(':content', $_REQUEST['content']);
-
-            // Execute the prepared statement
-            $stmt->execute();
-            echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
             ?>
         </main>
     </body>

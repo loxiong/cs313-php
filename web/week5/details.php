@@ -41,15 +41,6 @@ catch (PDOException $ex)
                 else {
                   $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scriptures');
                 }
-                $count = 0;
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                  echo '<div>';
-                  echo '<p><a href="./teamweek5.php?content=' . $row['scripture_id'] . '">';
-                  echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
-                  echo $row['verse'] . '</strong>';
-                  echo '</a></p>';
-                  echo '</div>';
-                }
             ?>
         </main>
     </body>

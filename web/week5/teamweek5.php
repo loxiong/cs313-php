@@ -48,6 +48,20 @@ catch (PDOException $ex)
                 $content = $row['content'];
                 echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
             }
+            
+            //Insert new records
+            $sql = "INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)";
+            $stmt = $pdo->prepare($sql);
+
+            // Bind parameters to statement
+            $stmt->bindParam(':book', $_REQUEST['book']);
+            $stmt->bindParam(':chapter', $_REQUEST['chapter']);
+            $stmt->bindParam(':verse', $_REQUEST['verse']);
+            $stmt->bindParam(':content', $_REQUEST['content']);
+
+            // Execute the prepared statement
+            $stmt->execute();
+            echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
             ?>
         </main>
     </body>

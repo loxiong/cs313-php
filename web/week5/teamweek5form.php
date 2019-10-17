@@ -30,7 +30,7 @@ catch (PDOException $ex)
     </head>
 <body>
     <H2>Add More To Scripture Resource</H2>
-    <form action="teamweek5.php" method="post">
+    <form action="teamweek5result.php" method="post">
         <p>
             <label for="book">Book:</label>
             <input type="text" name="book" id="book">
@@ -50,36 +50,5 @@ catch (PDOException $ex)
         <input type="submit" value="Submit">
     </form>
     <br>
-    
-    <h2>Select From Available Scripture Resource</h2>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <select name="scripture-input">
-          <option value="John">John</option>
-          <option value="Mosiah">Mosiah</option>
-          <option value="D&C">Doctrine and Covenants</option>
-          <option value="all">See the List</option>
-        </select>
-        <input type="submit" />
-      </form>
-
-      <?php
-        if (isset($_POST["scripture-input"]) && $_POST["scripture-input"] != "all") {
-          $stmt = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures WHERE book=:book');
-          $stmt->bindValue(':book', $_POST["scripture-input"], PDO::PARAM_STR);
-          $stmt->execute();
-        }
-        else {
-          $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scriptures');
-        }
-        $count = 0;
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          echo '<div>';
-          echo '<p><a href="./details.php?content=' . $row['scripture_id'] . '">';
-          echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
-          echo $row['verse'] . '</strong>';
-          echo '</a></p>';
-          echo '</div>';
-        }
-    ?>
 </body>
 </html>

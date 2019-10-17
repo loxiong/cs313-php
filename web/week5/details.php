@@ -18,6 +18,17 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+$id = -1;
+if(isset($_GET["id"]))
+{
+$id = $_GET["id"];
+}
+if (isset($db) && $id > 0)
+{
+$statement = $db->prepare('SELECT * FROM scriptures WHERE id=:id');
+$statement->execute(array(':id' => $id));
+$result = $statement->fetch(PDO::FETCH_ASSOC);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,21 +37,14 @@ catch (PDOException $ex)
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Week 5 Team Activity">        
-        <title>Scripture Database Practice with PHP Queries</title>
+        <title>Scripture Details</title>
     </head>
     
     <body>
         <main>
             <h1>Scripture Detail</h1>
             <?php
-                if (isset($_POST["scripture-input"]) && $_POST["scripture-input"] != "all") {
-                  $stmt = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures WHERE book=:book');
-                  $stmt->bindValue(':book', $_POST["scripture-input"], PDO::PARAM_STR);
-                  $stmt->execute();
-                }
-                else {
-                  $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scriptures');
-                }
+                echo '<p><b>' . $result['book'] . ' ' . $result['chapter'] . ':' . $result['verse'] . '</b> - "' . $result['content'] . '"</p>';
             ?>
         </main>
     </body>

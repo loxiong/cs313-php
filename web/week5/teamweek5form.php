@@ -17,6 +17,18 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+//Insert new records
+                    $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
+
+                    // Bind parameters to statement
+                    $stmt->bindValue(':book', $_REQUEST['book'], PDO::PARAM_STR);
+                    $stmt->bindValue(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
+                    $stmt->bindValue(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
+                    $stmt->bindValue(':content', $_REQUEST['content'], PDO::PARAM_STR);
+
+                    // Execute the prepared statement
+                    $stmt->execute();
+                    echo "Records inserted successfully.";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,20 +60,6 @@ catch (PDOException $ex)
             <input type="text" name="content" id="content">
         </p>
         <input type="submit" value="Submit">
-        <?php
-        //Insert new records
-                    $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
-
-                    // Bind parameters to statement
-                    $stmt->bindValue(':book', $_REQUEST['book'], PDO::PARAM_STR);
-                    $stmt->bindValue(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
-                    $stmt->bindValue(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
-                    $stmt->bindValue(':content', $_REQUEST['content'], PDO::PARAM_STR);
-
-                    // Execute the prepared statement
-                    $stmt->execute();
-                    echo "Records inserted successfully.";
-        ?>
     </form>
     <br>
 </body>

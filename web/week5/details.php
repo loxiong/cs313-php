@@ -45,24 +45,27 @@ $result = $statement->fetch(PDO::FETCH_ASSOC);
             <h1>Scripture Detail</h1>
             <div class="container">
             <?php
-                if (isset($resultSet))
-                {
-                    if ($search)
-                    {
-                        foreach ($resultSet as $row)
-                        {
-                            echo '<div class="row"><a href="details.php?id=' . $row['id'] . '">' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a></div>';
-                        }
-                    }
-                    else
-                    {
-                        foreach ($resultSet as $row)
-                        {
-                            echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"</p>';
-                        }
-                    }
+                $book = $_POST['book'];
+                $chapter = $_POST['chapter'];
+                $verse = $_POST['verse'];
+                $content = $_POST['content'];
+                $SQL = "select * from scriptures where book = '$book' 
+                and chapter = '$chaoter' ";
+                $result = mySQL_query($SQL);
+                if(mySQL_num_rows($result)>0)
+                {echo "<h4>".
+                "-- Scripture Resource -- ".
+                $row[3]."</h4>",
+                "</br>";
+                while ($row=mySQL_fetch_row($result)){
+                    echo "<p>". "Book : ".$row[0]." </p>";
+                    echo "<p>". "Chapter : ". $row[1]."</p>"; 
+                    echo "<p>". "Verse : ". $row[2]."</p>";
+                    echo "<p>". "Content : ". $row[3]."</p>";
                 }
+                else echo "Invalid entry";
             ?>
+            
             </div>
             <?php
                 echo '<p><b>' . $result['book'] . ' ' . $result['chapter'] . ':' . $result['verse'] . '</b> - "' . $result['content'] . '"</p>';

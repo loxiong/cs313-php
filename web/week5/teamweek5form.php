@@ -17,18 +17,6 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-//Insert new records
-                    $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content)';
-
-                    // Bind parameters to statement
-                    $stmt->bindValue(':book', $_REQUEST['book'], PDO::PARAM_STR);
-                    $stmt->bindValue(':chapter', $_REQUEST['chapter'], PDO::PARAM_INT);
-                    $stmt->bindValue(':verse', $_REQUEST['verse'], PDO::PARAM_INT);
-                    $stmt->bindValue(':content', $_REQUEST['content'], PDO::PARAM_STR);
-
-                    // Execute the prepared statement
-                    $stmt->execute();
-                    echo "Records inserted successfully.";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,9 +24,9 @@ catch (PDOException $ex)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Ching Lo">
 
-    <title>Scripture</title>
+    <title>Scripture Form</title>
     </head>
 <body>
     <H2>Add More To Scripture Resource</H2>

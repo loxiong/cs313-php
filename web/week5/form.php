@@ -45,19 +45,8 @@ catch (PDOException $ex)
             </form>
             <?php
             //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
-            $statement = $db->prepare("INSERT INTO scriptures (book, chapter, verse, content) VALUES ('$_POST[book]','$_POST[chapter]', $_POST[verse]','$_POST[content])");
+            $statement = $db->prepare("INSERT INTO scriptures (book, chapter, verse, content) VALUES ('$_POST[book]','$_POST[chapter]', $_POST[verse]','$_POST[content]')");
             $statement->execute();
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-            {
-                // The variable "row" now holds the complete record for that
-                // row, and we can access the different values based on their
-                // name
-                $book = $row['book'];
-                $chapter = $row['chapter'];
-                $verse = $row['verse'];
-                $content = $row['content'];
-                echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
-            }
             ?>
         </main>
     </body>

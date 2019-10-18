@@ -58,7 +58,7 @@ catch (PDOException $ex)
                 }
             }
             //Prepare the statements
-            $statement = $db->prepare('SELECT book FROM scriptures WHERE $book = book');
+            $statement = $db->prepare('SELECT book FROM scriptures WHERE book = $book');
             $statement->execute();
             // Go through each result
             while ($row = $statement->fetch(PDO::FETCH_ASSOC))

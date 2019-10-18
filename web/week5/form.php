@@ -32,7 +32,7 @@ catch (PDOException $ex)
     <body>
         <main>
             <h2>Add Scripture</h2>
-            <form action="teamweek5.php" method="post">
+            <form action="/teamweek5.php" method="post">
                <label for="book">BOOK</label>
                     <input type="text" name="book" id="book" />
                <label for="chapter">CHAPTER</label>

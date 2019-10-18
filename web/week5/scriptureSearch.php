@@ -60,7 +60,7 @@ catch (PDOException $ex)
     <select name="scripture-input">
       <option value="John">John</option>
       <option value="Mosiah">Mosiah</option>
-      <option value="D&C">Doctrine and Covenants</option>
+      <option value="Doctrine and Covenants">Doctrine and Covenants</option>
       <option value="all">See the List</option>
     </select>
     <input type="submit" />
@@ -72,13 +72,10 @@ catch (PDOException $ex)
       $stmt->bindValue(':book', $_POST["scripture-input"], PDO::PARAM_STR);
       $stmt->execute();
     }
-    else {
-      $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scriptures');
-    }
-    $count = 0;
+        
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       echo '<div class="main-text">';
-      echo '<p><a href=" ' . $row['id'] . '">';
+      echo '<p><a href="./teamweek5.php?content='. $row['id'] . '">';
       echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
       echo $row['verse'] . '</strong>';
       echo '</a></p>';

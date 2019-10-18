@@ -41,14 +41,14 @@ catch (PDOException $ex)
     <body>
         <main>
             <h1>Scripture Detail</h1>
-            <div class="container">
+            <div>
             <?php
                 $book = $_POST['book'];
                 $chapter = $_POST['chapter'];
                 $verse = $_POST['verse'];
                 $content = $_POST['content'];
                 $SQL = "select * from scriptures where book = '$book' 
-                and chapter = '$chaoter' ";
+                and chapter = '$chapter' ";
                 $result = mySQL_query($SQL);
                 if(mySQL_num_rows($result)>0)
                 {echo "<h4>".

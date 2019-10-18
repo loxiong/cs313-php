@@ -32,7 +32,7 @@ catch (PDOException $ex)
     <body>
         <main>
             <h2>Search</h2>
-            <form name="search" method="post" action="details.php">
+            <form name="search" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                 Search for: <input type="text" name="find" /> in
                 <Select NAME="field">
                     <Option VALUE="book">book</Option>
@@ -45,5 +45,53 @@ catch (PDOException $ex)
     </body>
     
 </html>
+<?php
+            $searching = $_POST['searching'];
+            $find = $_POST['find'];
+            $field = $_POST['field'];
+            //This is only displayed if they have submitted the form
+            if ($searching == "yes") {
+                echo"<h2>Search Results</h2>";
+                if ($find == "") {
+                    echo "<p>You forgot to enter a search word";
+                    exit;
+                }
+            }
+            //Prepare the statements
+            $statement = $db->prepare('SELECT book FROM scriptures WHERE $find = $field');
+            $statement->execute();
+            // Go through each result
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+                // The variable "row" now holds the complete record for that
+                // row, and we can access the different values based on their
+                // name
+                $content = $row['content'];
+                echo "<p>$content </p>";
+            }
 
+            //Perform filtering
+            $find = strip_tags($find);
+            $find = trim($find);
+            //Connect to database
+            //Execute query
+            $sql = "SELECT * FROM scriptures where $field = '$find' ";
+            $result = pg_query($db, $sql);
+            if (!$result) {
+                die("Error in SQL query: " . pg_last_error());
+            }
+            while ($row = pg_fetch_array($result))
+            {
+                $rows = pg_num_rows($result);
+                if ($rows == 0)
+                {
+                echo "Sorry, but we can not find an entry to match your query<br><br>";
+                }
+                //And we remind them what they searched for
+                echo "<b>Searched For:</b> " .$find;
+                echo "<b>Number of rows :</b> " .$rows;
+            } 
+            //Free memory
+            pg_free_result($result);
+?>
 

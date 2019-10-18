@@ -41,32 +41,41 @@ catch (PDOException $ex)
     <body>
         <main>
             <h1>Scripture Detail</h1>
-            <div>
             <?php
-                $book = $_POST['book'];
-                $chapter = $_POST['chapter'];
-                $verse = $_POST['verse'];
-                $content = $_POST['content'];
-                $SQL = "select * from scriptures where book = '$book' 
-                and chapter = '$chapter' ";
-                $result = mySQL_query($SQL);
-                if(mySQL_num_rows($result)>0)
-                {echo "<h4>".
-                "-- Scripture Resource -- ".
-                $row[3]."</h4>",
-                "</br>";
-                while ($row=mySQL_fetch_row($result)){
-                    echo "<p>". "Book : ".$row[0]." </p>";
-                    echo "<p>". "Chapter : ". $row[1]."</p>"; 
-                    echo "<p>". "Verse : ". $row[2]."</p>";
-                    echo "<p>". "Content : ". $row[3]."</p>";
+            $searching = $_POST['searching'];
+            $find = $_POST['find'];
+            $field = $_POST['field'];
+            //This is only displaued if they have submitted the form
+            if ($searching == "yes") {
+                echo"<h2>Search Results</h2>";
+                if ($find == "") {
+                    echo "<p>You forgot to enter a search word";
+                    exit;
                 }
-                else echo "Invalid entry";
-            ?>
-            
-            </div>
-            <?php
-                echo '<p><b>' . $result['book'] . ' ' . $result['chapter'] . ':' . $result['verse'] . '</b> - "' . $result['content'] . '"</p>';
+            }
+            //Perform filtering
+            $find = strip_tags($find);
+            $find = trim($find);
+            //Connect to database
+            //Execute query
+            $sql = "SELECT * FROM scriptures where $field = '$find' limit 30 ";
+            $result = pg_query($db, $sql);
+            if (!$result) {
+                die("Error in SQL query: " . pg_last_error());
+            }
+            while ($row = pg_fetch_array($result))
+            {
+                // The variable "row" now holds the complete record for that
+                // row, and we can access the different values based on their
+                // name
+                $book = $row['book'];
+                $chapter = $row['chapter'];
+                $verse = $row['verse'];
+                $content = $row['content'];
+                echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
+            } 
+            //Free memory
+            pg_free_result($result);
             ?>
         </main>
     </body>

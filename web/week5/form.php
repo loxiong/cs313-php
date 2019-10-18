@@ -49,24 +49,19 @@ else if (isset($db))
     
     <body>
         <main>
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-               <label for="book">BOOK</label>
-               <input type="text" name="book" id="book">
-               <label for="chapter">CHAPTER</label>
-               <input type="text" name="chapter" id="chapter">
-               <label for="verse">VERSE</label>
-               <input type="text" name="verse" id="verse">
-               <label for="content">CONTENT</label>
-               <input type="text" name="content" id="content">
-               <input type="submit" value="Submit">
+            <h2>Search</h2>
+            <form name="search" method="post" action="details.php">
+                Search for: <input type="text" name="find" /> in
+                <Select NAME="field">
+                    <Option VALUE="book">book</Option>
+                    <Option VALUE="chapter">chapter</Option>
+                </Select>
+                <input type="hidden" name="searching" value="yes" />
+                <input type="submit" name="search" value="Search" />
             </form>
         </main>
     </body>
     
 </html>
-<?php
-$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=");
-$query = "INSERT INTO scriptures VALUES ('$_POST[book]','$_POST[chapter]','$_POST[verse]','$_POST[content]')";
-$result = pg_query($query);
-?>
+
 

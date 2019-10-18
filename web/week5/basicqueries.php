@@ -60,13 +60,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
         
         <h2>Enter data into note table</h2>
-            <ul>
             <form name="insert" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
-            <li>User ID:</li><li><input type="text" name="userId" /></li>
-            <li>Content:</li><li><input type="text" name="content" /></li>
-            <li><input type="submit" /></li>
+                <label>User ID:</label><input type="text" name="userId" />
+                <label>Content:</label><input type="text" name="content" />
+            <input type="submit" />
             </form>
-            </ul>
         <?php
             //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
             $statement = $db->prepare("INSERT INTO note (userId, content) VALUES ('$_POST[userId]','$_POST[content]')");

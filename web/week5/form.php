@@ -34,14 +34,14 @@ catch (PDOException $ex)
             <h2>Add Scripture</h2>
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                <label for="book">BOOK</label>
-               <input type="text" name="book" id="book">
+                    <input type="text" name="book" id="book" />
                <label for="chapter">CHAPTER</label>
-               <input type="text" name="chapter" id="chapter">
+                    <input type="text" name="chapter" id="chapter" />
                <label for="verse">VERSE</label>
-               <input type="text" name="verse" id="verse">
+                    <input type="text" name="verse" id="verse" />
                <label for="content">CONTENT</label>
-               <input type="text" name="content" id="content">
-               <input type="submit" value="Submit">
+                    <input type="text" name="content" id="content" />
+               <input type="submit" value="Submit" />
             </form>
             <?php
             //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");

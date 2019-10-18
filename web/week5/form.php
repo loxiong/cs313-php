@@ -45,7 +45,8 @@ catch (PDOException $ex)
             </form>
             <?php
             //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
-            $statement = $db->prepare("INSERT INTO scriptures (book, chapter, verse, content) VALUES ('$_POST[book]','$_POST[chapter]', $_POST[verse]','$_POST[content]')");
+            $statement = $db->prepare("INSERT INTO scriptures (book, chapter, verse, content) 
+                VALUES ('$_POST[book]','$_POST[chapter]','$_POST[verse]','$_POST[content]')");
             $statement->execute();
             ?>
         </main>

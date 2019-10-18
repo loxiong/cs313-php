@@ -1,4 +1,4 @@
-<!WEEK 05 - STRETCH CHALLENGE TEAM ACTIVITY-->
+<!--WEEK 05 - STRETCH CHALLENGE TEAM ACTIVITY-->
 <?php
 //PDO CONNECTION
 try
@@ -58,10 +58,12 @@ catch (PDOException $ex)
   <h1>Scripture Search</h1>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
     <select name="scripture-input">
-      <option value="John">John</option>
-      <option value="Mosiah">Mosiah</option>
-      <option value="Doctrine and Covenants">Doctrine and Covenants</option>
-      <option value="all">See the List</option>
+        <option value="John">John</option>
+        <option value="Mosiah">Mosiah</option>
+        <option value="Nephi">Nephi</option>
+        <option value="Alma">Alma</option>
+        <option value="Doctrine and Covenants">Doctrine and Covenants</option>
+        <option value="all">See the List</option>
     </select>
     <input type="submit" />
   </form>

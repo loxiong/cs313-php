@@ -33,7 +33,7 @@ catch (PDOException $ex)
         <main>
             <h2>Search</h2>
             <form name="search" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                Search for: <input type="text" name="find" /> in
+                Search for: <input type="text" name="book" /> in
                 <Select NAME="field">
                     <Option VALUE="book">book</Option>
                     <Option VALUE="chapter">chapter</Option>
@@ -47,7 +47,7 @@ catch (PDOException $ex)
 </html>
 <?php
             $searching = $_POST['searching'];
-            $find = $_POST['find'];
+            $book = $_POST['book'];
             $field = $_POST['field'];
             //This is only displayed if they have submitted the form
             if ($searching == "yes") {
@@ -58,7 +58,7 @@ catch (PDOException $ex)
                 }
             }
             //Prepare the statements
-            $statement = $db->prepare('SELECT book FROM scriptures WHERE $find = $field');
+            $statement = $db->prepare('SELECT book FROM scriptures WHERE $book = book');
             $statement->execute();
             // Go through each result
             while ($row = $statement->fetch(PDO::FETCH_ASSOC))

@@ -65,14 +65,14 @@ catch (PDOException $ex)
             }
             while ($row = pg_fetch_array($result))
             {
-                // The variable "row" now holds the complete record for that
-                // row, and we can access the different values based on their
-                // name
-                $book = $row['book'];
-                $chapter = $row['chapter'];
-                $verse = $row['verse'];
-                $content = $row['content'];
-                echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
+                $rows = pg_num_rows($result);
+                if ($rows == 0)
+                {
+                echo "Sorry, but we can not find an entry to match your query<br><br>";
+                }
+                //And we remind them what they searched for
+                echo "<b>Searched For:</b> " .$find;
+                echo "<b>Number of rows :</b> " .$rows;
             } 
             //Free memory
             pg_free_result($result);

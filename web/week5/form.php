@@ -49,7 +49,7 @@ else if (isset($db))
     
     <body>
         <main>
-            <form action="details.php" method="post">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                <label for="book">BOOK</label>
                <input type="text" name="book" id="book">
                <label for="chapter">CHAPTER</label>
@@ -64,13 +64,9 @@ else if (isset($db))
     </body>
     
 </html>
-
 <?php
 $db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=");
-$query = "INSERT INTO book VALUES ('$_POST[book]','$_POST[chapter]','$_POST[verse]','$_POST[content]')";
+$query = "INSERT INTO scriptures VALUES ('$_POST[book]','$_POST[chapter]','$_POST[verse]','$_POST[content]')";
 $result = pg_query($query);
 ?>
 
-//$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
-//$query = "INSERT INTO scriptures VALUES ('$_POST[book]','$_POST[chapter]','$_POST[verse]','$_POST[content]')";
-//$result = pg_query($query); 

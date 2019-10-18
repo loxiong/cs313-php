@@ -32,6 +32,8 @@ catch (PDOException $ex)
     <body>
         <main>
             <?php
+    $statement = $db->prepare("SELECT * FROM scriptures");
+    $statement->execute();
     $query = $_GET['query']; 
     // gets value sent over search form
      

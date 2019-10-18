@@ -18,24 +18,6 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-//Search Function
-$search = false;
-if(isset($_POST["Search"]))
-{
-    $book = $_POST["Search"];
-    $search = true;
-}
-if (isset($db) && $search)
-{
-    $statement = $db->prepare('SELECT * FROM scriptures WHERE book=:book');
-    $statement->execute(array(':book' => $book));
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
-}
-else if (isset($db))
-{
-    $statement = $db->query('SELECT * FROM scriptures');
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -42,6 +42,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo '<br/>';
             }
         ?>
+        
         <h2>Display notes only written by John</h2>
         <?php
             //Prepare the statements
@@ -56,7 +57,21 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $content = $row['content'];
                 echo "<p>$content </p>";
             }
-            ?>
+        ?>
         
+        <h2>Enter data into note table</h2>
+            <ul>
+            <form name="insert" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" >
+            <li>User ID:</li><li><input type="text" name="userId" /></li>
+            <li>Content:</li><li><input type="text" name="content" /></li>
+            <li><input type="submit" /></li>
+            </form>
+            </ul>
+        <?php
+            //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
+            $query = "INSERT INTO note VALUES ('$_POST[userId]','$_POST[content]')";
+            $result = pg_query($query); 
+        ?>
+
     </body>
 </html>

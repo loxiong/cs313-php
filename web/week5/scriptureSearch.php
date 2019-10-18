@@ -48,7 +48,7 @@ catch (PDOException $ex)
       }
       .main-text p a {
         text-decoration: none;
-        color: #CD5C5C;
+        color: #00FFFF;
         font-size: 22px;
       }
     </style>

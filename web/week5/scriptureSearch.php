@@ -55,7 +55,7 @@ catch (PDOException $ex)
 </head>
 
 <body>
-  <h1>Scripture References</h1>
+  <h1>Scripture Search</h1>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
     <select name="scripture-input">
       <option value="John">John</option>
@@ -68,17 +68,17 @@ catch (PDOException $ex)
 
   <?php
     if (isset($_POST["scripture-input"]) && $_POST["scripture-input"] != "all") {
-      $stmt = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture WHERE book=:book');
+      $stmt = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures WHERE book=:book');
       $stmt->bindValue(':book', $_POST["scripture-input"], PDO::PARAM_STR);
       $stmt->execute();
     }
     else {
-      $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scripture');
+      $stmt = $db->query('SELECT id, book, chapter, verse, content FROM scriptures');
     }
     $count = 0;
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       echo '<div class="main-text">';
-      echo '<p><a href="./details.php?content=' . $row['scripture_id'] . '">';
+      echo '<p><a href=" ' . $row['id'] . '">';
       echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
       echo $row['verse'] . '</strong>';
       echo '</a></p>';

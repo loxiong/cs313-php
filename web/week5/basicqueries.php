@@ -71,8 +71,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
             $statement = $db->prepare("INSERT INTO note (userId, content) VALUES ('$_POST[userId]','$_POST[content]')");
             $statement->execute();
-            $query = "INSERT INTO note (userId, content) VALUES ('$_POST[userId]','$_POST[content]')";
-            $result = pg_query($query); 
+            //$query = "INSERT INTO note (userId, content) VALUES ('$_POST[userId]','$_POST[content]')";
+            //$result = pg_query($query); 
         ?>
 
     </body>

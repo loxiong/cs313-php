@@ -36,6 +36,7 @@ catch (PDOException $ex)
             <p><a href="teamweek5.php">Scripture Resource</a></p>
             <p><a href="form.php">Add a Scripture to the Table</a></p>
             <p><a href="scriptureSearch.php">Search for a Scripture</a></p>
+            <p><a href="search.php">Search Scripture</a></p>
             <h2>More PHP Queries Practice</h2>
             <p><a href="basicqueries.php">Basic PHP Queries</a></p>
         </main>

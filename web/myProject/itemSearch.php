@@ -66,14 +66,34 @@ catch (PDOException $ex)
     </select>
     <input type="submit" />
   </form>
+    
+<form name="form1" id="form1" action="" method="post">
+ <select name="selectid" Id="select">
+ <option value="">--- Select ---</option>
+ <?php
+ $list = pg_query($db, "select id, name from codevalue ");
+
+ while($row_list=pg_fetch_assoc($list)){
+ ?>
+ <option value=<?php echo $row_list["category_id"]; ?>>
+ <?php echo $row_list["category_name"]; ?> 
+ </option>
+ <?php
+ }
+ ?>
+ </select>
+ ?>
+ <button type="submit" name="submit" >Submit</button> 
+ </form>
+    
 
   <?php
     if (isset($_POST["input"]) && $_POST["input"] != "all") {
       $stmt = $db->prepare('SELECT * FROM category AS c JOIN item AS i ON c.category_id = i.category_id WHERE c.category_id = 1');
-      $stmt->bindValue(':c.category_id', $_POST["input"], PDO::PARAM_STR);
+      $stmt->bindValue('c.category_id', $_POST["input"], PDO::PARAM_STR);
       $stmt->execute();
     }
-        
+    
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       echo '<div class="main-text">';
       echo '<p><a href="./teamweek5.php?content='. $row['item_id'] . '">';

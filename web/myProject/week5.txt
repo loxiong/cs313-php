@@ -1,0 +1,12 @@
+05 Prove : Assignment - PHP Data Access
+
+PROJECT: Concession Planner
+
+TO DO:
+
+1) Add records into the tables
+2) Display a list of all the items, with the option to add items to an event (kind of like shopping cart activity)
+3) Item Search: The ability to search for items based on category name
+4) Event Form: a simple form to add a new event
+5) Event Details Page: a view of a event detail, showing event date, event name and concession menu 
+6) User login (??)

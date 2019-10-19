@@ -21,16 +21,9 @@
     </head>
     <body>
         <div>
-            <div>
-            <table>
-            <tr>
-                <td><span>View Event</span><td>
-                <td>
-                    <a href="./home.php"><div class="u-button">Back</div></a>
-                    <a href="./logout.php"><div class="u-button">Logout</div></a>
-                </td>
-            </tr>
-            </table>
+            <span>View Event</span>
+                <a href="./home.php"><div class="u-button">Back</div></a>
+                <a href="./logout.php"><div class="u-button">Logout</div></a>
             <hr />
             <?php
                 $stmt = $db->prepare("SELECT * FROM event WHERE event_name=:event_name");
@@ -39,29 +32,15 @@
                 if (count($rows) === 0):
             ?>
             <?php else: ?>
-            <table>
-                <tr>
-                    <th>Event Name</th>
-                    <th>Event Date</th>
-                    <th>Duration</th>
-                    <th>Number of Participants</th>
-                </tr>
             <?php
                 foreach ($rows as $row):
-                    $id = $row["event_id"];
                     $name = $row["event_name"];
-                    $desc = $row["event_date"];
-                    $dur = $row["event_duration"];
-                    $preempt = $row["event_participants"];
             ?>
-                <tr>
-                    <td><?php echo($name); ?></td>
-                </tr>
+                <?php echo($name); ?>
                 
             <?php endforeach; ?>
-            </table>
+            
             <?php endif; ?>
-            </div>
         </div>
     </body>
 </html>

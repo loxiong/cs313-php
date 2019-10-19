@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    require("redirects.php");
-    require("dbconnect.php");
-    $user = $_SESSION["user"];
-    $name = $_SESSION["first_name"];
-    if (!isset($user)) {
-        loginRedirect();
-    }
+session_start();
+require("redirects.php");
+require("dbconnect.php");
+$user = $_SESSION["user"];
+$name = $_SESSION["first_name"];
+if (!isset($user)) {
+    loginRedirect();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

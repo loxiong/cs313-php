@@ -22,19 +22,19 @@
     <body>
         <div>
             <span>View Event</span>
-                <a href="./home.php"><div class="u-button">Back</div></a>
-                <a href="./logout.php"><div class="u-button">Logout</div></a>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
             <hr />
             <?php
-                $stmt = $db->prepare("SELECT * FROM event WHERE event_name=:event_name");
-                $stmt->execute(array(":event_name" => $event));
+                $stmt = $db->prepare("SELECT * FROM event WHERE event_id=:event_id");
+                $stmt->execute(array(":event_id" => $event));
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (count($rows) === 0):
             ?>
             <?php else: ?>
             <?php
                 foreach ($rows as $row):
-                    $name = $row["event_name"];
+                    $name = $row["event_id"];
             ?>
                 <?php echo($name); ?>
                 

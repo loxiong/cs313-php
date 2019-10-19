@@ -44,10 +44,10 @@
                 Please select the assignment to view:<br />
                 <table>
                 <?php
-                    $query = "SELECT * FROM assignments";
+                    $query = "SELECT * FROM event";
                     foreach ($db->query($query) as $row):
-                        $id = $row["id"];
-                        $name = $row["name"];
+                        $id = $row["event_id"];
+                        $name = $row["event_name"];
                 ?>
                     <tr>
                     <form method="POST">

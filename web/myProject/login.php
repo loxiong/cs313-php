@@ -19,6 +19,6 @@
         loginFail();
     }
     $name = $rows[0]["first_name"];
-    loginSuccess($username, $first_name);
+    loginSuccess($username, $name);
 ?>
 

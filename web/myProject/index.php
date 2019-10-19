@@ -24,19 +24,6 @@
     </head>
     <body>
         <div class="u-container">
-            <div class="u-content u-media-off">
-                <div class="u-button-container-auto u-centered">
-                    <a href="<?php echo($ROOT); ?>/index.php">
-                        <div class="u-button">Home</div>  
-                    </a>
-                    <a href="<?php echo($ROOT); ?>/assign.php">
-                        <div class="u-button">&gt; Assignments</div>  
-                    </a>
-                    <a href="#">
-                        <div class="u-button">&gt; Database (Read-only)</div>
-                    </a>
-                </div>
-            </div>
 
             <div class="u-content u-media-off">
                 <div class="">

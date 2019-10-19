@@ -20,12 +20,12 @@
         <title>Database | Home</title>
     </head>
     <body>
-        <div class="u-container">
-            <div class="u-content u-media-off">
-            <table class="u-fill">
+        <div>
+            <div>
+            <table>
             <tr>
-                <td><span class="u-heading-2">View Event</span><td>
-                <td class="u-right-text">
+                <td><span>View Event</span><td>
+                <td>
                     <a href="./home.php"><div class="u-button">Back</div></a>
                     <a href="./logout.php"><div class="u-button">Logout</div></a>
                 </td>
@@ -34,23 +34,21 @@
             <hr />
             <?php
                 $stmt = $db->prepare("SELECT * FROM event WHERE event_name=:event_name");
-                $stmt->execute(array(":event_name" => $event_name));
+                $stmt->execute(array(":event_name" => $event));
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (count($rows) === 0):
             ?>
             <?php else: ?>
-            <table class="u-left-text u-fill">
+            <table>
                 <tr>
                     <th>Event Name</th>
                     <th>Event Date</th>
                     <th>Duration</th>
                     <th>Number of Participants</th>
-                    <th>Required?</th>
-                    <th>Status</th>
                 </tr>
             <?php
                 foreach ($rows as $row):
-                    $id = $row["id"];
+                    $id = $row["event_id"];
                     $name = $row["event_name"];
                     $desc = $row["event_date"];
                     $dur = $row["event_duration"];
@@ -58,16 +56,8 @@
             ?>
                 <tr>
                     <td><?php echo($name); ?></td>
-                    <td><?php
-                        if (!empty($desc)) {
-                            echo($desc);
-                        } else {
-                            echo("NULL");
-                        }
-                    ?></td>
-                    <td><?php echo($dur); ?></td>
-                    <td><?php echo($stat); ?></td>
                 </tr>
+                
             <?php endforeach; ?>
             </table>
             <?php endif; ?>

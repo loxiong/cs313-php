@@ -1,6 +1,5 @@
 <!--WEEK 05 - INDIVIDUAL ASSIGNMENT
-----PHP DATA ACCESS----------------
-----Event Form-------------------->
+----PHP DATA ACCESS--------------->
 <?php
 //PDO CONNECTION
 try
@@ -27,33 +26,26 @@ catch (PDOException $ex)
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Ching Lo | CS313:03">
-        <meta name="description" content="Add event to database table">        
-        <title>Scripture Database Form</title>
+        <meta name="description" content="My project event lists / view">        
+        <title>Concession Item Details Page</title>
     </head>
     
     <body>
         <main>
-            <h2>Add Event</h2>
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-               <label for="event_name">Event Name</label>
-                    <input type="text" name="event_name" id="event_name" />
-               <label for="event_date">Event Date</label>
-                    <input type="text" name="event_date" id="event_date" />
-               <input type="submit" value="Submit" />
-            </form>
+            <h1>Manage Event and Details Page</h1>
             <?php
-            //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
-            $statement = $db->prepare("INSERT INTO event (event_name, event_date) 
-                VALUES ('$_POST[event_name]','$_POST[event_date]')");
+            //Prepare the statements
+            $statement = $db->prepare("SELECT event_name, event_date FROM event");
             $statement->execute();
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            // Go through each result
+            foreach ($row = $statement->fetch(PDO::FETCH_ASSOC))
             {
                 // The variable "row" now holds the complete record for that
                 // row, and we can access the different values based on their
                 // name
                 $event_name = $row['event_name'];
                 $event_date = $row['event_date'];
-                echo "<p><strong>$event_date </strong> - \"$event_name\"</p>";
+                echo "<p><a href="eventDetails.php"><strong>$event_date - </strong> $event_name</a></p>";
             }
             ?>
         </main>

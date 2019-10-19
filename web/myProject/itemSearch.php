@@ -25,34 +25,8 @@ catch (PDOException $ex)
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Scriptures DB</title>
-
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        margin: 40px;
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-      form select {
-        font-size: 18px;
-        width: 300px;
-        margin-bottom: 20px;
-      }
-      form input {
-        width: 300px;
-        margin-bottom: 20px;
-        font-size: 20px;
-        color: #C71585;
-      }
-      .main-text p a {
-        text-decoration: none;
-        color: #00FFFF;
-        font-size: 22px;
-      }
-    </style>
+    
+    <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

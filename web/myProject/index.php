@@ -48,7 +48,7 @@ catch (PDOException $ex)
                 $item_qty = $row['item_qty'];
                 $item_price = $row['item_price'];
                 $category_id = $row['category_id'];
-                echo "<p><strong>$item_name - </strong> $item_desc, $$item_price <p>";
+                echo "<p><strong>$item_name - </strong> $item_desc / $item_qty / $$item_price </p>";
             }
             ?>
         </main>

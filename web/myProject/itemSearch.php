@@ -59,18 +59,18 @@ catch (PDOException $ex)
   <h1>Item Search</h1>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
     <select name="input">
-        <option value="Beverage">Beverage</option>
-        <option value="Snack">Snack</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">Lunch</option>
+        <option value="1">Beverage</option>
+        <option value="2">Snack</option>
+        <option value="3">Breakfast</option>
+        <option value="4">Lunch</option>
     </select>
     <input type="submit" />
   </form>
 
   <?php
     if (isset($_POST["input"]) && $_POST["input"] != "all") {
-      $stmt = $db->prepare('SELECT item_id, item_name FROM item WHERE category_id=:category_id');
-      $stmt->bindValue(':category_id', $_POST["input"], PDO::PARAM_STR);
+      $stmt = $db->prepare('SELECT * FROM category AS c JOIN item AS i ON c.category_id = i.category_id WHERE c.category_id = :c.category_id;');
+      $stmt->bindValue(':c.category_id', $_POST["input"], PDO::PARAM_STR);
       $stmt->execute();
     }
         

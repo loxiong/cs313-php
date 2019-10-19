@@ -69,7 +69,7 @@ catch (PDOException $ex)
 
   <?php
     if (isset($_POST["input"]) && $_POST["input"] != "all") {
-      $stmt = $db->prepare('SELECT * FROM category AS c JOIN item AS i ON c.category_id = i.category_id WHERE c.category_id = :c.category_id;');
+      $stmt = $db->prepare('SELECT * FROM category AS c JOIN item AS i ON c.category_id = i.category_id WHERE c.category_id = 1');
       $stmt->bindValue(':c.category_id', $_POST["input"], PDO::PARAM_STR);
       $stmt->execute();
     }

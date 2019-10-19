@@ -41,20 +41,21 @@
                 </table>
                 <hr />
                 Welcome, <?php echo($name); ?>!<br />
-                Please select the assignment to view:<br />
+                Please select the event to view:<br />
                 <table>
                 <?php
                     $query = "SELECT * FROM event";
                     foreach ($db->query($query) as $row):
                         $id = $row["event_id"];
                         $name = $row["event_name"];
+                        $date = $row["event_date"];
                 ?>
                     <tr>
                     <form method="POST">
                         <td style="display: none;">
                             <input type="text" name="assign-id" value="<?php echo($id); ?>" readonly />
                         </td>
-                        <td><button type="submit" class="u-button" formaction="view-assign.php">View</button></td>
+                        <td><button type="submit" class="u-button" formaction="eventDetails.php">View</button></td>
                         <td><?php echo($name); ?></td>
                     </form>
                     </tr>

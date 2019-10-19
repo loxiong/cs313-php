@@ -17,7 +17,7 @@
     }
     function loginSuccess($username, $name) {
         $_SESSION["user"] = $username;
-        $_SESSION["name"] = $name;
+        $_SESSION["first_name"] = $first_name;
         $_SESSION["valid-credentials"] = null;
         header("Location: home.php");
         exit;

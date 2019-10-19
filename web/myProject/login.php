@@ -11,13 +11,14 @@
     // query database for login validity
     $username = htmlspecialchars($username);
     $password = htmlspecialchars($password);
-    $table = "students";
+    $table = "concession_user";
     $stmt = $db->prepare("SELECT * FROM $table WHERE username=:username AND password=:password");
     $stmt->execute(array(":username" => $username, ":password" => $password));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($rows) === 0) {
         loginFail();
     }
-    $name = $rows[0]["name"];
-    loginSuccess($username, $name);
+    $name = $rows[0]["first_name"];
+    loginSuccess($username, $first_name);
 ?>
+

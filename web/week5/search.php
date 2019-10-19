@@ -56,12 +56,6 @@ catch (PDOException $ex)
         
         <form method="POST">
             <li>
-                <strong>
-                    <label for="book"><?php echo($row["book"]); ?></label>
-                    <label for="chapter"><?php echo($row["chapter"]); ?></label>
-                    :
-                    <label for="verse"><?php echo($row["verse"]); ?></label>
-                </strong>
                 <input type="text" name="id" value="<?php echo($row["id"]); ?>" style="display: none;" />
                 <input type="submit" value="Details" formaction="search3.php" />
             </li>

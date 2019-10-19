@@ -54,11 +54,5 @@ catch (PDOException $ex)
             <input type="submit" value="Query" formaction="search2.php" />
         </form>
         
-        <form method="POST">
-            <li>
-                <input type="text" name="id" value="<?php echo($row["id"]); ?>" style="display: none;" />
-                <input type="submit" value="Details" formaction="search3.php" />
-            </li>
-        </form>
     </body>
 </html>

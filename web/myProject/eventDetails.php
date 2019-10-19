@@ -33,12 +33,11 @@
             </table>
             <hr />
             <?php
-                $stmt = $db->prepare("SELECT * FROM event WHERE assignment=:event");
+                $stmt = $db->prepare("SELECT * FROM event WHERE event_name=:event_name");
                 $stmt->execute(array(":event_name" => $event_name));
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (count($rows) === 0):
             ?>
-                The selected assignment currently has no tasks.
             <?php else: ?>
             <table class="u-left-text u-fill">
                 <tr>

@@ -25,19 +25,24 @@ if (!isset($user)) {
             <h1>Manage Event and Details Page</h1>
             <?php
             //Prepare the statements
-            $stmt = $db->prepare("SELECT event_name FROM event");
-            $stmt->execute();
+            $statement = $db->prepare("SELECT item_name, item_desc, item_qty, item_price, category_id, store_id FROM item");
+            $statement->execute();
             // Go through each result
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
             {
                 // The variable "row" now holds the complete record for that
                 // row, and we can access the different values based on their
                 // name
-                $event_name = $row['event_name'];
-                //$event_date = $row['event_date'];
-                echo "<p><a href="eventDetails.php">$event_name</a></p>";
+                $item_name = $row['item_name'];
+                $item_desc = $row['item_desc'];
+                $item_qty = $row['item_qty'];
+                $item_price = $row['item_price'];
+                $category_id = $row['category_id'];
+                echo "<p><strong>$item_name - </strong> $item_desc / $item_qty / $$item_price </p>";
             }
             ?>
+            
+            
             
             <p><a href="eventForm.php">Add Event</a></p>
         </main>

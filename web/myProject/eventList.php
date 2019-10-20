@@ -1,14 +1,7 @@
 <!--WEEK 05 - INDIVIDUAL ASSIGNMENT
 ----PHP DATA ACCESS--------------->
 <?php
-session_start();
-require("redirects.php");
 require("dbconnect.php");
-$user = $_SESSION["user"];
-$name = $_SESSION["first_name"];
-if (!isset($user)) {
-    loginRedirect();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,20 +18,17 @@ if (!isset($user)) {
             <h1>Manage Event and Details Page</h1>
             <?php
             //Prepare the statements
-            $statement = $db->prepare("SELECT item_name, item_desc, item_qty, item_price, category_id, store_id FROM item");
-            $statement->execute();
+            $stmt = $db->prepare("SELECT event_name FROM event");
+            $stmt->execute();
             // Go through each result
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
                 // The variable "row" now holds the complete record for that
                 // row, and we can access the different values based on their
                 // name
-                $item_name = $row['item_name'];
-                $item_desc = $row['item_desc'];
-                $item_qty = $row['item_qty'];
-                $item_price = $row['item_price'];
-                $category_id = $row['category_id'];
-                echo "<p><strong>$item_name - </strong> $item_desc / $item_qty / $$item_price </p>";
+                $event_name = $row['event_name'];
+                //$event_date = $row['event_date'];
+                echo "<p><a href="eventDetails.php">$event_name</a></p>";
             }
             ?>
             

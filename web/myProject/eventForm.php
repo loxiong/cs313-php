@@ -30,23 +30,27 @@ if (!isset($user)) {
                     <input type="text" name="event_name" id="event_name" />
                <label for="event_date">Event Date</label>
                     <input type="text" name="event_date" id="event_date" />
+               <label for="event_duration">Event Duration</label>
+                    <input type="text" name="event_duration" id="event_duration" />
+               <label for="event_participants">Event Participants</label>
+                    <input type="text" name="event_participants" id="event_participants" />
                <input type="submit" value="Submit" />
             </form>
+            
             <?php
-            //$db = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=myadmin123");
-            $statement = $db->prepare("INSERT INTO event (event_name, event_date) 
-                VALUES ('$_POST[event_name]','$_POST[event_date]')");
+            $statement = $db->prepare("INSERT INTO event (event_name, event_date, event_duration, event_participants) 
+                VALUES ('$_POST[event_name]','$_POST[event_date]','$_POST[event_duration]','$_POST[event_participants]')");
             $statement->execute();
             while ($row = $statement->fetch(PDO::FETCH_ASSOC))
             {
-                // The variable "row" now holds the complete record for that
-                // row, and we can access the different values based on their
-                // name
-                $event_name = $row['event_name'];
-                $event_date = $row['event_date'];
-                echo "<p><strong>$event_date </strong> - \"$event_name\"</p>";
+                $name = $row['event_name'];
+                $date = $row['event_date'];
+                $duration = $row['event_duration'];
+                $participants = $row['event_participants'];
+                echo "<p>$name $date / $duration days / $participants <p>";
             }
             ?>
+            
         </main>
     </body>
     

@@ -34,7 +34,8 @@ catch (PDOException $ex)
     <body>
         <main>
             <h2>Add Event</h2>
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+            <!--<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">-->
+            <form action="eventList.php" method="post">
                <label for="event_name">Event Name</label>
                     <input type="text" name="event_name" id="event_name" />
                <label for="event_date">Event Date</label>

@@ -48,6 +48,8 @@ catch (PDOException $ex)
                 echo "<p><a href="eventDetails.php"><strong>$event_date - </strong> $event_name</a></p>";
             }
             ?>
+            
+            <p><a href="eventForm.php">Add Event</a></p>
         </main>
     </body>
     

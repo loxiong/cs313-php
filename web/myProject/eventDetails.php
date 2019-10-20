@@ -12,7 +12,6 @@
     if (!isset($user)) {
         loginRedirect();
     }
-    //$assign = htmlspecialchars(trim($_POST["assign-id"]));
     $event = htmlspecialchars(trim($_POST["event_id"]));
 ?>
 <!DOCTYPE html>

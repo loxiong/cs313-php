@@ -26,6 +26,7 @@ if (!isset($user)) {
                 </tr>
                 </table>
                 <hr />
+                
                 Welcome, <?php echo($name); ?>!<br />
                 Please select the event to view:<br />
                 <table>
@@ -47,6 +48,9 @@ if (!isset($user)) {
                     </tr>
                 <?php endforeach; ?>
                 </table>
+                <hr />
+                
+                <p><a href="eventForm.php">Add Event</a></p>
             </div>
         </div>
     </body>

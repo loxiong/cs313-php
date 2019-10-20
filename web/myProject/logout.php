@@ -1,1 +1,5 @@
-<!--Future Logout Page Here-->
+<?php
+    session_start();
+    require("redirects.php");
+    logout();
+?>

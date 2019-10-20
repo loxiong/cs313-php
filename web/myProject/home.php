@@ -14,14 +14,14 @@ if (!isset($user)) {
         <title>Database | Home</title>
     </head>
     <body>
-        <div class="u-container">
+        <div>
 
-            <div class="u-content u-media-off">
-                <table class="u-fill">
+            <div>
+                <table>
                 <tr>
-                    <td><span class="u-heading-2">Home</span><td>
-                    <td class="u-right-text">
-                        <a href="./logout.php"><div class="u-button">Logout</div></a>
+                    <td><span>Home</span><td>
+                    <td>
+                        <a href="./logout.php"><div>Logout</div></a>
                     </td>
                 </tr>
                 </table>

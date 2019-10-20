@@ -3,6 +3,7 @@
 --the concession list for the event will include the item name, quantity and price
 --ideally include a total cost for the event
 --maybe have to join tables event and item?? -->
+<!--as of 10/19/19 5:21 PM the event detail page successfully returned the event_id that matches from the home.php page, but I want the event detail page to show more than just this id. How do I do that?--> 
 <?php
     session_start();
     require("redirects.php");
@@ -34,9 +35,11 @@
             <?php else: ?>
             <?php
                 foreach ($rows as $row):
-                    $name = $row["event_id"];
+                    $name = $row["event_id"]; 
+                    $eventname = $row["event_name"];
             ?>
-                <?php echo($name); ?>
+                <?php echo $name - $eventname; ?>
+    
                 
             <?php endforeach; ?>
             

@@ -18,7 +18,7 @@
     if (count($rows) === 0) {
         loginFail();
     }
-    $name = $rows[0]["first_name"];
+    $name = $rows[0]["name"];
     loginSuccess($username, $name);
 ?>
 

@@ -28,17 +28,20 @@
             <hr />
             <?php
                 $stmt = $db->prepare("SELECT * FROM event WHERE event_id=:event_id");
-                $stmt->execute(array(":event_id" => $event, ":event_name" => $event_name));
+                $stmt->execute(array(":event_id" => $event));
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (count($rows) === 0):
             ?>
+            
+            Information about the selected event:
             <?php else: ?>
             <?php
                 foreach ($rows as $row):
                     $name = $row["event_id"]; 
                     $eventname = $row["event_name"];
             ?>
-                <?php echo $name - $eventname; ?>
+                <?php echo ($name); ?>
+                <?php echo ($eventname); ?>
     
                 
             <?php endforeach; ?>

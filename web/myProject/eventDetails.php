@@ -44,8 +44,8 @@
             ?>
                 <?php echo ($name); ?>
                 <?php echo ($eventname); ?>
-                <p>Event Duration: <?php echo ($eventname); ?> days</p>
-                <p>Estimated Number of Participants: <?php echo ($eventname); ?> days</p>
+                <p>Event Duration: <?php echo ($eventdur); ?> days</p>
+                <p>Estimated Number of Participants: <?php echo ($people); ?> swimmers</p>
     
             <?php endforeach; ?>
             

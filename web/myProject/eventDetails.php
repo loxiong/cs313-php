@@ -28,7 +28,7 @@
             <hr />
             <?php
                 $stmt = $db->prepare("SELECT * FROM event WHERE event_id=:event_id");
-                $stmt->execute(array(":event_id" => $event));
+                $stmt->execute(array(":event_id" => $event, ":event_name" => $event_name));
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (count($rows) === 0):
             ?>

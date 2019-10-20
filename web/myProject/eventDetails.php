@@ -37,13 +37,16 @@
             <?php else: ?>
             <?php
                 foreach ($rows as $row):
-                    $name = $row["event_id"]; 
-                    $eventname = $row["event_name"];
+                    $name = $row["event_name"]; 
+                    $date = $row["event_date"];
+                    $eventdur = $row["event_duration"];
+                    $people = $row["event_participants"];
             ?>
                 <?php echo ($name); ?>
                 <?php echo ($eventname); ?>
+                <p>Event Duration: <?php echo ($eventname); ?> days</p>
+                <p>Estimated Number of Participants: <?php echo ($eventname); ?> days</p>
     
-                
             <?php endforeach; ?>
             
             <?php endif; ?>

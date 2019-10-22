@@ -1,13 +1,5 @@
 <?php vardump($_POST); ?>
-
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <title>Week 05 Team</title>
-        <meta charset="UTF-8" />
-    </head>
-    <body>
-        <?php
+<?php
             try {
                 $dbUrl = getenv('DATABASE_URL');
                 
@@ -27,7 +19,15 @@
                 echo "Error!: $msg";
                 die();
             }
-        ?>
+?>
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Week 05 Team</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        
         <h1>Scripture Details</h1>
         
         <?php

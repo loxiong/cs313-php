@@ -35,22 +35,37 @@ catch (PDOException $ex)
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                 <label for="book">BOOK</label>
                     <input type="text" name="book" id="book" />
+                <br /><br />
+                
                 <label for="chapter">CHAPTER</label>
                     <input type="text" name="chapter" id="chapter" />
+                <br /><br />
+                
                 <label for="verse">VERSE</label>
                     <input type="text" name="verse" id="verse" />
+                <br /><br />
+                
                 <label for="content">CONTENT</label>
                     <input type="text" name="content" id="content" />
+                <br /><br />
                 
                 <!--create the checkboxes from the TOPIC table records-->
+                <label for="topic">TOPICS</label>
+                
+                
                 <?php
-                $stmt = $pdo->query('SELECT * FROM topic');
-                while ($row = $stmt->fetch())
-                {
-                    echo "<input type='checkbox' value='{$row['value']}'>" . $row['value'] . '</br>';
-                }
-                ?>
-                <button type="submit" formaction="eventDetails.php">Add Now</button>
+                    $stmt = $pdo->query('SELECT id, name FROM topic');
+                    $stmt->execute();
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                    {
+                        $id = $row['id'];
+		                $name = $row['name'];
+                        echo "<input type='checkbox' name='topics' id='topics' value='$id'>";
+                        echo "<label for='topics'>$name</label><br />";
+                        echo "\n"
+                    }
+                    ?>
+                <button type="submit" formaction="results.php">Add Now</button>
             </form>
                     
             <?php

@@ -3,15 +3,50 @@
 //PDO CONNECTION
 try
 {
-  $dbUrl = getenv('DATABASE_URL');
-  $dbOpts = parse_url($dbUrl);
-  $dbHost = $dbOpts["host"];
-  $dbPort = $dbOpts["port"];
-  $dbUser = $dbOpts["user"];
-  $dbPassword = $dbOpts["pass"];
-  $dbName = ltrim($dbOpts["path"],'/');
-  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbUrl = getenv('DATABASE_URL');
+    $dbOpts = parse_url($dbUrl);
+    $dbHost = $dbOpts["host"];
+    $dbPort = $dbOpts["port"];
+    $dbUser = $dbOpts["user"];
+    $dbPassword = $dbOpts["pass"];
+    $dbName = ltrim($dbOpts["path"],'/');
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $book = $_POST["Book"];
+    $chapter = $_POST["Chapter"];
+    $verse = $_POST["Verse"];
+    $content = $_POST["Content"];
+    $topics = [];
+    $index = ();
+    foreach ($db->query('SELECT id, name FROM topic') as $row) {
+        $index++;
+    }
+    for ($i = (); $i < $index+1; $i++) {
+        $temp = $_POST["topic-".$i];
+        if(!null($temp)) {
+            $topics.array push($temp);
+        }
+    }
+    $sqlScriptInsert = "INSERT INTO scriptures (book, chapter, verse, conent) VALUES (?,?,?,?)";
+    $stmt = $db->prepare($sqlScriptInsrt);
+    $stmt->execute([$book, $chapter, $verse, $content]);
+    $scripture = $db->lastInsertId('scriptures_id_seq');
+    $sqlScriptTopicInsert = "INSERT INTO scripture_topic(topic, scripture) VALUES(?,?)";
+    $stmt = $db->prepare($sqlScriptTopicInsert);
+    foreach ($topics as $topic) {
+        $stmt->execute([$scripture, $topic]);
+    }
+    foreach ($db->query('SELECT id, book, chapter, verse, content FROM scriptures') as $row1) {
+        echo '<strong>'.$row1["book"]. ' '.$row1["chapter"]. ':' .$row1["verse"]. '</strong> .$row1["content"]. '</br>;
+        $scriptureTopicQuery = "SELECT topic, scripture FROM scripture_topic WHERE scripture=.$row1['id']";
+        foreach ($db->query($scriptureTopicQuery) as $row2){
+            $topicQuery = "SELECT id, name FROM topic WHERE id=.$row2['topic']";
+            foreach ($db->query($topicQuery) as $row3) {
+                echo '<strong>' .$row["name"]. '</strong></br>';
+            }
+        }
+    }
 }
 catch (PDOException $ex)
 {
@@ -50,22 +85,17 @@ catch (PDOException $ex)
                 <br /><br />
                 
                 <!--create the checkboxes from the TOPIC table records-->
-                <label for="topic">TOPICS</label>
-                
-                
+                <label for="topic">TOPICS:</label>    
                 <?php
-                    $stmt = $pdo->query('SELECT id, name FROM topic');
-                    $stmt->execute();
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                    {
-                        $id = $row['id'];
-		                $name = $row['name'];
-                        echo "<input type='checkbox' name='topics' id='topics' value='$id'>";
-                        echo "<label for='topics'>$name</label><br />";
-                        echo "\n"
+                    try {
+                        $index = ();
+                        foreach ($db->query('SELECT id, name FROM topic') as $row) {
+                            echo "<input type='checkbox' name='topic' . $index value='. $row['id'] $row['name'].>" </br>;
+                            $index++;
+                        }
                     }
-                    ?>
-                <button type="submit" formaction="results.php">Add Now</button>
+                ?>
+                <input type="submit" value="Submit">
             </form>
                     
             <?php

@@ -40,7 +40,7 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 /*change the echo to a link that point to scripture_content.php 
                  *use the $id variable that was defined above
                  *so when the link is generated, it will have the correct ids generate in the right spot*/
-                echo "<li><p><a href='scripture_content.php?scriptures_id=$id'>$book $chapter:$verse - $content</a></p></li>";
+                echo "<li><p><a href='scripture_content.php?scripture_id=$id'>$book $chapter:$verse - $content</a></p></li>";
                 
                 /* trying to display the following
                  * echo "<p> John 3:16 - content goes here</p>";

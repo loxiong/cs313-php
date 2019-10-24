@@ -4,7 +4,7 @@ $db = get_db(); //calls the function
 
 //query to get the scriptures: SELECT book, chapter, verse, content FROM scriptures;
 
-$query = 'SELECT book, chapter, verse, content FROM scriptures';
+$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);

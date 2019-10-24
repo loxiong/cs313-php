@@ -1,4 +1,4 @@
-<?
+<!--modeled after PHP Connect and Query - video notes --><?
 require('dbConnect.php'); //import the function
 $db = get_db(); //calls the function
 
@@ -14,7 +14,7 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>CS 313 Week 06 Team</title>
+        <title>CS 313 Week 06 Reading</title>
         <meta name="description" content="Week 06 Team Activity">
     </head>
     
@@ -24,6 +24,7 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </header>    
         
         <main>
+            <ul>
             <?php
             foreach ($scriptures as $scripture) 
             {
@@ -35,9 +36,14 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $content = $scripture['content'];
                 
                 /*replace the parts of the datain the echo*/
-                echo "<p> $book $chapter:$verse - $content</p>";
+                echo "<li><p> $book $chapter:$verse - $content</p></li>";
+                /*change the echo to a link that point to scripture_content.php 
+                 *use the $id variable that was defined above
+                 *so when the link is generated, it will have the correct ids generate in the right spot*/
+                echo "<li><p><a href='scripture_content.php?scripture_id=$id'>$book $chapter:$verse - $content</p></li>";
+                
             }
-            
+            </ul>
             /* trying to display the following
              * echo "<p> John 3:16 - content goes here</p>";
              */

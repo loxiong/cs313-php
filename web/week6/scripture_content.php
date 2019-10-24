@@ -10,7 +10,7 @@
 // define the variable that was created on the scripture.php page in the link
 // $scripture_id = $_GET['scripture_id'];
 // can wrap it in an isset to make in more interesting
-if (!isset($_GET['scriptures_id']))
+if (!isset($_GET['scripture_id']))
 {
     die("Error: scripture id not specified")
 }

@@ -8,13 +8,13 @@
 // To achieve this, go back to the scripture.php page and make the echo a link-->
 <?php
 // define the variable that was created on the scripture.php page in the link
-// $scripture_id = $_GET['scripture_id'];
+// $scripture_id = $_GET['scriptures_id'];
 // can wrap it in an isset to make in more interesting
-if (!isset($_GET['scripture_id']))
+if (!isset($_GET['scriptures_id']))
 {
     die("Error: scripture id not specified")
 }
-$scripture_id = htmlspecialchars($_GET['scripture_id']); //add htmlspecialchars to check the integrity of the data
+$scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -26,7 +26,7 @@ $scripture_id = htmlspecialchars($_GET['scripture_id']); //add htmlspecialchars 
     
     <body>
         <header>
-            <h1>Scripture Content <?php echo $scripture_id ?></h1>
+            <h1>Scripture Content <?php echo $scriptures_id ?></h1>
         </header>    
         
         <main>

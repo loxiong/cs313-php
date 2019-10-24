@@ -7,6 +7,14 @@
 // So we will use the table column id to get and point to the content we need
 // To achieve this, go back to the scripture.php page and make the echo a link-->
 <?php
+//require('dbConnect.php');
+// define the variable that was created on the scripture.php page in the link
+// $scripture_id = $_GET['scriptures_id'];
+// can wrap it in an isset to make in more interesting
+if (!isset($_GET['scriptures_id']))
+{
+    die("Error: scripture id not specified...");
+}
 $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 ?>
 <!DOCTYPE html>

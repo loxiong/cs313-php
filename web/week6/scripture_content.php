@@ -26,7 +26,7 @@ $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchar
     
     <body>
         <header>
-            <h1>Scripture Content <?php echo $scriptures_id ?></h1>
+            <h1>Scripture Content <?php var_dump $scriptures_id ?></h1>
         </header>    
         
         <main>

@@ -35,13 +35,13 @@ try
 	{
 		echo "scriptures_id: $scriptures_id, topic_id: $topic_id";
 		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO scripture_topic(scriptures_id, topic_id) VALUES(:scriptureId, :topicId)');
+		$statement = $db->prepare('INSERT INTO scripture_topic(scriptures_id, topic_id) VALUES(:scriptures_id, :topic_id)');
 		// Then, bind the values
-		$statement->bindValue(':scriptureId', $scriptures_id);
-		$statement->bindValue(':topicId', $topic_id);
+		$statement->bindValue(':scriptures_id', $scriptures_id);
+		$statement->bindValue(':topic_id', $topic_id);
 		$statement->execute();
 	}
-}
+} 
 catch (Exception $ex)
 {
 	// Please be aware that you don't want to output the Exception message in

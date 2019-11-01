@@ -17,13 +17,14 @@ if (!isset($_GET['scriptures_id']))
 }
 $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 
-require('dbConnect.php');
+/*require('dbConnect.php');
 $db = get_db();
 
 $stmt = $db->prepare('SELECT book, chapter, verse FROM scriptures ON scriptures_id = :id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT));
 $stmt->execute();
 $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+*/
 
 //$scriptures_book = $content_rows[0]['book'];
 ?>

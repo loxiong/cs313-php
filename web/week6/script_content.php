@@ -17,7 +17,7 @@ if (!isset($_GET['scriptures_id']))
 }
 $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 
-var_dump($scriptures_id);
+var_dump();
 require('dbConnect.php');
 $db = get_db();
 

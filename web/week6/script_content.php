@@ -17,7 +17,7 @@ if (!isset($_GET['scriptures_id']))
 }
 $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 
-*require('dbConnect.php');
+require('dbConnect.php');
 $db = get_db();
 
 /*$stmt = $db->prepare('SELECT book, chapter, verse FROM scriptures ON scriptures_id = :id');

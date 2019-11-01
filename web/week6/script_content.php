@@ -23,7 +23,7 @@ $stmt = $db->prepare('SELECT * FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$script_book=$rows[0]['book, chapter, verse'];
+$script_book=$rows[0]['book'];
 $script_chapter=$rows[0]['chapter'];
 $script_verse=$rows[0]['verse'];
 
@@ -62,13 +62,18 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <main>
             <h1>Scripture Content <?php echo $scriptures_id; ?></h1>
-            <h1>Scripture Content for 
-                <?php 
-                echo $script_book; ?></h1>
+            <h1>Scripture Content for <?php echo $script_book; ?></h1>
             
             <p>
-                <?php
-            $id = htmlspecialchars($_GET["scriptures_id"]);
+            <?php
+            foreach ($rows as $row)
+            {
+                $content = $row['content'];
+                echo "<p>$content</p>";
+            }
+            ?>
+            </p>
+                $id = htmlspecialchars($_GET["scriptures_id"]);
             $row = ($db->query("SELECT * FROM scriptures WHERE id='$id'"))[0];
             $book = $row["book"];
             $chapter = $row["chapter"];

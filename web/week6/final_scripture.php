@@ -44,8 +44,8 @@ $db = get_db(); //calls the function
                     'SELECT name 
                      FROM topic t' . ' 
                      INNER JOIN scripture_topic st ON st.topic_id = t.id' . ' 
-                     WHERE st.scripture_id = :scripture_id');
-                $stmtTopics->bindValue(':scriptureId', $row['id']);
+                     WHERE st.scripture_id = :scriptures_id');
+                $stmtTopics->bindValue(':scriptures_id', $row['id']);
                 $stmtTopics->execute();
                 // Go through each topic in the result
                 while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))

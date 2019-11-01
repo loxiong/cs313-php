@@ -20,17 +20,22 @@ $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchar
 require('dbConnect.php');
 $db = get_db();
 
-$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
+/*$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-/*$stmt = $db->prepare('SELECT book, chapter, verse FROM scriptures ON scriptures_id = :id');
+*/
+/*
+SELECT a.chapter AS chapter1, b.verse AS verse1, a.book
+FROM scriptures A INNER JOIN scriptures B
+ON a.scripture_id = b.id WHERE b.id =:id
+*/
+$stmt = $db->prepare('SELECT a.chapter AS chapter1, b.verse AS verse1, a.book
+FROM scriptures A INNER JOIN scriptures B
+ON a.scripture_id = b.id WHERE b.id =:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT));
 $stmt->execute();
 $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-*/
 
 //$scriptures_book = $content_rows[0]['book'];
 ?>

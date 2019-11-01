@@ -30,9 +30,9 @@ SELECT a.chapter AS chapter1, b.verse AS verse1, a.book
 FROM scriptures A INNER JOIN scriptures B
 ON a.scripture_id = b.id WHERE b.id =:id
 */
-$stmt = $db->prepare('SELECT a.chapter AS chapter1, b.verse AS verse1, a.book
-FROM scriptures A INNER JOIN scriptures B
-ON a.scripture_id = b.id WHERE b.id =:id');
+$stmt = $db->prepare('SELECT s1.book, s1.chapter AS chapter1, s2.verse AS verse1
+FROM scriptures s1 INNER JOIN scriptures s2
+ON s1.scriptures_id = s2.id WHERE s2.id =:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT));
 $stmt->execute();
 $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

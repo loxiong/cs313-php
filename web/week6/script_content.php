@@ -62,7 +62,9 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <main>
             <h1>Scripture Content <?php echo $scriptures_id; ?></h1>
-            <h1>Scripture Content <?php echo $script_book; ?></h1>
+            <h1>Scripture Content for 
+                <?php 
+                echo $script_chapter; ?></h1>
             
             <p>
                 <?php

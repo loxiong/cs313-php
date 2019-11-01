@@ -49,18 +49,7 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <main>
             <h1>Scripture Content <?php echo $scriptures_id ?></h1>
-            <p>
-            <?php
-            foreach ($scriptures as $scripture) 
-            {
-                /*create variables to store the data from each table column */
             
-                $content = $scripture['content'];
-                
-                /*replace the parts of the datain the echo*/
-                echo "<p>$content</p>";
-            ?>
-            </p>
             <p>Notes</p>
         </main>
     

@@ -48,7 +48,24 @@ $script_book=$rows[0]['book'];
                 $verse = $row['verse'];
                 $content = $row['content'];
                 echo "<h2>Chapter $chapter, Verse $verse</h2>";
-                echo "<p>$content</p>";
+                echo "<p>";
+                echo $content;
+                // get the topics now for this scripture
+                echo '<br />';
+                echo 'Topics: ';
+                $stmtTopics = $db->prepare(
+                    'SELECT name 
+                     FROM topic t' . ' 
+                     INNER JOIN scripture_topic st ON st.topic_id = t.id' . ' 
+                     WHERE st.scriptures_id = :scriptures_id');
+                $stmtTopics->bindValue(':scriptures_id', $row['id']);
+                $stmtTopics->execute();
+                // Go through each topic in the result
+                while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
+                {
+                    echo $topicRow['name'] . ' ';
+                }
+                echo "</p>";
             }
             ?>
             </ul>

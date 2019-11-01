@@ -28,7 +28,6 @@ foreach ($rows as $row)
     {
         $chapter = $row['chapter'];
         $content = $row['content'];
-        echo "<p>$content</p>";
     }
 
 /*$query = 'SELECT id, book, chapter, verse, content FROM scriptures';

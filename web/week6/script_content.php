@@ -25,7 +25,7 @@ $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT));
 $stmt->execute();
 $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$scriptures_book = $content_rows[0]['book'];
+//$scriptures_book = $content_rows[0]['book'];
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -37,15 +37,9 @@ $scriptures_book = $content_rows[0]['book'];
     
     <body>
         <header>
-            <h1>Scripture Content for <?php echo $scriptures_book; ?></h1>
+            <h1>Scripture Content for <?php echo $scriptures_id ?></h1>
             
-            <?php
-            foreach ($content_rows as $content_row)
-            {
-                $content = $content_row['content'];
-                echo "<p>$content</p>";
-            }
-            ?>
+            
         </header>    
         
         <main>

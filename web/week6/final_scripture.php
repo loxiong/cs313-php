@@ -1,5 +1,8 @@
-<!--This is the final page of inserting a new scripture
+<!--INSTRUCTOR'SOLUTION
+-- on how to query and call to get the topic
+-- This is the final page of inserting a new scripture
 -- It will show the new scripture entries from the database
+-- However, in my example, I redirected to scripture.php and not this page
 -->
 <?
 require('dbConnect.php'); //import the function

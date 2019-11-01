@@ -38,7 +38,8 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
                 /* replace the parts of the data in the echo
                  * echo "<li><p> $book $chapter:$verse - $content</p></li>";
-                 * change the echo to a link that point to scripture_content.php 
+                 * change the echo to a link that point to script_content.php 
+                 * the user will see the scripture's verse and topic on the script_content.php page
                  * use the $id variable that was defined above
                  * so when the link is generated, it will have the correct ids generate in the right spot
                  */

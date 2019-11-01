@@ -1,3 +1,7 @@
+<!--how to add a new scripture and
+-- must select a topic from the TOPIC TABLE
+-- the form must POST
+-->
 <?
 require('dbConnect.php'); //import the function
 $db = get_db(); //calls the function
@@ -14,23 +18,23 @@ $db = get_db(); //calls the function
         <h1>Enter New Scripture </h1>
         
             <form id="mainForm" action="add_scripture.php" method="POST">
-                <input type="text" id="book" name="book">
                 <label for="book">Book</label>
+                <input type="text" id="book" name="book">
                 <br /><br />
             
-                <input type="text" id="chapter" name="chapter">
                 <label for="chapter">Chapter</label>
-	            <br /><br />
+                <input type="text" id="chapter" name="chapter">
+                <br /><br />
 
-	            <input type="text" id="verse" name="verse">
 	            <label for="verse">Verse</label>
+                <input type="text" id="verse" name="verse">
 	            <br /><br />
 
 	            <label for="content">Content:</label><br />
 	            <textarea id="content" name="content" rows="10" cols="100"></textarea>
 	            <br /><br />
 
-	            <label>Topics:</label><br />
+                <label><h2>Topics:</h2></label><br />
 
                 <?php
                 // need to generate check boxes for topics

@@ -2,7 +2,8 @@
 // Second Attempt
 // This page receives information from the scripture.php
 // It displays information based on the scriptures_id
-// Here, I replaced the scripture id in the <h1> with the scripture book name-->
+// Here, I replaced the scripture id in the <h1> with the scripture book name
+-->
 <?php
 //require('dbConnect.php');
 // define the variable that was created on the scripture.php page in the link

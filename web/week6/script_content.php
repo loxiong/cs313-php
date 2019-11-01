@@ -59,7 +59,7 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </header>    
         
         <main>
-            <h1>Scripture Content <?php echo $scriptures_id; ?></h1>
+            
             <h1>Scripture Content for <?php echo $script_book; ?></h1>
             
             <ul style="list-style-type:none">
@@ -69,7 +69,7 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $chapter = $row['chapter'];
                 $verse = $row['verse'];
                 $content = $row['content'];
-                echo "<h2>$chapter: $verse</h2>";
+                echo "<h2>Chapter $chapter, Verse $verse</h2>";
                 echo "<p>$content</p>";
             }
             ?>

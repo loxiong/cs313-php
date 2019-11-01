@@ -1,4 +1,5 @@
-<!--modeled after PHP Connect and Query - video notes --><?
+<!--modeled after PHP Connect and Query - video notes -->
+<?
 require('dbConnect.php'); //import the function
 $db = get_db(); //calls the function
 
@@ -15,7 +16,7 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <head>
         <meta charset="utf-8">
         <title>CS 313 Week 06 Reading</title>
-        <meta name="description" content="Week 06 Team Activity">
+        <meta name="description" content="Week 06 Reading Activity">
     </head>
     
     <body>

@@ -47,12 +47,12 @@ $script_book=$rows[0]['book'];
                 $chapter = $row['chapter'];
                 $verse = $row['verse'];
                 $content = $row['content'];
-                echo '<h2>Chapter $chapter, Verse $verse</h2>';
-                echo '<p>';
+                echo "<h2>Chapter $chapter, Verse $verse</h2>";
+                echo "<p>";
                 echo $content;
                 // get the topics now for this scripture
-                echo '<br />';
-                echo '<i>'Topic: '</i>';
+                echo "<br />";
+                echo "<i>"Topic: "</i>";
                 $stmtTopics = $db->prepare(
                     'SELECT name 
                      FROM topic t' . ' 
@@ -65,7 +65,7 @@ $script_book=$rows[0]['book'];
                 {
                     echo $topicRow['name'] . ' ';
                 }
-                echo '</p>';
+                echo "</p>";
             }
             ?>
             </ul>

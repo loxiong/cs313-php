@@ -52,7 +52,7 @@ $script_book=$rows[0]['book'];
                 echo $content;
                 // get the topics now for this scripture
                 echo "<br />";
-                echo "<i>"Topic: "</i>";
+                echo Topic: ;
                 $stmtTopics = $db->prepare(
                     'SELECT name 
                      FROM topic t' . ' 

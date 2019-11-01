@@ -11,7 +11,7 @@ $book = $_POST['book'];
 $chapter = $_POST['chapter'];
 $verse = $_POST['verse'];
 $content = $_POST['content'];
-$topicIds = $_POST['checkbox'];
+$topic_ids = $_POST['checkbox'];
 
 require('dbConnect.php');
 $db = get_db();
@@ -29,7 +29,7 @@ try
 	$statement->bindValue(':content', $content);
 	$statement->execute();
 	// get the new id
-	$scripture_id = $db->lastInsertId("scripture_id_seq");
+	$scripture_id = $db->lastInsertId("scriptures_id_seq");
 	// Now go through each topic id in the list from the user's checkboxes
 	foreach ($topic_ids as $topic_id)
 	{

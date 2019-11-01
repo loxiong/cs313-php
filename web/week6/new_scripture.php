@@ -17,7 +17,7 @@ $db = get_db(); //calls the function
         <main>
         <h1>Enter New Scripture </h1>
         
-            <form id="mainForm" action="add_scripture.php" method="POST">
+            <form id="mainForm" action="insert_scripture.php" method="POST">
                 <label for="book">Book</label>
                 <input type="text" id="book" name="book">
                 <br /><br />
@@ -72,7 +72,7 @@ $db = get_db(); //calls the function
                 }
                 ?>
                     <br />
-                    <input type="submit" value="Add to Database" />
+                    <input type="submit" value="Ready To Add Scripture" />
             </form>
         </main>
 

@@ -17,6 +17,15 @@ if (!isset($_GET['scriptures_id']))
 }
 $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 
+require('dbConnect.php');
+$db = get_db();
+
+$stmt = $db->prepare('SELECT book, chapter, verse FROM scriptures WHERE scriptures_id = :id');
+$stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT));
+$stmt->execute();
+$content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$scriptures_book = $content_rows[0]['book'];
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -28,7 +37,15 @@ $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchar
     
     <body>
         <header>
-            <h1>Scripture Content <?php echo $scriptures_id ?></h1>
+            <h1>Scripture Content for <?php echo $scriptures_book; ?></h1>
+            
+            <?php
+            foreach ($content_rows as $content_row)
+            {
+                $content = $content_row['content'];
+                echo "<p>$content</p>";
+            }
+            ?>
         </header>    
         
         <main>

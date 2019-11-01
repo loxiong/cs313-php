@@ -48,10 +48,10 @@ $db = get_db(); //calls the function
                 $stmtTopics->bindValue(':scriptures_id', $row['id']);
                 $stmtTopics->execute();
                 // Go through each topic in the result
-                ///while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
-                //{
-                    //echo $topicRow['name'] . ' ';
-                //}
+                while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
+                {
+                    echo $topicRow['name'] . ' ';
+                }
                 echo '</p>';
             }
         }

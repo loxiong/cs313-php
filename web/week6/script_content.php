@@ -43,6 +43,7 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     <body>
         <header>
+            <h1>Scripture Content <?php echo $scriptures_id ?></h1>
             <?php
             foreach ($scriptures as $scripture) 
             {

@@ -19,6 +19,12 @@ $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchar
 
 require('dbConnect.php');
 $db = get_db();
+$stmt = $db->prepare('SELECT * FROM scriptures WHERE id=:id');
+$stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$script_content=$rows[0]['book'];
+
 
 /*$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
 $stmt = $db->prepare($query);
@@ -54,7 +60,8 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </header>    
         
         <main>
-            <h1>Scripture Content <?php echo $scriptures_id ?></h1>
+            <h1>Scripture Content <?php echo $scriptures_id; ?></h1>
+            <h1>Scripture Content <?php echo $script_content; ?></h1>
             
             <p>
                 <?php

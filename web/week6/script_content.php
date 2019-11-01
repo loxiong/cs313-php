@@ -23,8 +23,7 @@ $stmt = $db->prepare('SELECT * FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$script_content=$rows[0]['book'];
-
+$script_content=$rows[0]['book', 'chapter', 'verse'];
 
 /*$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
 $stmt = $db->prepare($query);

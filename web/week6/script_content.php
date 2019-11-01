@@ -17,10 +17,15 @@ if (!isset($_GET['scriptures_id']))
 }
 $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 
-/*require('dbConnect.php');
+*require('dbConnect.php');
 $db = get_db();
 
-$stmt = $db->prepare('SELECT book, chapter, verse FROM scriptures ON scriptures_id = :id');
+$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+/*$stmt = $db->prepare('SELECT book, chapter, verse FROM scriptures ON scriptures_id = :id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT));
 $stmt->execute();
 $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,7 +43,19 @@ $content_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     <body>
         <header>
-            <h1>Scripture Content for <?php echo $scriptures_id ?></h1>
+            <?php
+            foreach ($scriptures as $scripture) 
+            {
+                /*create variables to store the data from each table column */
+                $id = $scripture['id'];
+                $book = $scripture['book'];
+                $chapter = $scripture['chapter'];
+                $verse = $scripture['verse'];
+                $content = $scripture['content'];
+                
+                /*replace the parts of the datain the echo*/
+                echo "<li><p> $book $chapter:$verse - $content</p></li>";
+                ?>
             
             
         </header>    

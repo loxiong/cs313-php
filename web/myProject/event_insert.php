@@ -9,7 +9,6 @@ session_start();
 require("redirects.php");
 require("dbconnect.php");
 $db = get_db();
-
 $user = $_SESSION["user"];
 $name = $_SESSION["first_name"];
 if (!isset($user)) {

@@ -3,7 +3,7 @@ session_start();
 require("redirects.php");
 require("dbconnect.php");
 $user = $_SESSION["user"];
-$name = $_SESSION["first_name"];
+$name = $_SESSION["username"];
 if (!isset($user)) {
     loginRedirect();
 }
@@ -42,7 +42,7 @@ if (!isset($user)) {
                         <td style="display: none;">
                             <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
                         </td>
-                        <td><button type="submit" formaction="eventDetails.php">View Details</button></td>
+                        <td><button type="submit" formaction="event_details.php">View Details</button></td>
                         <td><?php echo($name); ?></td>
                     </form>
                     </tr>

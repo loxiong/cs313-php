@@ -5,14 +5,22 @@
 -- instead it redirects the user to final_scripture.php to see the resulting list.
 -->
 <?
+session_start();
+require("redirects.php");
+require("dbconnect.php");
+$db = get_db();
+
+$user = $_SESSION["user"];
+$name = $_SESSION["first_name"];
+if (!isset($user)) {
+    loginRedirect();
+}
 // get the data from the POST
 $event_date = $_POST['event_date'];
 $event_name = $_POST['event_name'];
 $event_duration = $_POST['event_duration'];
 $event_participants = $_POST['event_participants'];
             
-require('dbconnect.php');
-$db = get_db();
 try
 {
 	// Add the event
@@ -27,7 +35,7 @@ try
 	$statement->bindValue(':event_participants', $event_participants);
 	$statement->execute();
 	// get the new id
-	$event_id = $db->lastInsertId("event_id_seq");
+	$event_id = $db->lastInsertId("event_event_id_seq");
 } 
 catch (Exception $ex)
 {

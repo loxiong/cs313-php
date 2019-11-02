@@ -7,3 +7,22 @@ TO DO: complete the database modification component of your application
 2) updating existing data, 
 3) and deleting if necessary. 
 
+                                       Table "public.item"
+   Column    |          Type          | Collation | Nullable |                Default
+-------------+------------------------+-----------+----------+---------------------------------------
+ item_id     | integer                |           | not null | nextval('item_item_id_seq'::regclass)
+ item_name   | character varying(100) |           | not null |
+ item_desc   | text                   |           |          |
+ item_price  | numeric(10,2)          |           | not null |
+ category_id | integer                |           |          |
+ store_id    | integer                |           |          |
+ item_qty    | integer                |           |          |
+ brand_id    | integer                |           |          |
+Indexes:
+    "item_pkey" PRIMARY KEY, btree (item_id)
+Foreign-key constraints:
+    "item_brand_id_fkey" FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+    "item_category_id_fkey" FOREIGN KEY (category_id) REFERENCES category(category_id)
+    "item_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)
+Referenced by:
+    TABLE "event" CONSTRAINT "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)

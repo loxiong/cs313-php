@@ -24,8 +24,8 @@ if (!isset($user)) {
     <body>
         <main>
             <h2>Add Event</h2>
-            <!--<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">-->
-            <form action="event_insert.php" method="post">
+            
+            <form action="event_insert.php" method="POST">
                 <label for="event_name">Event Name</label>
                 <input type="text" name="event_name" id="event_name" />
                 <br /><br />
@@ -44,20 +44,6 @@ if (!isset($user)) {
                 
                 <input type="submit" value="Enter New Event" />
             </form>
-            
-            <?php
-            $statement = $db->prepare("INSERT INTO event (event_name, event_date, event_duration, event_participants) 
-                VALUES ('$_POST[event_name]','$_POST[event_date]','$_POST[event_duration]','$_POST[event_participants]')");
-            $statement->execute();
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-            {
-                $name = $row['event_name'];
-                $date = $row['event_date'];
-                $duration = $row['event_duration'];
-                $participants = $row['event_participants'];
-                echo "<p>$name $date / $duration days / $participants <p>";
-            }
-            ?>
             
         </main>
     </body>

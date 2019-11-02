@@ -25,16 +25,24 @@ if (!isset($user)) {
         <main>
             <h2>Add Event</h2>
             <!--<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">-->
-            <form action="eventList.php" method="post">
-               <label for="event_name">Event Name</label>
-                    <input type="text" name="event_name" id="event_name" />
-               <label for="event_date">Event Date</label>
-                    <input type="text" name="event_date" id="event_date" />
-               <label for="event_duration">Event Duration</label>
-                    <input type="text" name="event_duration" id="event_duration" />
-               <label for="event_participants">Event Participants</label>
-                    <input type="text" name="event_participants" id="event_participants" />
-               <input type="submit" value="Submit" />
+            <form action="home.php" method="post">
+                <label for="event_name">Event Name</label>
+                <input type="text" name="event_name" id="event_name" />
+                <br /><br />
+                
+                <label for="event_date">Event Date</label>
+                <input type="text" name="event_date" id="event_date" />
+                <br /><br />
+               
+                <label for="event_duration">Event Duration</label>
+                <input type="text" name="event_duration" id="event_duration" />
+                <br /><br />
+                
+                <label for="event_participants">Event Participants</label>
+                <input type="text" name="event_participants" id="event_participants" />
+                <br /><br />
+                
+                <input type="submit" value="Submit" />
             </form>
             
             <?php

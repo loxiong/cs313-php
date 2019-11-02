@@ -1,0 +1,9 @@
+06 Prove : Assignment - PHP Data Modification
+
+PROJECT: Concession Planner
+
+TO DO: complete the database modification component of your application
+1) functionality to insert new data,
+2) updating existing data, 
+3) and deleting if necessary. 
+

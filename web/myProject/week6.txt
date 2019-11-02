@@ -2,10 +2,16 @@
 
 PROJECT: Concession Planner
 
-TO DO: complete the database modification component of your application
+Complete the database modification component of your application
 1) functionality to insert new data,
 2) updating existing data, 
 3) and deleting if necessary. 
+
+TO DO:
+1) finalize the Event Form to add a new event to the database
+2) create a form to add a new item to the database
+3) create a form or table, like a concession menu, to add items to an event
+4) have all the choosen items display on the event_details.php page
 
 
 Table "public.item"

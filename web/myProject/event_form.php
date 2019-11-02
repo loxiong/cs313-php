@@ -2,13 +2,13 @@
 ----PHP DATA ACCESS----------------
 ----Event Form-------------------->
 <?php
-/*session_start();
+session_start();
 require("redirects.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["first_name"];
 if (!isset($user)) {
     loginRedirect();
-}*/
+}
 require("dbconnect.php");
 $db = get_db();
 ?>

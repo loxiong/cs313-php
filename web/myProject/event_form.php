@@ -25,7 +25,7 @@ if (!isset($user)) {
         <main>
             <h2>Add Event</h2>
             <!--<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">-->
-            <form action="home.php" method="post">
+            <form action="event_insert.php" method="post">
                 <label for="event_name">Event Name</label>
                 <input type="text" name="event_name" id="event_name" />
                 <br /><br />

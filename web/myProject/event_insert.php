@@ -15,7 +15,7 @@ require('dbconnect.php');
 $db = get_db();
 try
 {
-	// Add the Scripture
+	// Add the event
 	// We do this by preparing the query with placeholder values
 	$query = 'INSERT INTO event (event_name, event_date, event_duration, event_participants) VALUES(:event_name, :event_date, :event_duration, :event_participants)';
 	$statement = $db->prepare($query);
@@ -31,15 +31,9 @@ try
 } 
 catch (Exception $ex)
 {
-	// Please be aware that you don't want to output the Exception message in
-	// a production environment
 	echo "Error with DB. Details: $ex";
 	die();
 }
-// finally, redirect user to a scripture.php page to see all the scripture listings
 header("Location: home.php");
-die(); // we always include a die after redirects. In this case, there would be no
-       // harm if the user got the rest of the page, because there is nothing else
-       // but in general, there could be things after here that we don't want them
-       // to see.
+die(); 
 ?>

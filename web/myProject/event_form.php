@@ -18,7 +18,7 @@ if (!isset($user)) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Add event to database table">        
-        <title>Scripture Database Form</title>
+        <title>Event Form</title>
     </head>
     
     <body>
@@ -27,19 +27,19 @@ if (!isset($user)) {
             
             <form action="event_insert.php" method="POST">
                 <label for="event_name">Event Name</label>
-                <input type="text" name="event_name" id="event_name" />
+                <input type="text" name="event_name" id="event_name">
                 <br /><br />
                 
                 <label for="event_date">Event Date</label>
-                <input type="text" name="event_date" id="event_date" />
+                <input type="text" name="event_date" id="event_date">
                 <br /><br />
                
                 <label for="event_duration">Event Duration</label>
-                <input type="text" name="event_duration" id="event_duration" />
+                <input type="text" name="event_duration" id="event_duration">
                 <br /><br />
                 
                 <label for="event_participants">Event Participants</label>
-                <input type="text" name="event_participants" id="event_participants" />
+                <input type="text" name="event_participants" id="event_participants">
                 <br /><br />
                 
                 <input type="submit" value="Enter New Event" />

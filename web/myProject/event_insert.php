@@ -17,14 +17,14 @@ try
 {
 	// Add the Scripture
 	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO event (event_name, event_date, event_duration, event_participants) VALUES(:name, :date, :duration, :participants)';
+	$query = 'INSERT INTO event (event_name, event_date, event_duration, event_participants) VALUES(:event_name, :event_date, :event_duration, :event_participants)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':name', $event_name);
-	$statement->bindValue(':date', $event_date);
-	$statement->bindValue(':duration', $event_duration);
-	$statement->bindValue(':participants', $event_participants);
+	$statement->bindValue(':event_name', $event_name);
+	$statement->bindValue(':event_date', $event_date);
+	$statement->bindValue(':event_duration', $event_duration);
+	$statement->bindValue(':event_participants', $event_participants);
 	$statement->execute();
 	// get the new id
 	$event_id = $db->lastInsertId("event_id_seq");

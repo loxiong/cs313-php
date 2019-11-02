@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("redirects.php");
-require("dbConnect.php");
+require("dbconnect.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["first_name"];
 if (!isset($user)) {

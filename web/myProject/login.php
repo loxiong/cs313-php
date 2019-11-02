@@ -1,7 +1,7 @@
 <?php
     session_start();
     require("redirects.php");
-    require("dbConnect.php");
+    require("dbconnect.php");
     // check to see if fields are populated
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);

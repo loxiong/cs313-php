@@ -7,7 +7,7 @@
 <?php
     session_start();
     require("redirects.php");
-    require('dbConnect.php');
+    require('dbconnect.php');
     $user = $_SESSION["user"];
     if (!isset($user)) {
         loginRedirect();

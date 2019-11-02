@@ -11,7 +11,7 @@ $event_date = $_POST['event_date'];
 $event_duration = $_POST['event_duration'];
 $event_participants = $_POST['event_participants'];
             
-require('dbConnect.php');
+require('dbconnect.php');
 $db = get_db();
 try
 {

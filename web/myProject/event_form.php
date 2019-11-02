@@ -26,12 +26,12 @@ if (!isset($user)) {
             <h2>Add Event</h2>
             
             <form action="event_insert.php" method="POST">
-                <label for="event_name">Event Name</label>
-                <input type="text" name="event_name" id="event_name">
-                <br /><br />
-                
                 <label for="event_date">Event Date</label>
                 <input type="text" name="event_date" id="event_date">
+                <br /><br />
+                
+                <label for="event_name">Event Name</label>
+                <input type="text" name="event_name" id="event_name">
                 <br /><br />
                
                 <label for="event_duration">Event Duration</label>

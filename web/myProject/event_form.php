@@ -4,7 +4,7 @@
 <?php
 session_start();
 require("redirects.php");
-require("dbconnect.php");
+require("dbConnect.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["first_name"];
 if (!isset($user)) {
@@ -42,7 +42,7 @@ if (!isset($user)) {
                 <input type="text" name="event_participants" id="event_participants" />
                 <br /><br />
                 
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Enter New Event" />
             </form>
             
             <?php

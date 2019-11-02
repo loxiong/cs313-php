@@ -1,7 +1,7 @@
 <!--WEEK 05 - INDIVIDUAL ASSIGNMENT
 ----PHP DATA ACCESS--------------->
 <?php
-require("dbconnect.php");
+require("dbConnect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

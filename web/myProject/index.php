@@ -1,4 +1,3 @@
-  
 <?php
     session_start();
     require("redirects.php");
@@ -22,13 +21,10 @@
     <head>
         <title>Database | Login</title>
     </head>
-    <body>
-        <div class="u-container">
-
-            <div class="u-content u-media-off">
-                <div class="">
+        <body>
+                <div>
                     <form id="frm-main" method="POST">
-                    <span class="u-heading-2">Login</span>
+                    <span>Login</span>
                     <hr />
                     <table>
                     <?php if ($valid === false): ?>
@@ -54,9 +50,7 @@
                     </table>
                     </form>
                 </div>
-            </div>
-        </div>
-    </body>
+        </body>
 </html>
 <?php
     $_SESSION["valid-credentials"] = null;

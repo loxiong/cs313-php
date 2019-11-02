@@ -23,6 +23,7 @@
     </head>
         <body>
                 <div>
+                    <h1>Concession Planner</h1>
                     <form method="POST">
                     <span>Login</span>
                     <hr />

@@ -1,5 +1,6 @@
-<!--how to add a new scripture and
--- must select a topic from the TOPIC TABLE
+<!--how to add a new item and
+-- must select a category from the CATEGORY TABLE
+-- must select a store from STORE TABLE
 -- the form must POST
 -->
 <?

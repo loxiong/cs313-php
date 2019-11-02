@@ -7,13 +7,13 @@
 <?
 session_start();
 require("redirects.php");
-require("dbconnect.php");
-$db = get_db();
 $user = $_SESSION["user"];
 $name = $_SESSION["first_name"];
 if (!isset($user)) {
     loginRedirect();
 }
+require("dbconnect.php");
+$db = get_db();
 // get the data from the POST
 $event_date = $_POST['event_date'];
 $event_name = $_POST['event_name'];

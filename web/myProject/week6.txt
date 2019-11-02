@@ -7,7 +7,8 @@ TO DO: complete the database modification component of your application
 2) updating existing data, 
 3) and deleting if necessary. 
 
-                                       Table "public.item"
+
+Table "public.item"
    Column    |          Type          | Collation | Nullable |                Default
 -------------+------------------------+-----------+----------+---------------------------------------
  item_id     | integer                |           | not null | nextval('item_item_id_seq'::regclass)
@@ -26,3 +27,27 @@ Foreign-key constraints:
     "item_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)
 Referenced by:
     TABLE "event" CONSTRAINT "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    
+
+
+Table "public.category"
+    Column     |          Type          | Collation | Nullable |                    Default
+---------------+------------------------+-----------+----------+-----------------------------------------------
+ category_id   | integer                |           | not null | nextval('category_category_id_seq'::regclass)
+ category_name | character varying(100) |           |          |
+Indexes:
+    "category_pkey" PRIMARY KEY, btree (category_id)
+Referenced by:
+    TABLE "item" CONSTRAINT "item_category_id_fkey" FOREIGN KEY (category_id) REFERENCES category(category_id)
+
+
+Table "public.store"
+   Column   |          Type          | Collation | Nullable |                 Default
+------------+------------------------+-----------+----------+-----------------------------------------
+ store_id   | integer                |           | not null | nextval('store_store_id_seq'::regclass)
+ store_name | character varying(100) |           | not null |
+Indexes:
+    "store_pkey" PRIMARY KEY, btree (store_id)
+Referenced by:
+    TABLE "brands" CONSTRAINT "brands_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)
+    TABLE "item" CONSTRAINT "item_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)

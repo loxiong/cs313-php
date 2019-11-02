@@ -25,23 +25,25 @@ $db = get_db();
         <h1>Enter New Item </h1>
         
             <form id="mainForm" action="item_insert.php" method="POST">
-                <label for="book">Book</label>
-                <input type="text" id="book" name="book">
+                <label for="name">Book</label>
+                <input type="text" id="name" name="name">
                 <br /><br />
             
-                <label for="chapter">Chapter</label>
-                <input type="text" id="chapter" name="chapter">
+                <label for="description">Content:</label><br />
+	            <textarea id="description" name="description" rows="10" cols="100"></textarea>
+	            <br /><br />
+                
+                <label for="quantity">Chapter</label>
+                <input type="text" id="quantity" name="quantity">
                 <br /><br />
 
-	            <label for="verse">Verse</label>
-                <input type="text" id="verse" name="verse">
+	            <label for="price">Verse</label>
+                <input type="text" id="price" name="price">
 	            <br /><br />
 
-	            <label for="content">Content:</label><br />
-	            <textarea id="content" name="content" rows="10" cols="100"></textarea>
-	            <br /><br />
+	            
 
-                <label><h2>Categories:</h2></label><br />
+                <label><h2>Category:</h2></label><br />
 
                 <?php
                 // need to generate check boxes for topics
@@ -50,22 +52,22 @@ $db = get_db();
                 {
                     // Do not use "SELECT *" here. Only bring back the fields that you need.
                     // Prepare the statement
-                    $stmt = $db->prepare('SELECT id, name FROM topic');
+                    $stmt = $db->prepare('SELECT category_id, category_name FROM category');
                     $stmt->execute();
                     // Go through each result
                     while ($rows = $stmt->fetch(PDO::FETCH_ASSOC))
                     {
-                        $id = $rows['id'];
-                        $name = $rows['name'];
+                        $idCat = $rows['category_id'];
+                        $nameCat = $rows['category_name'];
                         // make the value of the checkbox to be the id of the label
-                        echo "<input type='checkbox' name='checkbox[]' id='checkbox$id' value='$id'>";
+                        echo "<input type='checkbox' name='checkboxCat[]' id='checkboxCat$idCat' value='$idCat'>";
                         // Instructor's Notes:
                         // Also, so they can click on the label, and have it select the checkbox,
                         // we need to use a label tag, and have it point to the id of the input element.
                         // The trick here is that we need a unique id for each one. In this case,
                         // we use "checkbox" followed by the id, so that it becomes something like
                         // "checkbox1" and "checkbox2", etc.
-                        echo "<label for='checkbox$id'>$name</label><br />";
+                        echo "<label for='checkboxCat$idCat'>$nameCat</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";
                     }
@@ -79,7 +81,46 @@ $db = get_db();
                 }
                 ?>
                     <br />
-                    <input type="submit" value="Ready To Add Scripture" />
+                
+                <label><h2>Store:</h2></label><br />
+
+                <?php
+                // need to generate check boxes for topics
+                // based on what is in the database
+                try
+                {
+                    // Do not use "SELECT *" here. Only bring back the fields that you need.
+                    // Prepare the statement
+                    $stmt = $db->prepare('SELECT store_id, store_name FROM store');
+                    $stmt->execute();
+                    // Go through each result
+                    while ($rows = $stmt->fetch(PDO::FETCH_ASSOC))
+                    {
+                        $idSt = $rows['store_id'];
+                        $nameSt = $rows['store_name'];
+                        // make the value of the checkbox to be the id of the label
+                        echo "<input type='checkbox' name='checkboxSt[]' id='checkboxSt$idSt' value='$idSt'>";
+                        // Instructor's Notes:
+                        // Also, so they can click on the label, and have it select the checkbox,
+                        // we need to use a label tag, and have it point to the id of the input element.
+                        // The trick here is that we need a unique id for each one. In this case,
+                        // we use "checkbox" followed by the id, so that it becomes something like
+                        // "checkbox1" and "checkbox2", etc.
+                        echo "<label for='checkboxSt$idSt'>$nameSt</label><br />";
+                        // put a newline out there just to make our "view source" experience better
+                        echo "\n";
+                    }
+                }
+                catch (PDOException $ex)
+                {
+                    // Please be aware that you don't want to output the Exception message in
+                    // a production environment
+                    echo "Error connecting to DB. Details: $ex";
+                    die();
+                }
+                ?>
+                    <br />
+                    <input type="submit" value="Add New Item" />
             </form>
         </main>
 

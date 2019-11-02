@@ -50,7 +50,7 @@ if (!isset($user)) {
                 </table>
                 <hr />
                 
-                <p><a href="eventForm.php">Add Event</a></p>
+                <p><a href="event_form.php">Add Event</a></p>
             </div>
         </div>
     </body>

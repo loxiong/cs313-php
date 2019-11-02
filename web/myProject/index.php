@@ -23,7 +23,7 @@
     </head>
         <body>
                 <div>
-                    <form id="frm-main" method="POST">
+                    <form method="POST">
                     <span>Login</span>
                     <hr />
                     <table>
@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="u-button u-fill" value="Log In" formaction="login.php" />
+                            <input type="submit" value="Log In" formaction="login.php" />
                         </td>
                     </tr>
                     </table>

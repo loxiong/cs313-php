@@ -22,19 +22,19 @@ if (!isset($user)) {
     loginRedirect();
 }
 require('dbconnect.php');
-$db = get_db();
+//$db = get_db();
 try
 {
 	// Add the Scripture
 	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO item(name, desc, price, qty) VALUES(:name, :desc, :price, :qty)';
+	$query = 'INSERT INTO item(item_name, item_desc, item_price, item_qty) VALUES(:item_name, :item_desc, :item_price, :item_qty)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':name', $name);
-	$statement->bindValue(':desc', $description);
-	$statement->bindValue(':price', $price);
-	$statement->bindValue(':qty', $quantity);
+	$statement->bindValue(':item_name', $name);
+	$statement->bindValue(':item_desc', $description);
+	$statement->bindValue(':item_price', $price);
+	$statement->bindValue(':item_qty', $quantity);
 	$statement->execute();
 	// get the new id
 	$item_id = $db->lastInsertId("item_item_id_seq");
@@ -57,7 +57,7 @@ try
 		$statement = $db->prepare('INSERT INTO store(item_id, store_id) VALUES(:item_id, :store_id)');
 		// Then, bind the values
 		$statement->bindValue(':item_id', $item_id);
-		$statement->bindValue(':store_id', $item_id);
+		$statement->bindValue(':store_id', $store_id);
 		$statement->execute();
 	}
 } 

@@ -14,6 +14,24 @@ TO DO:
 4) have all the choosen items display on the event_details.php page
 
 
+
+Table "public.event"
+       Column       |          Type          | Collation | Nullable |                 Default
+--------------------+------------------------+-----------+----------+-----------------------------------------
+ event_id           | integer                |           | not null | nextval('event_event_id_seq'::regclass)
+ event_date         | date                   |           |          |
+ item_id            | integer                |           |          |
+ quantity           | integer                |           |          |
+ event_name         | character varying(300) |           |          |
+ event_duration     | integer                |           |          |
+ event_participants | integer                |           |          |
+Indexes:
+    "event_pkey" PRIMARY KEY, btree (event_id)
+Foreign-key constraints:
+    "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    
+
+
 Table "public.item"
    Column    |          Type          | Collation | Nullable |                Default
 -------------+------------------------+-----------+----------+---------------------------------------

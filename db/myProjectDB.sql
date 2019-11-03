@@ -31,3 +31,11 @@ CREATE TABLE event (
     item_id     INTEGER REFERENCES item(item_id),
     quantity    INT    
 );
+
+INSERT INTO brands (
+    brand_id    SERIAL NOT NULL PRIMARY KEY,
+    brand_name  VARCHAR(255) NOT NULL,
+    store_id    INTEGER REFERENCES store(store_id),
+);
+
+

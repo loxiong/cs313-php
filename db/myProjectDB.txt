@@ -9,7 +9,7 @@ CONFERENCE NOTES DATABASE
 5) Create store table: id, store_name
 
 
-CREATE TABLE concession.user (
+CREATE TABLE concession_user (
     id          SERIAL NOT NULL PRIMARY KEY, 
     first_name  VARCHAR(50) NOT NULL,
     last_name   VARCHAR(50) NOT NULL,

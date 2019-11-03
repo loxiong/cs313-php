@@ -42,11 +42,9 @@ Table "public.item"
  category_id | integer                |           |          |
  store_id    | integer                |           |          |
  item_qty    | integer                |           |          |
- brand_id    | integer                |           |          |
 Indexes:
     "item_pkey" PRIMARY KEY, btree (item_id)
 Foreign-key constraints:
-    "item_brand_id_fkey" FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
     "item_category_id_fkey" FOREIGN KEY (category_id) REFERENCES category(category_id)
     "item_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)
 Referenced by:

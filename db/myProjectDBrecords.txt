@@ -1,0 +1,159 @@
+//add users
+INSERT INTO concession_user (first_name, last_name, username, password) VALUES ('Ching', 'Lo', 'clo', 'byu1');
+INSERT INTO concession_user (first_name, last_name, username, password) VALUES ('Hue', 'Soo', 'hsoo', 'byu2');
+INSERT INTO concession_user (first_name, last_name, username, password) VALUES ('Moira', 'Evans', 'mevans', 'byu3');
+INSERT INTO concession_user (first_name, last_name, username, password) VALUES ('Jay', 'Cho', 'jcho', 'byu4');
+
+//add category
+INSERT INTO category (category_name)
+VALUES
+    ('Beverage'),
+    ('Snack'),
+    ('Breakfast'),
+    ('Lunch');
+    
+//add store info
+INSERT INTO store (store_name)
+VALUES 
+    ('Costco'),
+    ('Sam"s Club'), //replace the single apostrophe with double apostrophe and insert the record
+    ('Target'),
+    ('Walmart'),
+    ('Aldi');
+
+//add quantity column to the item table
+//and add brand column to the item table
+ALTER TABLE item
+ADD COLUMN item_qty INT,
+ADD COLUMN brand_id INTEGER REFERENCES brands(brand_id);
+
+//add beverages
+INSERT INTO item (item_name, item_desc, item_qty, item_price, brand_id, category_id, store_id)
+VALUES
+    ('Water','16.9 fl. oz. bottled water', 40, '6.99', 1, 1, 1);
+
+INSERT INTO item (item_name, item_desc, item_qty, item_price, category_id, store_id)
+VALUES  
+    ('Gatorade','12 fl. oz. Gatorade Thirst Quencher, All-Stars Variety Pack', 28, '15.99', 1, 1),
+    ('La Croix','12 fl. oz. La Croix flavored sparkling water variety pack', 24, '10.99', 1, 1),
+    ('IZZE', '8.4 fl. oz. IZZE Sparkling Juice, Variety Pack', 24,'13.99', 1, 1),
+    ('Diet Coke','12 fl. oz. Diet Coke soft drink', 35, '12.99', 1, 1),
+    ('Sprite','12 fl. oz. Sprite soft drink', 35, '12.99', 1, 1),    
+    ('Coke','12 fl. oz. Coca-Cola Classic Coke soft drink', 35, '12.99', 1, 1);
+
+//add snacks
+INSERT INTO item (item_name, item_desc, item_qty, item_price, category_id, store_id)
+VALUES  
+    ('Protein Cup','Sargento Balanced Breaks Protein & Fruit Snack Bowls, Variety, 1.5 oz', 12, '10.99', 2, 1),
+    ('Applesauce','GoGo SqueeZ Applesauce Variety Pack (3.2 oz. pouches)', 24, '10.98', 2, 2),   
+    ('Frito Lay Chips','Frito Lay Classic Mix, Variety Pack', 30, '13.99', 2, 1),
+    ('Goldfish','Pepperidge Farm Goldfish Crackers, Cheddar, 1 oz', 45, '11.99', 2, 1),
+    ('PopCorners', 'PopCorners Popped-Corn Snack, Variety Pack, 1 oz', 28, '10.49', 2, 1),
+    ('Skinny Pop','Skinny Pop Popcorn, 0.65 oz', 28, '14.49', 2, 1),
+    ('Gardetto"s', 'Gardetto"s Snack Mix, Original, 1.75 oz', 42, '13.99', 2, 1),    
+    ('Pringles Chips','Pringles Grab & Go Potato Chips, Variety Pack', 36, '16.99', 2, 1);
+
+//add breakfast
+INSERT INTO item (item_name, item_desc, item_qty, item_price, category_id, store_id)
+VALUES  
+    ('Double Chocolate Muffin','Costco Double Chocolate Jumbo Muffins', 12, '7.99', 3, 1),
+    ('Blueberry Muffin','Costco Blueberry Muffins', 12, '7.99', 3, 1),
+    ('Apple Crumble Muffin', 'Costco Apple Crumble Muffins', 12, '7.99', 3, 1),
+    ('Breakfast Burrito','Don Miguel Breakfast Burritos, Eggs, Sausage & Cheese, 7 oz', 12, '15.49', 3, 1),
+    ('Pop Tart', 'Pop-Tarts Pastry, Frosted Strawberry', 36, '7.99', 3, 1),    
+    ('Donut','Glazed Donuts Fresh Baked', 12, '9.99', 3, 3);
+
+//add lunch
+INSERT INTO item (item_name, item_desc, item_qty, item_price, category_id, store_id)
+VALUES  
+    ('Pepperoni Pizza','Costco Pepperoni Pizza ', 12, '9.99', 3, 1),
+    ('Cheese Pizza','Costco Cheese Pizza', 12, '9.99', 3, 1),
+    ('Hot Dog', 'Beef Hot Dogs, 2 oz, and Buns', 36, '12.99', 3, 1),
+    ('Cup of Noodle','Nissin Cup Noodles Flavored Soup, Chicken, 2.5 oz', 24, '9.96', 3, 1),
+    ('Mac and Cheese', 'Kraft Macaroni & Cheese Dinner Micro Cup, 2.05 oz', 12, '9.79', 3, 1),    
+    ('Chicken and Swiss Wrap','Costco Chicken and Swiss Cheese in Tortilla Wraps', 48, '29.99', 3, 1);
+
+
+//and add brand column to the event table
+ALTER TABLE event
+ADD COLUMN event_name VARCHAR(300);
+
+//add duration and number of participants to the event table
+ALTER TABLE event
+ADD COLUMN event_duration INT,
+ADD COLUMN event_participants INT;
+
+//update the event table
+UPDATE event
+SET event_duration = 2,
+    event_participants = 250
+WHERE event_id = 1;
+
+UPDATE event
+SET event_duration = 2,
+    event_participants = 175
+WHERE event_id = 2;
+
+UPDATE event
+SET event_duration = 2,
+    event_participants = 200
+WHERE event_id = 3;
+
+
+//add event
+INSERT INTO event (event_date, event_name) 
+VALUES 
+    ('2019-11-25','SEMS Intrasquad'),
+    ('2020-01-25','SEMS Winter Invitational');
+
+
+//add brands
+INSERT INTO brands (brand_name, store_id)
+VALUES
+    ('Kirkland', 1),
+    ('Member"s Mark', 2);
+
+INSERT INTO brands (brand_name)
+VALUES
+    ('La Croix'),
+    ('Starbucks');
+
+//Deleted brands_id column from item table
+ALTER TABLE item
+DROP COLUMN brand_id;
+
+//Delete brands table
+DROP TABLE brands;
+
+
+
+
+
+
+
+
+
+
+
+
+//select all items from the category table joining item table based on a category type
+SELECT * FROM category AS c
+JOIN item AS i
+ON c.category_id = i.category_id
+WHERE c.category_id = 1;
+
+//Function to get a list of products based on the category
+//$products = getProductsByCategory($categoryName);
+function getProductsByCategory($categoryName) { 
+    $db = acmeConnection();
+    //use a SQL subquery to get products where we get the value to match with the categoryId
+    $sql = 'SELECT * FROM inventory WHERE categoryId IN (SELECT categoryId FROM categories WHERE categoryName = :categoryName)';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':categoryName', $categoryName, PDO::PARAM_STR);
+    $stmt->execute();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $products;
+}
+
+

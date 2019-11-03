@@ -37,5 +37,17 @@ INSERT INTO brands (
     brand_name  VARCHAR(255) NOT NULL,
     store_id    INTEGER REFERENCES store(store_id),
 );
+/* DELETED Brands Table on 11/3/19 */
 
+/* This table will establish the many-to-many relationship between item table and the category table*/
+CREATE TABLE item_category (
+    item_id         INTEGER REFERENCES item(item_id),   
+    category_id     INTEGER REFERENCES category(category_id)
+);
+
+/* This table will establish the many-to-many relationship between item table and the store table*/
+CREATE TABLE item_store (
+    item_id      INTEGER REFERENCES item(item_id),   
+    store_id     INTEGER REFERENCES store(store_id)
+);
 

@@ -25,7 +25,7 @@ require('dbconnect.php');
 //$db = get_db();
 try
 {
-	// Add the Scripture
+	// Add the item
 	// We do this by preparing the query with placeholder values
 	$query = 'INSERT INTO item(item_name, item_desc, item_price, item_qty) VALUES(:item_name, :item_desc, :item_price, :item_qty)';
 	$statement = $db->prepare($query);
@@ -41,12 +41,12 @@ try
 	// Now go through each category id in the list from the user's checkboxes
 	foreach ($category_ids as $category_id)
 	{
-		echo "item_id: $item_id, topic_id: $category_id";
+		echo "item_id: $item_id, category_id: $category_id";
 		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO category(item_id, category_id) VALUES(:item_id, :category_id)');
+		$statement = $db->prepare('INSERT INTO item_category(item_id, category_id) VALUES(:item_id, :category_id)');
 		// Then, bind the values
 		$statement->bindValue(':item_id', $item_id);
-		$statement->bindValue(':category_id', $item_id);
+		$statement->bindValue(':category_id', $category_id);
 		$statement->execute();
 	}
     // Now go through each store id in the list from the user's checkboxes
@@ -54,7 +54,7 @@ try
 	{
 		echo "item_id: $item_id, store_id: $store_id";
 		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO store(item_id, store_id) VALUES(:item_id, :store_id)');
+		$statement = $db->prepare('INSERT INTO item_store(item_id, store_id) VALUES(:item_id, :store_id)');
 		// Then, bind the values
 		$statement->bindValue(':item_id', $item_id);
 		$statement->bindValue(':store_id', $store_id);

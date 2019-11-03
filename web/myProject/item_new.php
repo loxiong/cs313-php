@@ -26,23 +26,22 @@ require("dbconnect.php");
         <h1>Enter New Item </h1>
         
             <form id="mainForm" action="item_insert.php" method="POST">
-                <label for="name">Book</label>
+                <label for="name">Name</label>
                 <input type="text" id="name" name="name">
                 <br /><br />
             
-                <label for="description">Content:</label><br />
+                <label for="description">Description:</label><br />
 	            <textarea id="description" name="description" rows="10" cols="100"></textarea>
 	            <br /><br />
                 
-                <label for="quantity">Chapter</label>
+                <label for="quantity">Quantity</label>
                 <input type="text" id="quantity" name="quantity">
                 <br /><br />
 
-	            <label for="price">Verse</label>
+	            <label for="price">Price</label>
                 <input type="text" id="price" name="price">
 	            <br /><br />
 
-	            
 
                 <label><h2>Category:</h2></label><br />
 

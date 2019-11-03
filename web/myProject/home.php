@@ -50,7 +50,9 @@ if (!isset($user)) {
                 </table>
                 <hr />
                 
-                <p><a href="event_form.php">Add Event</a></p>
+                <p><a href="event_form.php">Add New Event</a></p>
+                <p><a href="item_new.php">Add New Concession Item</a></p>
+                
             </div>
         </div>
     </body>

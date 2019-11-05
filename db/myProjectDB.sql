@@ -51,3 +51,11 @@ CREATE TABLE item_store (
     store_id     INTEGER REFERENCES store(store_id)
 );
 
+/* This table will establish the many-to-many relationship between item table and the event table*/
+CREATE TABLE item_event (
+    item_id      INTEGER REFERENCES item(item_id),   
+    event_id     INTEGER REFERENCES event(event_id)
+);
+
+/* DROP the NOT NULL constraint on the item_name column in item table */
+ALTER TABLE item ALTER COLUMN item_name DROP NOT NULL;

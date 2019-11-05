@@ -22,14 +22,14 @@ require("dbconnect.php");
     </head>
     
     <body>
-        <span>View Event</span>
+        <span>Create Menu</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
         <hr />
         
         <main>
             <div>
-            <h1>Instructions:  </h1>
+            <h1>Create a Concession Menu  </h1>
                 <p>
                     1) Select an event from the toggle menu
                     2) Choose (by checking the box) to add items to the event
@@ -39,25 +39,22 @@ require("dbconnect.php");
             
             <div>
             <label><h2>Events:</h2></label><br />
-            <?php
-                // need to generate a toggle menu to list the events
+                <?php
+                // need to generate check boxes for topics
                 // based on what is in the database
                 try
                 {
                     // Do not use "SELECT *" here. Only bring back the fields that you need.
                     // Prepare the statement
-                    $stmt = $db->prepare('SELECT event_id, event_date, event_name FROM event');
-                    $stmt->execute(array(":event_id" => $event));
-                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
+                    $stmt = $db->prepare('SELECT event_id, event_name FROM event');
+                    $stmt->execute();
                     // Go through each result
                     while ($rows = $stmt->fetch(PDO::FETCH_ASSOC))
                     {
                         $idEvent = $rows['event_id'];
-                        $dateEvent = $rows['event_date'];
                         $nameEvent = $rows['event_name'];
                         // make the value of the checkbox to be the id of the label
-                        echo "<input type='checkbox' name='checkboxCat[]' id='checkboxCat$idCat' value='$idCat'>";
+                        echo "<input type='checkbox' name='checkboxCat[]' id='checkboxCat$idEvent' value='$idEvent'>";
                         // Create unique id by using "checkbox" followed by the id, so that it becomes something like
                         // "checkbox1" and "checkbox2", etc.
                         echo "<label for='checkboxCat$idEvent'>$nameEvent</label><br />";
@@ -73,7 +70,6 @@ require("dbconnect.php");
                     die();
                 }
                 ?>
-                    <br />
             </div>
             
             <div>

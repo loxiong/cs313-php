@@ -1,6 +1,6 @@
 <?php
 /**********************************************************
-* File: signin.php
+* File: signIn.php
 * Author: Br. Burton
 * 
 * Description: This page has a form for the user to sign in.
@@ -55,6 +55,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 // If we get to this point without having redirected, then it means they
 // should just see the login form.
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

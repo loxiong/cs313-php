@@ -15,11 +15,21 @@ main, header{
     margin: 0 auto; /* centers the page */
 }
 
-span, h1, h2, h3 {
-    font-family: 'Schoolbell', cursive;
-}
+span, h1, h2, h3 { font-family: 'Schoolbell', cursive; }
 
-span { font-size: 24px; }
+h1, h2, h3, h4, h5, h6{
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+    text-transform: capitalize;
+    font-weight: normal;
+    font-family: 'Arvo', serif;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1em; }
+
+span { font-size: 0.75em; }
 
 .button {
     border: solid 2px #999999;

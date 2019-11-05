@@ -30,6 +30,7 @@
                 <a href="./logout.php"><div>Logout</div></a>
             </tr>
         </table>
+        <hr />
         
         <div>
             <?php

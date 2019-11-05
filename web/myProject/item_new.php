@@ -32,6 +32,7 @@ require("dbconnect.php");
                 <a href="./logout.php"><div>Logout</div></a>
             </tr>
         </table>
+        <hr />
    
         <main>
         <h1>Enter New Item </h1>

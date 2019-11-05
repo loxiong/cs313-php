@@ -32,6 +32,7 @@ require("dbconnect.php");
                 <a href="./logout.php"><div>Logout</div></a>
             </tr>
         </table>
+        <hr />
         
         <main>
             <form id="mainForm" action="item_menu_insert.php" method="POST">

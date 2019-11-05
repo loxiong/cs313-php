@@ -23,6 +23,7 @@ require("dbconnect.php");
     </head>
     
     <body>
+        
         <table>
             <tr>
                 <span>List of All Concession Items</span>
@@ -30,6 +31,7 @@ require("dbconnect.php");
                 <a href="./logout.php"><div>Logout</div></a>
             </tr>
         </table>
+        <hr />
         
         <main>
             <h1>Concession Item Details Page</h1>

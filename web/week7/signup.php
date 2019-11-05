@@ -1,48 +1,44 @@
 <?php
-    /**
-     * SIGN UP PAGE
-     */
-    require("redirects.php");
-    // forceSSL();
-    $registerFailed = ($_SESSION["register-fail"] == "true");
+/**********************************************************
+* File: register.php
+* Author: Br. Burton
+* 
+* Description: Allows a user to enter a new username
+*   and password to add to the DB.
+*
+* It posts to a file called "createAccount.php"
+*   which does the actual creation.
+*
+***********************************************************/
 ?>
-
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <title>CS 313 | Register</title>
-        <meta charset="UTF-8" />
-    </head>
-    <body>
-        <form method="post">
-            <label class="u-error">
-                Invalid username and/or password
-            </label>
-            <br />
-            Username: <input type="text" name="username" />
-            <label class="u-error">
-                **
-            </label>
-            <br />
-            Password: <input type="password" name="password" />
-            <label class="u-error">
-                **
-            </label>
-            <br />
-            Confirm password: <input type="password" name="confirm" />
-            <label class="u-error">
-                **
-            </label>
-            <br />
-            <input type="submit" formaction="action-register.php" value="Sign Up" />
-        </form>
-        <script type="application/javascript" src="register.js"></script>
-    </body>
+<html>
+<head>
+	<title>Sign Up</title>
+</head>
+
+<body>
+<div>
+
+<h1>Sign up for new account</h1>
+
+<form id="mainForm" action="createAccount.php" method="POST">
+
+	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
+	<label for="txtUser">Username</label>
+	<br /><br />
+
+	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+	<label for="txtPassword">Password</label>
+	<br /><br />
+
+	<input type="submit" value="Create Account" />
+
+</form>
+
+
+</div>
+
+</body>
 </html>
 
-<?php
-    // this section resets the "fail" flag(s) so that if the user
-    // refreshes the page, then any previous error messages will
-    // not render
-    resetFailFlags();
-?>

@@ -1,17 +1,37 @@
 <?php
     /**
-     * SIGN UP PAGE
+     * SIGN IN PAGE
      */
     require("redirects.php");
     // forceSSL();
-    $registerFailed = ($_SESSION["register-fail"] == "true");
+    checkLoginAndRedirect();
+    $loginFailed = ($_SESSION["login-fail"] == "true");
 ?>
 
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>CS 313 | Register</title>
+        <title>CS 313 | Sign In</title>
         <meta charset="UTF-8" />
+        <style>
+            .u-error {
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+        <?php if ($loginFailed): ?>
+            <style>
+                .u-error {
+                    visibility: visible;
+                }
+            </style>
+        <?php else: ?>
+            <style>
+                .u-error {
+                    visibility: hidden;
+                }
+            </style>
+        <?php endif; ?>
     </head>
     <body>
         <form method="post">
@@ -29,14 +49,9 @@
                 **
             </label>
             <br />
-            Confirm password: <input type="password" name="confirm" />
-            <label class="u-error">
-                **
-            </label>
-            <br />
-            <input type="submit" formaction="action-register.php" value="Sign Up" />
+            <input type="submit" formaction="action-login.php" value="Sign In" />
+            <input type="submit" formaction="sign.php" value="Sign Up" />
         </form>
-        <script type="application/javascript" src="register.js"></script>
     </body>
 </html>
 

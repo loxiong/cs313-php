@@ -19,7 +19,7 @@ if (!isset($user)) {
             <div>
                 <table>
                 <tr>
-                    <td><span>Home</span><td>
+                    <td><span>Concession Summary</span><td>
                     <td>
                         <a href="./logout.php"><div>Logout</div></a>
                     </td>

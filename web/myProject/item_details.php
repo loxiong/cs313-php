@@ -41,6 +41,8 @@ require("dbconnect.php");
                 echo "<p><strong>$item_name - </strong> $item_desc / $item_qty / $$item_price </p>";
             }
             ?>
+            
+            <h3><a href="home.php">Return To "Concession Summary"</a></h3>
         </main>
     </body>
     

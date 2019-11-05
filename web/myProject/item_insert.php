@@ -69,7 +69,7 @@ catch (Exception $ex)
 	die();
 }
 // finally, redirect user to a itemList.php page to see all the item listings
-header("Location: itemList.php");
+header("Location: item_details.php");
 die(); 
 ?>
 

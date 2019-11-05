@@ -1,6 +1,6 @@
 <?php
 /**********************************************************
-* File: signIn.php
+* File: signin.php
 * Author: Br. Burton
 * 
 * Description: This page has a form for the user to sign in.

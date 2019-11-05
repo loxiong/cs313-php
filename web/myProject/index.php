@@ -1,20 +1,14 @@
+/**********************************************************
+* File: index.php
+* Description: This page has a form for the user to sign in.
+***********************************************************
+/
 <?php
     session_start();
-    require("redirects.php");
-    $user = $_SESSION["user"];
-    $name = $_SESSION["name"];
-    if (isset($user)) {
-        loginSuccess($user, $name);
-    }
-    $valid = $_SESSION["valid-credentials"];
-    if (isset($valid) || !empty($valid)) {
-        $valid = htmlspecialchars(trim($valid));
-        if ($valid === "false") {
-            $valid = false;
-        }
-    } else {
-        $valid = null;
-    }
+    require("login.php");
+    $username = $_POST['username'];
+	$password = $_POST['password'];
+    require("dbconnect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -38,18 +32,20 @@
                     <?php endif; ?>
                     <tr>
                         <td>Username</td>
-                        <td><input type="text" name="username" class="u-input-text" /></td>
+                        <td><input type="text" id="username" name="username" placeholder="Username"/></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" class="u-input-text" /></td>
+                        <td><input type="password" id="password" name="password" placeholder="Password" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="button" value="Log In" formaction="login.php" />
+                            <input type="submit" class="button" value="Sign In" formaction="login.php" />
                         </td>
                     </tr>
                     </table>
+                        
+                    <p>Or <a href="signup.php">Sign up</a> for a new account. </p>
                     </form>
                 </div>
         </body>

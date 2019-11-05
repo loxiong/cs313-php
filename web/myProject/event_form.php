@@ -20,12 +20,18 @@ require("dbconnect.php");
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Add event to database table">        
         <title>Event Form</title>
+        
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     
     <body>
-        <span>Add New Event</span>
+        <table>
+            <tr>
+                <span>Add New Event</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
+            </tr>
+        </table>
         <hr />
         
         <main>
@@ -48,7 +54,7 @@ require("dbconnect.php");
                 <input type="text" name="event_participants" id="event_participants">
                 <br /><br />
                 
-                <input type="submit" value="Enter New Event" />
+                <input type="submit" class="button" value="Enter New Event" />
             </form>
             
         </main>

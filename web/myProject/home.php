@@ -11,7 +11,8 @@ if (!isset($user)) {
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Database | Home</title>
+        <title>Summary | Home</title>
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
         <div>
@@ -42,8 +43,8 @@ if (!isset($user)) {
                         <td style="display: none;">
                             <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
                         </td>
-                        <td><button type="submit" formaction="event_details.php">View Details</button></td>
-                        <td><button type="submit" formaction="item_to_event.php">Create Menu</button></td>
+                        <td><button type="submit" class="button" formaction="event_details.php">View Details</button></td>
+                        <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
                         <td><?php echo($name); ?></td>
                     </form>
                     </tr>

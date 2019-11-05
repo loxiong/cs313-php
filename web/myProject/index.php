@@ -20,6 +20,7 @@
 <html lang="en-US">
     <head>
         <title>Database | Login</title>
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
         <body>
                 <div>
@@ -45,7 +46,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" value="Log In" formaction="login.php" />
+                            <input type="submit" class="button" value="Log In" formaction="login.php" />
                         </td>
                     </tr>
                     </table>

@@ -18,13 +18,18 @@ require("dbconnect.php");
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Week 5 Team Activity">        
         <title>Concession Item Details Page</title>
+        
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     
     <body>
-        <span>List of All Concession Items</span>
+        <table>
+            <tr>
+                <span>List of All Concession Items</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
-        <hr />
+            </tr>
+        </table>
         
         <main>
             <h1>Concession Item Details Page</h1>

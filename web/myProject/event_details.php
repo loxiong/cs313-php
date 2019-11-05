@@ -17,14 +17,21 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Database | Home</title>
+        <title>Event Details</title>
+        
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
-        <div>
-            <span>View Event</span>
+        
+        <table>
+            <tr>
+                <span>View Event Details</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
-            <hr />
+            </tr>
+        </table>
+        
+        <div>
             <?php
                 $stmt = $db->prepare("SELECT * FROM event WHERE event_id=:event_id");
                 $stmt->execute(array(":event_id" => $event));

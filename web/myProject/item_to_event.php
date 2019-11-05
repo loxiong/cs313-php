@@ -19,13 +19,19 @@ require("dbconnect.php");
     <head>
         <title>Create Concession Menu for Event</title>
         <meta name="description" content="Week 06 Project Continue - add item to event">
+        
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     
     <body>
-        <span>Create Menu</span>
+        
+        <table>
+            <tr>
+                <span>Plan a Menu</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
-        <hr />
+            </tr>
+        </table>
         
         <main>
             <form id="mainForm" action="item_menu_insert.php" method="POST">
@@ -109,7 +115,7 @@ require("dbconnect.php");
                     <br />
             </div>
            
-            <input type="submit" value="Create Menu" />
+            <input type="submit" class="button" value="Create Menu" />
             </form>
 
         </main>

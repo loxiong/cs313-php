@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Schoolbell&display=swap');
+
+* { box-sizing: border-box; } 
+
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    padding: 0% 10px;
+    margin-top: 20px;
+}
+
+main, header{
+    max-width: 1213px; /* from the sample screenshot, in Photoshop, use the marquee to highlight the page adn view its size */
+    margin: 0 auto; /* centers the page */
+}
+
+span, h1, h2, h3 {
+    font-family: 'Schoolbell', cursive;
+}
+
+span { font-size: 24px; }
+
+.button {
+    border: solid 2px #999999;
+    background-color: lightblue;
+    text-align: center;
+    padding: 3px;
+    margin: 3px;
+}
+
+form, div {
+    margin: 0 auto;
+    padding: 5px;
+}

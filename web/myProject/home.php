@@ -6,6 +6,7 @@
 *  if it does not.
 ***********************************************************/
 session_start();
+require("redirects.php");
 if (isset($_SESSION['username']))
 {
 	$username = $_SESSION['username'];
@@ -15,6 +16,12 @@ else
 	header("Location: index.php");
 	die(); // we always include a die after redirects.
 }
+require("dbconnect.php");
+//$username = $_SESSION["user"];
+//$name = $_SESSION["username"];
+if (!isset($user)) {
+    loginRedirect();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -22,7 +29,7 @@ else
         <title>Summary | Home</title>
         <!--reset.css will remove all the browser's default styles-->
         <link href="css/reset.css" rel="stylesheet" type="text/css">
-        <link href="css/styles.css" rel="stylesheet" type="text/css"> 
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
         <div>
@@ -30,7 +37,7 @@ else
             <div>
                 <table>
                 <tr>
-                    <td><span>Concession Summary</span></td>
+                    <td><span>Concession Summary</span><td>
                     <td>
                         <a href="./logout.php"><div>Logout</div></a>
                     </td>
@@ -38,7 +45,7 @@ else
                 </table>
                 <hr />
                 
-                Welcome, <?= $username ?>!<br />
+                Welcome, <?php echo($username); ?>!<br />
                 Please select the event to view:<br />
                 <table>
                 <?php
@@ -55,7 +62,6 @@ else
                         </td>
                         <td><button type="submit" class="button" formaction="event_details.php">View Details</button></td>
                         <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
-                        <td><?php echo($name); ?></td>
                     </form>
                     </tr>
                 <?php endforeach; ?>

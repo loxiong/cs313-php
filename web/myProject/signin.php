@@ -55,11 +55,12 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 // If we get to this point without having redirected, then it means they
 // should just see the login form.
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Sign In</title>
+    <!--reset.css will remove all the browser's default styles-->
+        <link href="css/reset.css" rel="stylesheet" type="text/css"> 
 </head>
 
 <body>

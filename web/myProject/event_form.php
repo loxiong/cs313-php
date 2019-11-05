@@ -20,7 +20,8 @@ require("dbconnect.php");
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Add event to database table">        
         <title>Event Form</title>
-        
+        <!--reset.css will remove all the browser's default styles-->
+        <link href="css/reset.css" rel="stylesheet" type="text/css"> 
         <link href="css/styles.css" rel="stylesheet">  
     </head>
     

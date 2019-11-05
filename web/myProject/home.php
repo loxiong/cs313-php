@@ -20,7 +20,9 @@ else
 <html lang="en-US">
     <head>
         <title>Summary | Home</title>
-        <link href="css/styles.css" rel="stylesheet">  
+        <link href="css/styles.css" rel="stylesheet"> 
+        <!--reset.css will remove all the browser's default styles-->
+        <link href="css/reset.css" rel="stylesheet" type="text/css"> 
     </head>
     <body>
         <div>

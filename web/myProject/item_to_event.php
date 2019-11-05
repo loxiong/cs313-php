@@ -19,7 +19,8 @@ require("dbconnect.php");
     <head>
         <title>Create Concession Menu for Event</title>
         <meta name="description" content="Week 06 Project Continue - add item to event">
-        
+        <!--reset.css will remove all the browser's default styles-->
+        <link href="css/reset.css" rel="stylesheet" type="text/css"> 
         <link href="css/styles.css" rel="stylesheet">  
     </head>
     

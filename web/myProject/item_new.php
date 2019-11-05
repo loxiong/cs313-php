@@ -19,7 +19,8 @@ require("dbconnect.php");
     <head>
         <title>Add New Item</title>
         <meta name="description" content="Week 06 Project Continue - add new item to database">
-        
+        <!--reset.css will remove all the browser's default styles-->
+        <link href="css/reset.css" rel="stylesheet" type="text/css"> 
         <link href="css/styles.css" rel="stylesheet">  
     </head>
     

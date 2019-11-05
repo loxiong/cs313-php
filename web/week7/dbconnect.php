@@ -1,6 +1,6 @@
 <?php
 /**********************************************************
-* File: dbConnect.php
+* File: dbconnect.php
 * Author: Br. Burton
 * 
 * Description: Shows how to connect using either local

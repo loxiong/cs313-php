@@ -28,6 +28,7 @@ require("dbconnect.php");
         <hr />
         
         <main>
+            <form id="mainForm" action="item_menu_insert.php" method="POST">
             <div>
             <h1>Create a Concession Menu  </h1>
                 <p>
@@ -107,8 +108,9 @@ require("dbconnect.php");
                 ?>
                     <br />
             </div>
-            
-            <button type="submit" formaction="item_menu_insert.php">Create Menu</button>
+           
+            <input type="submit" value="Create Menu" />
+            </form>
 
         </main>
 

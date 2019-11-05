@@ -1,6 +1,6 @@
 <?php
 /**********************************************************
-* File: singup.php
+* File: register.php
 * Author: Br. Burton
 * 
 * Description: Allows a user to enter a new username

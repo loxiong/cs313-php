@@ -14,6 +14,7 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
     $confirm = $_POST["confirm"];
+    
     // check if valid
     $PASSWORD_MIN_LENGTH = 7;
     $PASSWORD_MAX_LENGTH = 124;

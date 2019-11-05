@@ -8,10 +8,17 @@
 *
 * The user is then redirected to the signIn.php page.
 *
+* CREATE TABLE week7_user (
+    id          SERIAL PRIMARY KEY,
+    username    VARCHAR(255) NOT NULL UNIQUE,
+    password    VARCHAR(255) NOT NULL
+);
+*
 ***********************************************************/
 // If you have an earlier version of PHP (earlier than 5.5)
 // You need to download and include password.php.
-//require("password.php");
+// require("password.php");
+
 // get the data from the POST
 $username = $_POST['txtUser'];
 $password = $_POST['txtPassword'];
@@ -21,15 +28,16 @@ if (!isset($username) || $username == ""
 	header("Location: signup.php");
 	die(); // we always include a die after redirects.
 }
-// Let's not allow HTML in our usernames. It would be best to also detect this before
-// submitting the form and preven the submission.
+
+// sanitize input
 $username = htmlspecialchars($username);
 // Get the hashed password.
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
 // Connect to the database
 require("dbconnect.php");
 $db = get_db();
-$query = 'INSERT INTO login(username, password) VALUES(:username, :password)';
+$query = 'INSERT INTO week7_user(username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 // **********************************************

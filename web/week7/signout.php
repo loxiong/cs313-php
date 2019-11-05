@@ -1,6 +1,6 @@
 <?php
 /**********************************************************
-* File: signOut.php
+* File: signout.php
 * Author: Br. Burton
 * 
 * Description: Clears the username from the session if there.

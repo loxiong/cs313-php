@@ -66,12 +66,12 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 
             <form id="mainForm" action="signin.php" method="POST">
 
-                <input type="text" id="txtUser" name="txtUser" placeholder="Username">
                 <label for="txtUser">Username</label>
+                <input type="text" id="txtUser" name="txtUser" placeholder="Username">
                 <br /><br />
 
-                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
                 <label for="txtPassword">Password</label>
+                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
                 <br /><br />
 
                 <input type="submit" value="Sign In" />

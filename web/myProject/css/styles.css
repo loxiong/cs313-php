@@ -26,12 +26,14 @@ span { font-size: 24px; }
 .button {
     border: solid 2px #999999;
     background-color: lightblue;
+    width: 24px;
+    font-family: 'Quicksand', sans-serif;
     text-align: center;
     padding: 3px;
     margin: 3px;
 }
 
-form, div {
+body, form, div {
     margin: 0 auto;
     padding: 5px;
 }

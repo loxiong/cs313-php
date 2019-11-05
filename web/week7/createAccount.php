@@ -37,7 +37,7 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 // Connect to the database
 require("dbconnect.php");
 $db = get_db();
-$query = 'INSERT INTO week7_user(username, password) VALUES(:username, :password)';
+$query = 'INSERT INTO fakepeople (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 // **********************************************

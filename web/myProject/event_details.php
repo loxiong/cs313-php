@@ -47,7 +47,7 @@
                 <p>Estimated Number of Participants: <?php echo ($people); ?> swimmers</p>
                 <h2>Concession Menu</h2>
                 <p>TO DO: Concession Menu will populate here with the option to add/delete items.</p>
-                <p><a href="itemList.php">See All Concesssion Items</a></p>
+                <p><a href="item_details.php">See All Concesssion Items</a></p>
             
         
     

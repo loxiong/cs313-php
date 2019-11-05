@@ -23,8 +23,13 @@ require("dbconnect.php");
     </head>
     
     <body>
+        <span>Add New Event</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
+        <hr />
+        
         <main>
-            <h2>Add Event</h2>
+            <h2>Enter New Event Information</h2>
             
             <form action="event_insert.php" method="POST">
                 <label for="event_date">Event Date</label>

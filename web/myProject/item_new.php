@@ -20,7 +20,12 @@ require("dbconnect.php");
         <title>Add New Item</title>
         <meta name="description" content="Week 06 Project Continue - add new item to database">
     </head>
+    
     <body>
+        <span>Add New Concession Item</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
+        <hr />
    
         <main>
         <h1>Enter New Item </h1>

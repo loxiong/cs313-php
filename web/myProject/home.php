@@ -43,6 +43,7 @@ if (!isset($user)) {
                             <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
                         </td>
                         <td><button type="submit" formaction="event_details.php">View Details</button></td>
+                        <td><button type="submit" formaction="item_to_event.php">Create Menu</button></td>
                         <td><?php echo($name); ?></td>
                     </form>
                     </tr>

@@ -21,6 +21,11 @@ require("dbconnect.php");
     </head>
     
     <body>
+        <span>List of All Concession Items</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
+        <hr />
+        
         <main>
             <h1>Concession Item Details Page</h1>
             <?php

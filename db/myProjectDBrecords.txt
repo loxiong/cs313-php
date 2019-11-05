@@ -125,6 +125,13 @@ DROP COLUMN brand_id;
 //Delete brands table
 DROP TABLE brands;
 
+//Deleted foreign key columns from item table
+ALTER TABLE item
+DROP COLUMN category_id;
+
+ALTER TABLE item
+DROP COLUMN store_id;
+
 
 
 

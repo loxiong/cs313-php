@@ -54,12 +54,10 @@ VALUES
     ('Light');
     
 /* This table will establish the many-to-many relationship between scriptures table and the topic table*/
-CREATE TABLE link (
+CREATE TABLE scripture_topic (
     scriptures_id   INTEGER REFERENCES scriptures(id),   
     topic_id        INTEGER REFERENCES topic(id)
 );
-
-ALTER TABLE link RENAME TO scripture_topic;
 
 /* How to query for specific book name by joining tables
  * Example:

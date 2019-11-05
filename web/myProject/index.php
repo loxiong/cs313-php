@@ -51,7 +51,8 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
         <link href="css/styles.css" rel="stylesheet">  
     </head>
         <body>
-            <h1>Concession Planner</h1>                   <span>Login</span>
+            <h1>Concession Planner</h1>                   
+            <span>Login</span>
             <hr />
             
             <div>

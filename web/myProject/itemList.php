@@ -25,7 +25,7 @@ require("dbconnect.php");
             <h1>Concession Item Details Page</h1>
             <?php
             //Prepare the statements
-            $statement = $db->prepare("SELECT item_name, item_desc, item_qty, item_price, category_id, store_id FROM item");
+            $statement = $db->prepare("SELECT item_name, item_desc, item_qty, item_price FROM item");
             $statement->execute();
             // Go through each result
             while ($row = $statement->fetch(PDO::FETCH_ASSOC))

@@ -54,10 +54,10 @@ require("dbconnect.php");
                         $idEvent = $rows['event_id'];
                         $nameEvent = $rows['event_name'];
                         // make the value of the checkbox to be the id of the label
-                        echo "<input type='checkbox' name='checkboxCat[]' id='checkboxCat$idEvent' value='$idEvent'>";
+                        echo "<input type='checkbox' name='checkboxE[]' id='checkboxE$idEvent' value='$idEvent'>";
                         // Create unique id by using "checkbox" followed by the id, so that it becomes something like
                         // "checkbox1" and "checkbox2", etc.
-                        echo "<label for='checkboxCat$idEvent'>$nameEvent</label><br />";
+                        echo "<label for='checkboxE$idEvent'>$nameEvent</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";
                     }
@@ -89,10 +89,10 @@ require("dbconnect.php");
                         $idItem = $rows['item_id'];
                         $nameItem = $rows['item_name'];
                         // make the value of the checkbox to be the id of the label
-                        echo "<input type='checkbox' name='checkboxSt[]' id='checkboxSt$idItem' value='$idItem'>";
+                        echo "<input type='checkbox' name='checkboxI[]' id='checkboxI$idItem' value='$idItem'>";
                         // Create unique id by using "checkbox" followed by the id, so that it becomes something like
                         // "checkbox1" and "checkbox2", etc.
-                        echo "<label for='checkboxSt$idItem'>$nameItem</label><br />";
+                        echo "<label for='checkboxI$idItem'>$nameItem</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";
                     }
@@ -108,7 +108,7 @@ require("dbconnect.php");
                     <br />
             </div>
             
-            <button type="submit" formaction="item_processing.php">Create Menu</button>
+            <button type="submit" formaction="item_menu_insert.php">Create Menu</button>
 
         </main>
 

@@ -22,6 +22,25 @@ Error with DB. Details: PDOException: SQLSTATE[23502]: Not null violation: 7 ERR
 Error with DB. Details: PDOException: SQLSTATE[23502]: Not null violation: 7 ERROR: null value in column "item_name" violates not-null constraint DETAIL: Failing row contains (32, null, TEST TESTING Testing Again, 5.00, null, null, 20). in /app/web/myProject/item_insert.php:38 Stack trace: #0 /app/web/myProject/item_insert.php(38): PDOStatement->execute() #1 {main}
 
 
+11/04/2019 DROPED the "NOT NULL" constraint in the item_name column in the item table
+
+Table "public.item"
+   Column   |          Type          | Collation | Nullable |                Default
+------------+------------------------+-----------+----------+---------------------------------------
+ item_id    | integer                |           | not null | nextval('item_item_id_seq'::regclass)
+ item_name  | character varying(100) |           |          |
+ item_desc  | text                   |           |          |
+ item_price | numeric(10,2)          |           | not null |
+ item_qty   | integer                |           |          |
+Indexes:
+    "item_pkey" PRIMARY KEY, btree (item_id)
+Referenced by:
+    TABLE "event" CONSTRAINT "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    TABLE "item_category" CONSTRAINT "item_category_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    TABLE "item_store" CONSTRAINT "item_store_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    
+    
+
 11/04/2019 DELETED FOREIGN KEYS from ITEM TABLE. Now the table looks like this: 
 
  Table "public.item"

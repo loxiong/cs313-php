@@ -24,12 +24,12 @@
 
 <form id="mainForm" action="createAccount.php" method="POST">
 
-	<input type="text" id="username" name="username" placeholder="Username">
-	<label for="username">Username</label>
+	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
+	<label for="txtUser">Username</label>
 	<br /><br />
 
-	<input type="password" id="password" name="password" placeholder="password">
-	<label for="password">Password</label>
+	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+	<label for="txtPassword">Password</label>
 	<br /><br />
 
 	<input type="submit" value="Create Account" />

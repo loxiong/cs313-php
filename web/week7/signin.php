@@ -55,7 +55,6 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 // If we get to this point without having redirected, then it means they
 // should just see the login form.
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

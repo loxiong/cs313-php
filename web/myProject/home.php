@@ -1,11 +1,19 @@
 <?php
+/**********************************************************
+* File: home.php
+* Description: This is the home page. It checks that a user
+*  exists on the session and redirects to the login page
+*  if it does not.
+***********************************************************/
 session_start();
-require("redirects.php");
-require("dbconnect.php");
-$user = $_SESSION["user"];
-$name = $_SESSION["username"];
-if (!isset($user)) {
-    loginRedirect();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+}
+else
+{
+	header("Location: index.php");
+	die(); // we always include a die after redirects.
 }
 ?>
 <!DOCTYPE html>
@@ -28,7 +36,7 @@ if (!isset($user)) {
                 </table>
                 <hr />
                 
-                Welcome, <?php echo($name); ?>!<br />
+                Welcome, <?= $username ?>!<br />
                 Please select the event to view:<br />
                 <table>
                 <?php

@@ -18,7 +18,6 @@ else
 	die(); // we always include a die after redirects.
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

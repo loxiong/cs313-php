@@ -8,7 +8,7 @@
 *
 * The user is then redirected to the signIn.php page.
 *
-* CREATE TABLE fakepeople (
+* CREATE TABLE week7_user (
     id          SERIAL PRIMARY KEY,
     username    VARCHAR(255) NOT NULL UNIQUE,
     password    VARCHAR(255) NOT NULL
@@ -20,8 +20,8 @@
 // require("password.php");
 
 // get the data from the POST
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['txtUser'];
+$password = $_POST['txtPassword'];
 if (!isset($username) || $username == ""
 	|| !isset($password) || $password == "")
 {
@@ -37,7 +37,7 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 // Connect to the database
 require("dbconnect.php");
 $db = get_db();
-$query = 'INSERT INTO concession_user (username, password) VALUES(:username, :password)';
+$query = 'INSERT INTO fakepeople (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 // **********************************************

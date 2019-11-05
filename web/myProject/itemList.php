@@ -1,7 +1,14 @@
-<!--WEEK 05 - INDIVIDUAL ASSIGNMENT
-----PHP DATA ACCESS--------------->
+<!------PHP data/Content Detailes--------------->
 <?php
+session_start();
+require("redirects.php");
+$user = $_SESSION["user"];
+$name = $_SESSION["first_name"];
+if (!isset($user)) {
+    loginRedirect();
+}
 require("dbconnect.php");
+//$db = get_db();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -26,8 +26,8 @@ require("dbconnect.php");
         <h1>Enter New Item </h1>
         
             <form id="mainForm" action="item_insert.php" method="POST">
-                <label for="name">Product Name</label>
-                <input type="text" id="name" name="name">
+                <label for="item_name">Product Name</label>
+                <input type="text" id="item_name" name="item_name">
                 <br /><br />
             
                 <label for="description">Description:</label><br />

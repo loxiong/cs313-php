@@ -7,7 +7,7 @@
 -->
 <?
 // get the data from the POST
-$name = $_POST['name'];
+$item_name = $_POST['item_name'];
 $description = $_POST['description'];
 $quantity = $_POST['quantity'];
 $price = $_POST['price'];
@@ -31,7 +31,7 @@ try
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':item_name', $name);
+	$statement->bindValue(':item_name', $item_name);
 	$statement->bindValue(':item_desc', $description);
 	$statement->bindValue(':item_price', $price);
 	$statement->bindValue(':item_qty', $quantity);
@@ -72,3 +72,4 @@ catch (Exception $ex)
 header("Location: itemList.php");
 die(); 
 ?>
+

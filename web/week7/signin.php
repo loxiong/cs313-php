@@ -26,7 +26,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	// Connect to the DB
 	require("dbconnect.php");
 	$db = get_db();
-	$query = 'SELECT password FROM week7_user WHERE username=:username';
+	$query = 'SELECT password FROM fakepeople WHERE username=:username';
 	$statement = $db->prepare($query);
 	$statement->bindValue(':username', $username);
 	$result = $statement->execute();

@@ -1,4 +1,8 @@
 <?php
+/**********************************************************
+* File: index.php (the sign in page)
+* Description: This page has a form for the user to sign in.
+***********************************************************/
     session_start();
     require("redirects.php");
     $user = $_SESSION["user"];
@@ -20,6 +24,7 @@
 <html lang="en-US">
     <head>
         <title>Database | Login</title>
+        <link href="css/styles.css" rel="stylesheet"> 
     </head>
         <body>
                 <div>
@@ -41,11 +46,11 @@
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password"  /></td>
+                        <td><input type="password" name="password" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" value="Log In" formaction="login.php" />
+                            <input type="submit" class="button" value="Log In" formaction="login.php" />
                         </td>
                     </tr>
                     </table>

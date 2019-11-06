@@ -18,3 +18,12 @@ console.log(lines)
 // var file = fs.readFileSync(process.argv[2]);
 // var str = file.toString();
 // console.log(str.split(/\r\n|\r|\n/).length-1);
+
+const fs = require('fs');
+
+file = fs.readFileSync(process.argv[2]);
+
+var str = file.toString();
+
+console.log(str.split(/\r\n|\r|\n/).length-1);
+

@@ -59,3 +59,7 @@ require("redirects.php");
                 </div>
         </body>
 </html>
+<?php
+    $_SESSION["valid-credentials"] = null;
+    $valid = null;
+?>

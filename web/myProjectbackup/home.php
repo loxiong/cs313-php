@@ -1,4 +1,10 @@
 <?php
+/**********************************************************
+* File: home.php
+* Description: This is the home page. It checks that a user
+*  exists on the session and redirects to the login page
+*  if it does not.
+***********************************************************/
 session_start();
 require("redirects.php");
 require("dbconnect.php");
@@ -12,6 +18,7 @@ if (!isset($user)) {
 <html lang="en-US">
     <head>
         <title>Database | Home</title>
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
         <div>
@@ -19,7 +26,7 @@ if (!isset($user)) {
             <div>
                 <table>
                 <tr>
-                    <td><span>Home</span><td>
+                    <td><span>Concession Summary</span><td>
                     <td>
                         <a href="./logout.php"><div>Logout</div></a>
                     </td>
@@ -50,7 +57,9 @@ if (!isset($user)) {
                 </table>
                 <hr />
                 
-                <p><a href="event_form.php">Add Event</a></p>
+                <p><a href="event_form.php">Add New Event</a></p>
+                <p><a href="item_new.php">Add New Concession Item</a></p>
+                
             </div>
         </div>
     </body>

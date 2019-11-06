@@ -6,7 +6,7 @@
 *  if it does not.
 ***********************************************************/
 session_start();
-require("redirects.php");
+//require("redirects.php");
 if (isset($_SESSION['username']))
 {
 	$username = $_SESSION['username'];

@@ -64,7 +64,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
             ?>
             <h1>Please sign in below:</h1>
 
-            <form id="mainForm" action="index.php" method="POST">
+            <form id="mainForm" action="signin.php" method="POST">
 
                 <label for="txtUser">Username</label>
                 <input type="text" id="txtUser" name="txtUser" placeholder="Username">

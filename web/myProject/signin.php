@@ -1,19 +1,8 @@
 <?php
 /**********************************************************
-* File: signin.php
-* Author: Br. Burton
-* 
+* File: index.php (the sign in page)
 * Description: This page has a form for the user to sign in.
-*
-* In this case, to show another approach, we will have this
-* page have two purposes, it will have the form for signing
-* in, but it will also have the logic to check a username
-* and password and redirect the user to the home page if
-* everything checks out. Thus it will post to itself.
 ***********************************************************/
-// If you have an earlier version of PHP (earlier than 5.5)
-// You need to download and include password.php.
-//require("password.php"); // used for password hashing.
 session_start();
 $badLogin = false;
 // First check to see if we have post variables, if not, just

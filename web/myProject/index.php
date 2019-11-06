@@ -51,7 +51,7 @@ if (isset($valid) || !empty($valid)) {
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="button" value="Log In" formaction="login.php" />
+                            <input type="submit" class="button" value="Log In" formaction="home.php" />
                         </td>
                     </tr>
                     </table>

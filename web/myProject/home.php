@@ -17,6 +17,7 @@ else
 	header("Location: signin.php");
 	die(); // we always include a die after redirects.
 }
+require("dbconnect.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,19 +30,15 @@ else
     <div>
         <table>
             <tr>
-            <td><span>Concession Summary</span>
+                <span>Concession Summary</span>
                 <a href="./home.php"><div>Back</div></a>
-                <a href="./logout.php"><div>Logout</div></a>
-                <hr />
-            </td>
+                <a href="./signout.php"><div>Logout</div></a>
             </tr>
         </table>
         <hr />
 
         <h1>Welcome, <?= $username ?>!</h1>
 
-        Your username is: <br /><br />
-        
         Please select the event to view:<br />
                 <table>
                 <?php

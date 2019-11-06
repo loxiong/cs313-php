@@ -5,11 +5,14 @@
 -->
 <?
 session_start();
-require("redirects.php");
-$user = $_SESSION["user"];
-$name = $_SESSION["first_name"];
-if (!isset($user)) {
-    loginRedirect();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+}
+else
+{
+	header("Location: signin.php");
+	die(); // we always include a die after redirects.
 }
 require("dbconnect.php");
 //$db = get_db();

@@ -34,8 +34,8 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Connect to the database
 require("dbconnect.php");
-$db = get_db();
-$query = 'INSERT INTO fakepeople (username, password) VALUES(:username, :password)';
+//$db = get_db();
+$query = 'INSERT INTO concession_user (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 // **********************************************

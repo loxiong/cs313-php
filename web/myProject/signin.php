@@ -1,9 +1,4 @@
 <?php
-/**********************************************************
-* File: index.php (the sign in page)
-* Description: This page has a form for the user to sign in.
-***********************************************************/
-//require("password.php"); // used for password hashing.
 session_start();
 $badLogin = false;
 // First check to see if we have post variables, if not, just
@@ -79,13 +74,9 @@ if ($badLogin)
 
 <br /><br />
 
-Or <a href="register.php">Sign up</a> for a new account.
+Or <a href="signup.php">Sign up</a> for a new account.
 
 </div>
 
 </body>
 </html>
-<?php
-    $_SESSION["valid-credentials"] = null;
-    $valid = null;
-?>

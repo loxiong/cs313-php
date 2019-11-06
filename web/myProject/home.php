@@ -41,6 +41,10 @@ require("dbconnect.php");
         <h1>Welcome, <?= $username ?>!</h1>
 
         Please select the event to view:<br />
+        
+        <?php
+            echo "hello";
+            ?>
                 
                 
                 <p><a href="event_form.php">Add New Event</a></p>

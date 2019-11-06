@@ -11,14 +11,26 @@ require("dbconnect.php");
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Week 5 Team Activity">        
         <title>Concession Item Details Page</title>
+        
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     
     <body>
+        
+        <table>
+            <tr>
+                <span>List of All Concession Items</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
+            </tr>
+        </table>
+        <hr />
+        
         <main>
             <h1>Concession Item Details Page</h1>
             <?php
             //Prepare the statements
-            $statement = $db->prepare("SELECT item_name, item_desc, item_qty, item_price, category_id, store_id FROM item");
+            $statement = $db->prepare("SELECT item_name, item_desc, item_qty, item_price FROM item");
             $statement->execute();
             // Go through each result
             while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -34,6 +46,8 @@ require("dbconnect.php");
                 echo "<p><strong>$item_name - </strong> $item_desc / $item_qty / $$item_price </p>";
             }
             ?>
+            
+            <h3><a href="home.php">Return To "Concession Summary"</a></h3>
         </main>
     </body>
     

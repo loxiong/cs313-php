@@ -72,4 +72,3 @@ catch (Exception $ex)
 header("Location: item_details.php");
 die(); 
 ?>
-

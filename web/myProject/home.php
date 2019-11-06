@@ -1,7 +1,6 @@
 <?php
 /**********************************************************
 * File: home.php
-* Author: Br. Burton
 * 
 * Description: This is the home page. It checks that a user
 *  exists on the session and redirects to the login page
@@ -54,7 +53,7 @@ require("dbconnect.php");
                     <td style="display: none;">
                         <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
                     </td>
-                    <td><button type="submit" formaction="event_details.php">View Details</button></td>
+                    <td><button type="submit" class="button" formaction="event_details.php">View Details</button></td>
                     <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
                     <td><?php echo($name); ?></td>
                 </form>

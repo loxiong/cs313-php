@@ -7,12 +7,12 @@
 ***********************************************************/
 session_start();
 require("redirects.php");
+require("dbconnect.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["username"];
 if (!isset($user)) {
     loginRedirect();
 }
-require("dbconnect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -49,8 +49,7 @@ require("dbconnect.php");
                         <td style="display: none;">
                             <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
                         </td>
-                        <td><button type="submit" class="button" formaction="event_details.php">View Details</button></td>
-                        <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
+                        <td><button type="submit" formaction="event_details.php">View Details</button></td>
                         <td><?php echo($name); ?></td>
                     </form>
                     </tr>

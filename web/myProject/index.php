@@ -6,21 +6,20 @@
 session_start();
 require("redirects.php");
 //require("dbconnect.php");
-$user = $_SESSION["user"];
-$name = $_SESSION["name"];
-if (isset($user)) {
-    loginSuccess($user, $name);
-}
-$valid = $_SESSION["valid-credentials"];
-if (isset($valid) || !empty($valid)) {
-    $valid = htmlspecialchars(trim($valid));
-    if ($valid === "false") {
-        $valid = false;
+    $user = $_SESSION["user"];
+    $name = $_SESSION["name"];
+    if (isset($user)) {
+        loginSuccess($user, $name);
     }
-} else {
-    $valid = null;
-}
-
+    $valid = $_SESSION["valid-credentials"];
+    if (isset($valid) || !empty($valid)) {
+        $valid = htmlspecialchars(trim($valid));
+        if ($valid === "false") {
+            $valid = false;
+        }
+    } else {
+        $valid = null;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

@@ -21,4 +21,3 @@
     $name = $rows[0]["name"];
     loginSuccess($username, $name);
 ?>
-

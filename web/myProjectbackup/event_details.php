@@ -17,11 +17,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Database | Home</title>
+        <title>Event Details</title>
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
         <div>
-            <span>View Event</span>
+            <span>View Events</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
             <hr />

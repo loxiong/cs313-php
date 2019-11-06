@@ -33,7 +33,7 @@ $event = htmlspecialchars(trim($_POST["event_id"]));
             <tr>
                 <span>Plan a Menu</span>
                 <a href="./home.php"><div>Back</div></a>
-                <a href="./logout.php"><div>Logout</div></a>
+                <a href="./signout.php"><div>Logout</div></a>
             </tr>
         </table>
         <hr />

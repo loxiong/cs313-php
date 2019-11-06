@@ -30,7 +30,7 @@ require("dbconnect.php");
             <tr>
                 <span>Add New Event</span>
                 <a href="./home.php"><div>Back</div></a>
-                <a href="./logout.php"><div>Logout</div></a>
+                <a href="./signout.php"><div>Logout</div></a>
             </tr>
         </table>
         <hr />

@@ -1,4 +1,7 @@
 <?php
+/* 
+ * FILE: all event details
+ */
 session_start();
 if (isset($_SESSION['username']))
 {
@@ -22,7 +25,7 @@ $event = htmlspecialchars(trim($_POST["event_id"]));
         <div>
             <span>View Events</span>
                 <a href="./home.php"><div>Back</div></a>
-                <a href="./logout.php"><div>Logout</div></a>
+                <a href="./signout.php"><div>Logout</div></a>
             <hr />
             <?php
                 $stmt = $db->prepare("SELECT * FROM event WHERE event_id=:event_id");

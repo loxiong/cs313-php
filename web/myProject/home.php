@@ -5,7 +5,6 @@
 *  exists on the session and redirects to the login page
 *  if it does not.
 ***********************************************************/
-<?php
 session_start();
 require("redirects.php");
 require("dbconnect.php");

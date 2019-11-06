@@ -3,22 +3,22 @@
 * File: index.php (the sign in page)
 * Description: This page has a form for the user to sign in.
 ***********************************************************/
-    session_start();
-    require("redirects.php");
-    $user = $_SESSION["user"];
-    $name = $_SESSION["name"];
-    if (isset($user)) {
-        loginSuccess($user, $name);
+session_start();
+require("redirects.php");
+$user = $_SESSION["user"];
+$name = $_SESSION["name"];
+if (isset($user)) {
+    loginSuccess($user, $name);
+}
+$valid = $_SESSION["valid-credentials"];
+if (isset($valid) || !empty($valid)) {
+    $valid = htmlspecialchars(trim($valid));
+    if ($valid === "false") {
+        $valid = false;
     }
-    $valid = $_SESSION["valid-credentials"];
-    if (isset($valid) || !empty($valid)) {
-        $valid = htmlspecialchars(trim($valid));
-        if ($valid === "false") {
-            $valid = false;
-        }
-    } else {
-        $valid = null;
-    }
+} else {
+    $valid = null;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -42,11 +42,11 @@
                     <?php endif; ?>
                     <tr>
                         <td>Username</td>
-                        <td><input type="text" name="username"  /></td>
+                        <td><input type="text" name="username" class="u-input-text" /></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" /></td>
+                        <td><input type="password" name="password" class="u-input-text" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">

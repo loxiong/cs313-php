@@ -1,12 +1,16 @@
 <?php
-    session_start();
-    //require("redirects.php");
-    require('dbconnect.php');
-    $user = $_SESSION["user"];
-    if (!isset($user)) {
-        loginRedirect();
-    }
-    $event = htmlspecialchars(trim($_POST["event_id"]));
+session_start();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+}
+else
+{
+	header("Location: signin.php");
+	die(); // we always include a die after redirects.
+}
+require("dbconnect.php");  
+$event = htmlspecialchars(trim($_POST["event_id"]));
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

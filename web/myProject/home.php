@@ -26,9 +26,10 @@ if (!isset($user)) {
             <div>
                 <table>
                 <tr>
-                    <td><span>Concession Summary</span><td>
-                    <td>
+                    <td><span>Concession Summary</span>
+                        <a href="./home.php"><div>Back</div></a>
                         <a href="./logout.php"><div>Logout</div></a>
+                        <hr />
                     </td>
                 </tr>
                 </table>

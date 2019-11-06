@@ -24,14 +24,9 @@ if (!isset($user)) {
         <div>
 
             <div>
-                <table>
-                <tr>
-                    <td><span>Concession Summary</span><td>
-                    <td>
-                        <a href="./logout.php"><div>Logout</div></a>
-                    </td>
-                </tr>
-                </table>
+                <td><span>Concession Summary</span><td>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
                 <hr />
                 
                 Welcome, <?php echo($name); ?>!<br />

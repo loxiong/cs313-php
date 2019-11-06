@@ -3,61 +3,87 @@
 * File: index.php (the sign in page)
 * Description: This page has a form for the user to sign in.
 ***********************************************************/
+//require("password.php"); // used for password hashing.
 session_start();
-require("redirects.php");
-//require("dbconnect.php");
-    $user = $_SESSION["user"];
-    $name = $_SESSION["name"];
-    if (isset($user)) {
-        loginSuccess($user, $name);
-    }
-    $valid = $_SESSION["valid-credentials"];
-    if (isset($valid) || !empty($valid)) {
-        $valid = htmlspecialchars(trim($valid));
-        if ($valid === "false") {
-            $valid = false;
-        }
-    } else {
-        $valid = null;
-    }
+$badLogin = false;
+// First check to see if we have post variables, if not, just
+// continue on as always.
+if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
+{
+	// they have submitted a username and password for us to check
+	$username = $_POST['txtUser'];
+	$password = $_POST['txtPassword'];
+	// Connect to the DB
+	require("dbconnect.php");
+	$db = get_db();
+	$query = 'SELECT password FROM concession_user WHERE username=:username';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':username', $username);
+	$result = $statement->execute();
+	if ($result)
+	{
+		$row = $statement->fetch();
+		$hashedPasswordFromDB = $row['password'];
+		// now check to see if the hashed password matches
+		if (password_verify($password, $hashedPasswordFromDB))
+		{
+			// password was correct, put the user on the session, and redirect to home
+			$_SESSION['username'] = $username;
+			header("Location: home.php");
+			die(); // we always include a die after redirects.
+		}
+		else
+		{
+			$badLogin = true;
+		}
+	}
+	else
+	{
+		$badLogin = true;
+	}
+}
+// If we get to this point without having redirected, then it means they
+// should just see the login form.
 ?>
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <title>Database | Login</title>
-        <link href="css/styles.css" rel="stylesheet">  
-    </head>
-        <body>
-                <div>
-                    <h1>Concession Planner</h1>
-                    <form method="POST">
-                    <span>Login</span>
-                    <hr />
-                    <table>
-                    <?php if ($valid === false): ?>
-                    <tr>
-                        <td colspan="2">
-                            <span style="color: #f00;">Invalid username or password</span>
-                        </td>
-                    </tr>
-                    <?php endif; ?>
-                    <tr>
-                        <td>Username</td>
-                        <td><input type="text" name="username" class="u-input-text" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" class="u-input-text" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" class="button" value="Log In" formaction="login.php" />
-                        </td>
-                    </tr>
-                    </table>
-                    </form>
-                </div>
-        </body>
+<html>
+<head>
+	<title>Sign In</title>
+</head>
+
+<body>
+<div>
+
+<?php
+if ($badLogin)
+{
+	echo "Incorrect username or password!<br /><br />\n";
+}
+?>
+
+<h1>Please sign in below:</h1>
+
+<form id="mainForm" action="index.php" method="POST">
+
+	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
+	<label for="txtUser">Username</label>
+	<br /><br />
+
+	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+	<label for="txtPassword">Password</label>
+	<br /><br />
+
+	<input type="submit" value="Sign In" />
+
+</form>
+
+<br /><br />
+
+Or <a href="register.php">Sign up</a> for a new account.
+
+</div>
+
+</body>
 </html>
 <?php
     $_SESSION["valid-credentials"] = null;

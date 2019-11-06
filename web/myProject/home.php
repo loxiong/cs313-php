@@ -6,12 +6,14 @@
 *  if it does not.
 ***********************************************************/
 session_start();
-require("redirects.php");
-require("dbconnect.php");
-$user = $_SESSION["user"];
-$name = $_SESSION["username"];
-if (!isset($user)) {
-    loginRedirect();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+}
+else
+{
+	header("Location: signin.php");
+	die(); // we always include a die after redirects.
 }
 ?>
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ if (!isset($user)) {
                 </table>
                 <hr />
                 
-                Welcome, <?php echo($name); ?>!<br />
+                Welcome, <?php echo($username); ?>!<br />
                 Please select the event to view:<br />
                 <table>
                 <?php

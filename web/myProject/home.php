@@ -7,12 +7,12 @@
 ***********************************************************/
 session_start();
 require("redirects.php");
-require("dbconnect.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["username"];
 if (!isset($user)) {
     loginRedirect();
 }
+require("dbconnect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

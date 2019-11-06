@@ -5,7 +5,7 @@
 ***********************************************************/
 session_start();
 require("redirects.php");
-require("dbconnect.php");
+//require("dbconnect.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["name"];
 if (isset($user)) {
@@ -20,6 +20,7 @@ if (isset($valid) || !empty($valid)) {
 } else {
     $valid = null;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -51,7 +52,7 @@ if (isset($valid) || !empty($valid)) {
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="button" value="Log In" formaction="home.php" />
+                            <input type="submit" class="button" value="Log In" formaction="login.php" />
                         </td>
                     </tr>
                     </table>
@@ -59,7 +60,3 @@ if (isset($valid) || !empty($valid)) {
                 </div>
         </body>
 </html>
-<?php
-    $_SESSION["valid-credentials"] = null;
-    $valid = null;
-?>

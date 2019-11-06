@@ -29,7 +29,7 @@ if (!isset($user)) {
                 <a href="./logout.php"><div>Logout</div></a>
                 <hr />
                 
-                Welcome, <?php echo($name); ?>!<br />
+                Welcome! <?php echo($name); ?>!<br />
                 Please select the event to view:<br />
                 <table>
                 <?php

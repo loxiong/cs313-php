@@ -11,7 +11,7 @@
     // query database for login validity
     $username = htmlspecialchars($username);
     $password = htmlspecialchars($password);
-    $table = "fakepeople";
+    $table = "concession_user";
     $stmt = $db->prepare("SELECT * FROM $table WHERE username=:username AND password=:password");
     $stmt->execute(array(":username" => $username, ":password" => $password));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

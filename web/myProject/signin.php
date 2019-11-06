@@ -10,7 +10,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	$password = $_POST['txtPassword'];
 	// Connect to the DB
 	require("dbconnect.php");
-	$db = get_db();
+	//$db = get_db();
 	$query = 'SELECT password FROM concession_user WHERE username=:username';
 	$statement = $db->prepare($query);
 	$statement->bindValue(':username', $username);

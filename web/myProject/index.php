@@ -3,7 +3,6 @@
 * File: index.php (the sign in page)
 * Description: This page has a form for the user to sign in.
 ***********************************************************/
-<?php
     session_start();
     require("redirects.php");
     $user = $_SESSION["user"];

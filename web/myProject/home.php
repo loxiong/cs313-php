@@ -18,26 +18,7 @@ else
 	die(); // we always include a die after redirects.
 }
 require("dbconnect.php");
-                <table>
-                <?php
-                    $query = "SELECT * FROM event";
-                    foreach ($db->query($query) as $row):
-                        $id = $row["event_id"];
-                        $name = $row["event_name"];
-                        $date = $row["event_date"];
-                ?>
-                    <tr>
-                    <form method="POST">
-                        <td style="display: none;">
-                            <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
-                        </td>
-                        <td><button type="submit" formaction="event_details.php">View Details</button></td>
-                        <td><?php echo($name); ?></td>
-                    </form>
-                    </tr>
-                <?php endforeach; ?>
-                </table>
-                <hr />
+                
 ?>
 <!DOCTYPE html>
 <html>

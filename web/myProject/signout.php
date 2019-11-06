@@ -14,15 +14,17 @@ die(); // we always include a die after redirects.
 */
 
 
-function loginRedirect() {
-        $_SESSION["valid-credentials"] = null;
-        header("Location: index.php");
-        exit;
-    }
-    function logout() {
+function logout() {
         $_SESSION["user"] = null;
         $_SESSION["name"] = null;
         unset($_SESSION["user"]);
         loginRedirect();
-    }
+}
+function loginRedirect() {
+    $_SESSION["valid-credentials"] = null;
+    header("Location: signin.php");
+    exit;
+}
+
 ?>
+    

@@ -1,6 +1,8 @@
 <?php
 /**********************************************************
 * File: home.php
+* Author: Br. Burton
+* 
 * Description: This is the home page. It checks that a user
 *  exists on the session and redirects to the login page
 *  if it does not.
@@ -17,28 +19,30 @@ else
 }
 ?>
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <title>Summary | Home</title>
-        <link href="css/styles.css" rel="stylesheet">  
-    </head>
-    <body>
-        <div>
+<html>
+<head>
+	<title>Home Page</title>
+    <link href="css/styles.css" rel="stylesheet">   
+</head>
 
-            <div>
-                <table>
-                <tr>
-                    <td><span>Concession Summary</span>
-                        <a href="./home.php"><div>Back</div></a>
-                        <a href="./logout.php"><div>Logout</div></a>
-                        <hr />
-                    </td>
-                </tr>
-                </table>
+<body>
+    <div>
+        <table>
+            <tr>
+            <td><span>Concession Summary</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
                 <hr />
-                
-                Welcome, <?php echo($username); ?>!<br />
-                Please select the event to view:<br />
+            </td>
+            </tr>
+        </table>
+        <hr />
+
+        <h1>Welcome, <?= $username ?>!</h1>
+
+        Your username is: <br /><br />
+        
+        Please select the event to view:<br />
                 <table>
                 <?php
                     $query = "SELECT * FROM event";
@@ -62,8 +66,9 @@ else
                 
                 <p><a href="event_form.php">Add New Event</a></p>
                 <p><a href="item_new.php">Add New Concession Item</a></p>
-                
-            </div>
-        </div>
-    </body>
+
+        <a href="signout.php">Sign Out</a>
+    </div>
+
+</body>
 </html>

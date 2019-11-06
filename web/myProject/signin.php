@@ -1,4 +1,19 @@
 <?php
+/**********************************************************
+* File: signin.php
+* Author: Br. Burton
+* 
+* Description: This page has a form for the user to sign in.
+*
+* In this case, to show another approach, we will have this
+* page have two purposes, it will have the form for signing
+* in, but it will also have the logic to check a username
+* and password and redirect the user to the home page if
+* everything checks out. Thus it will post to itself.
+***********************************************************/
+// If you have an earlier version of PHP (earlier than 5.5)
+// You need to download and include password.php.
+//require("password.php"); // used for password hashing.
 session_start();
 $badLogin = false;
 // First check to see if we have post variables, if not, just
@@ -10,8 +25,8 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	$password = $_POST['txtPassword'];
 	// Connect to the DB
 	require("dbconnect.php");
-	//$db = get_db();
-	$query = 'SELECT password FROM concession_user WHERE username=:username';
+	$db = get_db();
+	$query = 'SELECT password FROM fakepeople WHERE username=:username';
 	$statement = $db->prepare($query);
 	$statement->bindValue(':username', $username);
 	$result = $statement->execute();
@@ -44,39 +59,40 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <html>
 <head>
 	<title>Sign In</title>
+    <link href="css/styles.css" rel="stylesheet">  
 </head>
 
 <body>
-<div>
+    <div>
 
-<?php
-if ($badLogin)
-{
-	echo "Incorrect username or password!<br /><br />\n";
-}
-?>
+        <?php
+        if ($badLogin)
+        {
+            echo "Incorrect username or password!<br /><br />\n";
+        }
+        ?>
 
-<h1>Please sign in below:</h1>
+        <h1>Please sign in below:</h1>
 
-<form id="mainForm" action="signin.php" method="POST">
+        <form id="mainForm" action="signin.php" method="POST">
 
-	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
-	<label for="txtUser">Username</label>
-	<br /><br />
+            <input type="text" id="txtUser" name="txtUser" placeholder="Username">
+            <label for="txtUser">Username</label>
+            <br /><br />
 
-	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
-	<label for="txtPassword">Password</label>
-	<br /><br />
+            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+            <label for="txtPassword">Password</label>
+            <br /><br />
 
-	<input type="submit" value="Sign In" />
+            <input type="submit" value="Sign In" />
 
-</form>
+        </form>
 
-<br /><br />
+        <br /><br />
 
-Or <a href="register.php">Sign up</a> for a new account.
+        Or <a href="signup.php">Sign up</a> for a new account.
 
-</div>
+    </div>
 
 </body>
 </html>

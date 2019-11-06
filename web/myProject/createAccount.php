@@ -1,12 +1,14 @@
 <?php
 /**********************************************************
+* File: createAccount.php
+* Author: Br. Burton
 * 
 * Description: Accepts a new username and password on the
 *	POST variable, and creates it in the DB.
 *
 * The user is then redirected to the signIn.php page.
 *
-* CREATE TABLE fakepeople (
+* CREATE TABLE week7_user (
     id          SERIAL PRIMARY KEY,
     username    VARCHAR(255) NOT NULL UNIQUE,
     password    VARCHAR(255) NOT NULL
@@ -23,7 +25,7 @@ $password = $_POST['txtPassword'];
 if (!isset($username) || $username == ""
 	|| !isset($password) || $password == "")
 {
-	header("Location: register.php");
+	header("Location: signup.php");
 	die(); // we always include a die after redirects.
 }
 
@@ -34,8 +36,8 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Connect to the database
 require("dbconnect.php");
-//$db = get_db();
-$query = 'INSERT INTO concession_user (username, password) VALUES(:username, :password)';
+$db = get_db();
+$query = 'INSERT INTO fakepeople (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 // **********************************************

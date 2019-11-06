@@ -5,6 +5,7 @@
 ***********************************************************/
 session_start();
 require("redirects.php");
+require("dbconnect.php");
 $user = $_SESSION["user"];
 $name = $_SESSION["name"];
 if (isset($user)) {

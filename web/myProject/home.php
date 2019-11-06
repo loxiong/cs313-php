@@ -55,6 +55,7 @@ require("dbconnect.php");
                         <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
                     </td>
                     <td><button type="submit" formaction="event_details.php">View Details</button></td>
+                    <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
                     <td><?php echo($name); ?></td>
                 </form>
                 </tr>
@@ -66,7 +67,6 @@ require("dbconnect.php");
         <p><a href="event_form.php">Add New Event</a></p>
         <p><a href="item_new.php">Add New Concession Item</a></p>
 
-        <a href="signout.php">Sign Out</a>
     </div>
 
 </body>

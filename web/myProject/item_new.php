@@ -74,12 +74,7 @@ require("dbconnect.php");
                         $nameCat = $rows['category_name'];
                         // make the value of the checkbox to be the id of the label
                         echo "<input type='checkbox' name='checkboxCat[]' id='checkboxCat$idCat' value='$idCat'>";
-                        // Instructor's Notes:
-                        // Also, so they can click on the label, and have it select the checkbox,
-                        // we need to use a label tag, and have it point to the id of the input element.
-                        // The trick here is that we need a unique id for each one. In this case,
-                        // we use "checkbox" followed by the id, so that it becomes something like
-                        // "checkbox1" and "checkbox2", etc.
+                        // to create unique id: we use "checkbox" followed by the id, so that it becomes something like "checkbox1" and "checkbox2", etc.
                         echo "<label for='checkboxCat$idCat'>$nameCat</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";
@@ -113,12 +108,7 @@ require("dbconnect.php");
                         $nameSt = $rows['store_name'];
                         // make the value of the checkbox to be the id of the label
                         echo "<input type='checkbox' name='checkboxSt[]' id='checkboxSt$idSt' value='$idSt'>";
-                        // Instructor's Notes:
-                        // Also, so they can click on the label, and have it select the checkbox,
-                        // we need to use a label tag, and have it point to the id of the input element.
-                        // The trick here is that we need a unique id for each one. In this case,
-                        // we use "checkbox" followed by the id, so that it becomes something like
-                        // "checkbox1" and "checkbox2", etc.
+                        // to create unique id: we use "checkbox" followed by the id, so that it becomes something like "checkbox1" and "checkbox2", etc.
                         echo "<label for='checkboxSt$idSt'>$nameSt</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";

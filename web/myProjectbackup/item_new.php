@@ -36,19 +36,19 @@ require("dbconnect.php");
         <h1>Enter New Item </h1>
         
             <form id="mainForm" action="item_insert.php" method="POST">
-                <label for="name">Book</label>
-                <input type="text" id="name" name="name">
+                <label for="item_name">Product Name</label>
+                <input type="text" id="item_name" name="item_name">
                 <br /><br />
             
-                <label for="description">Content:</label><br />
+                <label for="description">Description:</label><br />
 	            <textarea id="description" name="description" rows="10" cols="100"></textarea>
 	            <br /><br />
                 
-                <label for="quantity">Chapter</label>
+                <label for="quantity">Quantity</label>
                 <input type="text" id="quantity" name="quantity">
                 <br /><br />
 
-	            <label for="price">Verse</label>
+	            <label for="price">Price</label>
                 <input type="text" id="price" name="price">
 	            <br /><br />
 
@@ -72,12 +72,7 @@ require("dbconnect.php");
                         $nameCat = $rows['category_name'];
                         // make the value of the checkbox to be the id of the label
                         echo "<input type='checkbox' name='checkboxCat[]' id='checkboxCat$idCat' value='$idCat'>";
-                        // Instructor's Notes:
-                        // Also, so they can click on the label, and have it select the checkbox,
-                        // we need to use a label tag, and have it point to the id of the input element.
-                        // The trick here is that we need a unique id for each one. In this case,
-                        // we use "checkbox" followed by the id, so that it becomes something like
-                        // "checkbox1" and "checkbox2", etc.
+                        // to create unique id: we use "checkbox" followed by the id, so that it becomes something like "checkbox1" and "checkbox2", etc.
                         echo "<label for='checkboxCat$idCat'>$nameCat</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";
@@ -111,12 +106,7 @@ require("dbconnect.php");
                         $nameSt = $rows['store_name'];
                         // make the value of the checkbox to be the id of the label
                         echo "<input type='checkbox' name='checkboxSt[]' id='checkboxSt$idSt' value='$idSt'>";
-                        // Instructor's Notes:
-                        // Also, so they can click on the label, and have it select the checkbox,
-                        // we need to use a label tag, and have it point to the id of the input element.
-                        // The trick here is that we need a unique id for each one. In this case,
-                        // we use "checkbox" followed by the id, so that it becomes something like
-                        // "checkbox1" and "checkbox2", etc.
+                        // to create unique id: we use "checkbox" followed by the id, so that it becomes something like "checkbox1" and "checkbox2", etc.            
                         echo "<label for='checkboxSt$idSt'>$nameSt</label><br />";
                         // put a newline out there just to make our "view source" experience better
                         echo "\n";

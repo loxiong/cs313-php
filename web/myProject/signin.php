@@ -24,7 +24,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	$username = $_POST['txtUser'];
 	$password = $_POST['txtPassword'];
 	// Connect to the DB
-	require("dbconnect.php");
+	require("dbConnection.php");
 	$db = get_db();
 	$query = 'SELECT password FROM fakepeople WHERE username=:username';
 	$statement = $db->prepare($query);

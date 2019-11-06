@@ -121,7 +121,7 @@ require("dbconnect.php");
                 }
                 ?>
                     <br />
-                    <input type="submit" value="Add New Item" />
+                    <input type="submit" class="button" value="Add New Item" />
             </form>
         </main>
 

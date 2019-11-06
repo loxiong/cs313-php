@@ -53,7 +53,7 @@ require("dbconnect.php");
                 <input type="text" name="event_participants" id="event_participants">
                 <br /><br />
                 
-                <input type="submit" value="Enter New Event" />
+                <input type="submit" class="button" value="Enter New Event" />
             </form>
             
         </main>

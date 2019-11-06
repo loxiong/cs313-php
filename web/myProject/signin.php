@@ -74,7 +74,7 @@ if ($badLogin)
 
 <br /><br />
 
-Or <a href="signup.php">Sign up</a> for a new account.
+Or <a href="register.php">Sign up</a> for a new account.
 
 </div>
 

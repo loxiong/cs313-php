@@ -17,15 +17,7 @@ else
 	header("Location: signin.php");
 	die(); // we always include a die after redirects.
 }
-require("dbconnect.php");
-                    $query = "SELECT * FROM event";
-                    foreach ($db->query($query) as $row):
-                        $id = $row["event_id"];
-                        $name = $row["event_name"];
-                        $date = $row["event_date"];
-            
-            echo $name;
-                
+require("dbconnect.php");          
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,26 +40,31 @@ require("dbconnect.php");
         <h1>Welcome, <?= $username ?>!</h1>
 
         Please select the event to view:<br />
-        
-        
-                
+           
         <table>
-                    <tr>
-                    <form method="POST">
-                        <td style="display: none;">
-                            <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
-                        </td>
-                        <td><button type="submit" formaction="event_details.php">View Details</button></td>
-                        <td><?php echo($name); ?></td>
-                    </form>
-                    </tr>
-                <?php endforeach; ?>
-                </table>
-                <hr />
+            <?php
+            $query = "SELECT * FROM event";
+                    foreach ($db->query($query) as $row):
+                        $id = $row["event_id"];
+                        $name = $row["event_name"];
+                        $date = $row["event_date"];
+            ?>
+            <tr>
+                <form method="POST">
+                    <td style="display: none;">
+                        <input type="text" name="event_id" value="<?php echo($id); ?>" readonly />
+                    </td>
+                    <td><button type="submit" formaction="event_details.php">View Details</button></td>
+                    <td><?php echo($name); ?></td>
+                </form>
+                </tr>
+            <?php endforeach; ?>
+            </table>
+        <hr />
                 
                 
-                <p><a href="event_form.php">Add New Event</a></p>
-                <p><a href="item_new.php">Add New Concession Item</a></p>
+        <p><a href="event_form.php">Add New Event</a></p>
+        <p><a href="item_new.php">Add New Concession Item</a></p>
 
         <a href="signout.php">Sign Out</a>
     </div>

@@ -20,9 +20,19 @@ require("dbconnect.php");
         <meta name="author" content="Ching Lo | CS313:03">
         <meta name="description" content="Add event to database table">        
         <title>Event Form</title>
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     
     <body>
+        <table>
+            <tr>
+                <span>Add New Event</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
+            </tr>
+        </table>
+        <hr />
+        
         <main>
             <h2>Add Event</h2>
             

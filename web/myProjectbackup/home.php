@@ -24,7 +24,7 @@ if (!isset($user)) {
         <div>
 
             <div>
-                <td><span>Concession Summary</span><td>
+                <span>Concession Summary</span>
                 <a href="./home.php"><div>Back</div></a>
                 <a href="./logout.php"><div>Logout</div></a>
                 <hr />

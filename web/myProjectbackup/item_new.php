@@ -19,8 +19,18 @@ require("dbconnect.php");
     <head>
         <title>Add New Item</title>
         <meta name="description" content="Week 06 Project Continue - add new item to database">
+        <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
+        
+        <table>
+            <tr>
+                <span>Add New Concession Item</span>
+                <a href="./home.php"><div>Back</div></a>
+                <a href="./logout.php"><div>Logout</div></a>
+            </tr>
+        </table>
+        <hr />
    
         <main>
         <h1>Enter New Item </h1>

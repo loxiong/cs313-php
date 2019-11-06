@@ -41,48 +41,51 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 		$badLogin = true;
 	}
 }
-// If we get to this point without having redirected, then it means they
-// should just see the login form.
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Sign In</title>
-    <!--reset.css will remove all the browser's default styles-->
+<html lang="en-US">
+    <head>
+        <title>Database | Login</title>
+        <!--reset.css will remove all the browser's default styles-->
         <link href="css/reset.css" rel="stylesheet" type="text/css"> 
-</head>
+        <link href="css/styles.css" rel="stylesheet">  
+    </head>
+        <body>
+            <h1>Concession Planner</h1>                   
+            <span>Login</span>
+            <hr />
+            
+            <div>
+            <?php
+            if ($badLogin)
+            {
+                echo "Incorrect username or password!<br /><br />\n";
+            }
+            ?>
+            <h1>Please sign in below:</h1>
 
-<body>
-<div>
+            <form id="mainForm" action="signin.php" method="POST">
 
-<?php
-if ($badLogin)
-{
-	echo "Incorrect username or password!<br /><br />\n";
-}
-?>
+                <label for="txtUser">Username</label>
+                <input type="text" id="txtUser" name="txtUser" placeholder="Username">
+                <br /><br />
 
-<h1>Please sign in below:</h1>
+                <label for="txtPassword">Password</label>
+                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+                <br /><br />
 
-<form id="mainForm" action="signin.php" method="POST">
+                <input type="submit" value="Sign In" />
 
-	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
-	<label for="txtUser">Username</label>
-	<br /><br />
+            </form>
 
-	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
-	<label for="txtPassword">Password</label>
-	<br /><br />
+            <br /><br />
 
-	<input type="submit" value="Sign In" />
+            Or <a href="signup.php">Sign up</a> for a new account.
 
-</form>
-
-<br /><br />
-
-Or <a href="signup.php">Sign up</a> for a new account.
-
-</div>
-
-</body>
+            </div>
+        </body>
 </html>
+<?php
+    $_SESSION["valid-credentials"] = null;
+    $valid = null;
+?>

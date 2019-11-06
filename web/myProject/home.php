@@ -5,20 +5,12 @@
 *  exists on the session and redirects to the login page
 *  if it does not.
 ***********************************************************/
+<?php
 session_start();
-//require("redirects.php");
-if (isset($_SESSION['username']))
-{
-	$username = $_SESSION['username'];
-}
-else
-{
-	header("Location: index.php");
-	die(); // we always include a die after redirects.
-}
+require("redirects.php");
 require("dbconnect.php");
-//$username = $_SESSION["user"];
-//$name = $_SESSION["username"];
+$user = $_SESSION["user"];
+$name = $_SESSION["username"];
 if (!isset($user)) {
     loginRedirect();
 }
@@ -27,8 +19,6 @@ if (!isset($user)) {
 <html lang="en-US">
     <head>
         <title>Summary | Home</title>
-        <!--reset.css will remove all the browser's default styles-->
-        <link href="css/reset.css" rel="stylesheet" type="text/css">
         <link href="css/styles.css" rel="stylesheet">  
     </head>
     <body>
@@ -45,7 +35,7 @@ if (!isset($user)) {
                 </table>
                 <hr />
                 
-                Welcome, <?php echo($username); ?>!<br />
+                Welcome, <?php echo($name); ?>!<br />
                 Please select the event to view:<br />
                 <table>
                 <?php
@@ -62,6 +52,7 @@ if (!isset($user)) {
                         </td>
                         <td><button type="submit" class="button" formaction="event_details.php">View Details</button></td>
                         <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
+                        <td><?php echo($name); ?></td>
                     </form>
                     </tr>
                 <?php endforeach; ?>

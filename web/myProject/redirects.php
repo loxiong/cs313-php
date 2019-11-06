@@ -16,7 +16,7 @@
         loginRedirect();
     }
     function loginSuccess($username, $name) {
-        $_SESSION["user"] = $username;
+        $_SESSION["username"] = $username;
         $_SESSION["first_name"] = $first_name;
         $_SESSION["valid-credentials"] = null;
         header("Location: home.php");

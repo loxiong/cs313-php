@@ -13,7 +13,7 @@ if (!isset($user)) {
     loginRedirect();
 }
 require("dbconnect.php");
-$db = get_db();
+//$db = get_db();
 // get the data from the POST
 $event_date = $_POST['event_date'];
 $event_name = $_POST['event_name'];

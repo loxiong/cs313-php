@@ -22,7 +22,7 @@ if (!isset($user)) {
     loginRedirect();
 }
 require('dbconnect.php');
-$db = get_db();
+//$db = get_db();
 try
 {
 	// Add the Scripture

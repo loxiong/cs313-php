@@ -27,7 +27,7 @@ require("dbconnect.php");
 try
 {
 	// Now go through each event id in the list from the user's checkboxes
-	foreach ($event_ids as $event_id) and ($item_ids as $item_id)
+	foreach ($event_ids as $event_id)
 	{
 		echo "item_id: $item_id, event_id: $event_id";
 		// Again, first prepare the statement

@@ -1,15 +1,7 @@
 <?php
-/**********************************************************
-* File: signup.php
-* Author: Br. Burton
-* 
-* Description: Allows a user to enter a new username
-*   and password to add to the DB.
 *
-* It posts to a file called "createAccount.php"
-*   which does the actual creation.
+* (Nothing to enter here yet)
 *
-***********************************************************/
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +15,7 @@
 
 <h1>Sign up for new account</h1>
 
-<form id="mainForm" action="createAccount.php" method="POST">
+<form action="createAccount.php" method="POST">
 
 	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
 	<label for="txtUser">Username</label>

@@ -38,7 +38,8 @@ $script_book=$rows[0]['book'];
             
             <h1>Scripture Content for <?php echo $script_book; ?></h1>
             
-            <ul style="list-style-type:none">
+            <form action="delete.php" method="post">
+                <ul style="list-style-type:none">
             <?php
             foreach ($rows as $row)
             {
@@ -71,12 +72,9 @@ $script_book=$rows[0]['book'];
             }
             ?>
             </ul>
-            <div>
-                <form action='delete.php?scriptures_id=$id' method="post">
-                    <input type="hidden" name="name" value="'scriptures_id=$id'">
+                    <input type="hidden" name="name" value="<?php echo 'scriptures_id=$id'?>">
                     <input type="submit" name="submit" value="Delete">
                 </form>
-            </div>
             
             
        

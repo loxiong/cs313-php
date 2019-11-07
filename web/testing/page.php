@@ -43,9 +43,11 @@ $script_book=$rows[0]['book'];
             <?php
             foreach ($rows as $row)
             {
+                $id = $row['scriptures_id'];
                 $chapter = $row['chapter'];
                 $verse = $row['verse'];
                 $content = $row['content'];
+                echo " $id ";
                 echo "<h2>Chapter $chapter, Verse $verse</h2>";
                 echo "<p>";
                 echo $content;

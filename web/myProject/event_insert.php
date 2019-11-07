@@ -1,10 +1,12 @@
-<!--this page receives the new entered event
--- takes input POSTED from event_form.php
--- enters a new event into the database
--- This file does NOT do any rendering at all,
--- instead it redirects the user to final_scripture.php to see the resulting list.
--->
 <?
+/*
+ * this page receives the new entered event
+ * takes input POSTED from event_form.php
+ * enters a new event into the database
+ * This file does NOT do any rendering at all,
+ * instead it redirects the user to event_details.php
+ *
+ */
 session_start();
 if (isset($_SESSION['username']))
 {

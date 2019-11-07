@@ -43,13 +43,35 @@ $event = htmlspecialchars(trim($_POST["event_id"]));
                     $eventdur = $row["event_duration"];
                     $people = $row["event_participants"];
             ?>
-                <h1><?php echo ($name); ?></h1>
-                <h2><?php echo ($date); ?></h2>
-                <p>Event Duration: <?php echo ($eventdur); ?> days</p>
-                <p>Estimated Number of Participants: <?php echo ($people); ?> swimmers</p>
-                <h2>Concession Menu</h2>
-                <p>TO DO: Concession Menu will populate here with the option to add/delete items.</p>
-                <p><a href="item_details.php">See All Concesssion Items</a></p>
+            <h1><?php echo ($name); ?></h1>
+            <h2><?php echo ($date); ?></h2>
+            <p>Event Duration: <?php echo ($eventdur); ?> days</p>
+            <p>Estimated Number of Participants: <?php echo ($people); ?> swimmers</p>
+            <hr />
+            
+            <h2>Concession Menu</h2>
+            <p>TO DO: Concession Menu will populate here with the option to add/delete items.</p>
+            <?php
+            //Prepare the statements
+            $statement = $db->prepare("SELECT item_id, event_id FROM item_event");
+            $statement->execute();
+            // Go through each result
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+                // The variable "row" now holds the complete record for that
+                // row, and we can access the different values based on their
+                // name
+                $item_name = $row['item_name'];
+                $item_desc = $row['item_desc'];
+                $item_qty = $row['item_qty'];
+                $item_price = $row['item_price'];
+                $category_id = $row['category_id'];
+                echo "<p><strong>$item_name - </strong> $item_desc / $item_qty / $$item_price </p>";
+            }
+            ?>
+            <hr />
+            
+            <p><a href="item_details.php">See All Concesssion Items</a></p>
             
         
     

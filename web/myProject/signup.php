@@ -1,7 +1,9 @@
 <?php
-*
-* (Nothing to enter here yet)
-*
+/*
+ *
+ * Nothing to enter here yet
+ *
+ */
 ?>
 <!DOCTYPE html>
 <html>

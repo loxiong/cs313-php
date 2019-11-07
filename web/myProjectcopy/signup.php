@@ -15,30 +15,30 @@
 <html>
 <head>
 	<title>Sign Up</title>
-    <link href="css/styles.css" rel="stylesheet">  
+    <link href="css/styles.css" rel="stylesheet"> 
 </head>
 
 <body>
-    <div>
+<div>
 
-        <h1>Sign up for new account</h1>
+<h1>Sign up for new account</h1>
 
-        <form id="mainForm" action="createAccount.php" method="POST">
+<form id="mainForm" action="createAccount.php" method="POST">
 
-            <label for="txtUser">Username</label>
-            <input type="text" id="txtUser" name="txtUser" placeholder="Username">
-            <br /><br />
+	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
+	<label for="txtUser">Username</label>
+	<br /><br />
 
-            <label for="txtPassword">Password</label>
-            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
-            <br /><br />
+	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
+	<label for="txtPassword">Password</label>
+	<br /><br />
 
-            <input type="submit" value="Create Account" />
+	<input type="submit" class="button" value="Create Account" />
 
-        </form>
+</form>
 
 
-    </div>
+</div>
 
 </body>
 </html>

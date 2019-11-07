@@ -43,13 +43,14 @@ $event = htmlspecialchars(trim($_POST["event_id"]));
                     $eventdur = $row["event_duration"];
                     $people = $row["event_participants"];
             ?>
-                <h1><?php echo ($name); ?></h1>
-                <h2><?php echo ($date); ?></h2>
-                <p>Event Duration: <?php echo ($eventdur); ?> days</p>
-                <p>Estimated Number of Participants: <?php echo ($people); ?> swimmers</p>
-                <h2>Concession Menu</h2>
-                <p>TO DO: Concession Menu will populate here with the option to add/delete items.</p>
-                <p><a href="item_details.php">See All Concesssion Items</a></p>
+            <h1><?php echo ($name); ?></h1>
+            <h2><?php echo ($date); ?></h2>
+            <p>Event Duration: <?php echo ($eventdur); ?> days</p>
+            <p>Estimated Number of Participants: <?php echo ($people); ?> swimmers</p>
+            <hr />
+            
+                      
+            <p><a href="item_details.php">See All Concesssion Items</a></p>
             
         
     

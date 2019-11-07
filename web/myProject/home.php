@@ -61,8 +61,9 @@ require("dbconnect.php");
             <?php endforeach; ?>
             </table>
         <hr />
-                
-                
+        
+        <p><a href="item_details.php"><strong><em>View All Concession Items</em></strong></a></p>
+        <p><a href="item_to_event.php"><strong>Create a Menu</strong></a></p>       
         <p><a href="event_form.php">Add New Event</a></p>
         <p><a href="item_new.php">Add New Concession Item</a></p>
 

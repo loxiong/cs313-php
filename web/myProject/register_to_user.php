@@ -1,6 +1,5 @@
 <?php
 /**********************************************************
-* File: createAccount.php
 * 
 * Description: Accepts a new username and password on the
 *	POST variable, and creates it in the DB.
@@ -14,13 +13,17 @@
 );
 *
 ***********************************************************/
+// If you have an earlier version of PHP (earlier than 5.5)
+// You need to download and include password.php.
+// require("password.php");
+
 // get the data from the POST
 $username = $_POST['txtUser'];
 $password = $_POST['txtPassword'];
 if (!isset($username) || $username == ""
 	|| !isset($password) || $password == "")
 {
-	header("Location: signup.php");
+	header("Location: register.php");
 	die(); // we always include a die after redirects.
 }
 
@@ -30,15 +33,20 @@ $username = htmlspecialchars($username);
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Connect to the database
-require("dbConnection.php");
-$db = get_db();
-$query = 'INSERT INTO fakepeople (username, password) VALUES(:username, :password)';
+require("dbconnect.php");
+//$db = get_db();
+$query = 'INSERT INTO concession_user (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
-// submitting hashed passwords
+// **********************************************
+// NOTICE: We are submitting the hashed password!
+// **********************************************
 $statement->bindValue(':password', $hashedPassword);
 $statement->execute();
 // finally, redirect them to the sign in page
 header("Location: signin.php");
-die(); 
+die(); // we always include a die after redirects. In this case, there would be no
+       // harm if the user got the rest of the page, because there is nothing else
+       // but in general, there could be things after here that we don't want them
+       // to see.
 ?>

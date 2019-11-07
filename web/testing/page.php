@@ -67,13 +67,14 @@ $script_book=$rows[0]['book'];
             ?>
             </ul>
             <div class="contact-delete">
-                <form action='delete.php?name="<?php echo $content['content']; ?>"' method="post">
-                    <input type="hidden" name="name" value="<?php echo $content['name']; ?>">
+                <form action='delete.php?content=$content' method="post">
+                    <input type="hidden" name="name" value="<?php echo $content['content']; ?>">
                     <input type="submit" name="submit" value="Delete">
                 </form>
             </div>
             
             
+        
 
         </main>
     

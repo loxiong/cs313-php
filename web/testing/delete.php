@@ -3,12 +3,12 @@
 // define the variable that was created on the scripture.php page in the link
 // $scripture_id = $_GET['scriptures_id'];
 // can wrap it in an isset to make in more interesting
-if (!isset($_GET['content']))
+if (!isset($_GET['scriptures_id']))
 {
     die("Error: scripture id not specified...");
 }
 // sanitize the id
-$content = htmlspecialchars($_GET['content']); //add htmlspecialchars to check the integrity of the data
+$scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchars to check the integrity of the data
 
 require('dbConnect.php');
 $db = get_db();
@@ -20,25 +20,20 @@ $db = get_db();
 //$script_book=$rows[0]['book'];
 
 //Define the query
-$query = "DELETE FROM scriptures WHERE name={$_POST['content']} LIMIT 1";
+$stmt = $db->prepare('DELETE FROM scriptures WHERE WHERE id=:id');
+$stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //sends the query to delete the entry
-mysql_query ($query);
 
-if (mysql_affected_rows() == 1) { 
-//if it updated
-?>
+if ($rows() == 1) { 
 
-            <strong>Contact Has Been Deleted</strong><br /><br />
-
-<?php
+            echo <strong>Contact Has Been Deleted</strong><br /><br />
  } else { 
 //if it failed
-?>
 
             <strong>Deletion Failed</strong><br /><br />
 
-
-<?php
 } 
 ?>

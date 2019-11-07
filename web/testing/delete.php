@@ -25,7 +25,17 @@ $id = $_GET['scriptures_id'];
 $stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $cmdtuples = pg_affected_rows($results);
+        echo $cmdtuples . " record affected.\n";
+        if (!$result) {
+            $errormessage = pg_last_error();
+            echo "Error with query: " . $errormessage;
+            exit();
+        }
+        pg_close();
+
+        header('./index.php');
 
 
 ?>
@@ -45,7 +55,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <main>
 
             <?php
-            if ($rows() == 1) { 
+            if ($results() == 1) { 
                 echo "<strong>Contact Has Been Deleted</strong>";<br /><br />
             } else { 
             //if it failed

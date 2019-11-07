@@ -14,7 +14,7 @@ require('dbConnect.php');
 $db = get_db();
 
 $id = $_GET['scriptures_id'];
-echo $id;
+//echo $id;
 
 //$stmt = $db->prepare('SELECT * FROM scriptures WHERE content=:content');
 //$stmt->bindValue(':content', $content, PDO::PARAM_INT);
@@ -23,15 +23,17 @@ echo $id;
 //$script_book=$rows[0]['book'];
 
 //Define the query
-
-
+$stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
+$stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
+$stmt->execute();
+echo "done";
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
         <title>CS 313 Week 06 Reading</title>
-        <meta name="description" content="Week 06 Reading Activity">
+        <meta name="description" content="testing delete">
     </head>
     
     <body>

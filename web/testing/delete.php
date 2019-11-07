@@ -14,6 +14,7 @@ require('dbConnect.php');
 $db = get_db();
 
 $id = $_GET['scriptures_id'];
+echo $id;
 
 //$stmt = $db->prepare('SELECT * FROM scriptures WHERE content=:content');
 //$stmt->bindValue(':content', $content, PDO::PARAM_INT);
@@ -22,20 +23,6 @@ $id = $_GET['scriptures_id'];
 //$script_book=$rows[0]['book'];
 
 //Define the query
-$stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
-$stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
-$stmt->execute();
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $cmdtuples = pg_affected_rows($results);
-        echo $cmdtuples . " record affected.\n";
-        if (!$result) {
-            $errormessage = pg_last_error();
-            echo "Error with query: " . $errormessage;
-            exit();
-        }
-        pg_close();
-
-        header('./index.php');
 
 
 ?>

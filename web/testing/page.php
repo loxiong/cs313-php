@@ -43,11 +43,9 @@ $script_book=$rows[0]['book'];
             <?php
             foreach ($rows as $row)
             {
-                $id = $row['scriptures_id'];
                 $chapter = $row['chapter'];
                 $verse = $row['verse'];
                 $content = $row['content'];
-                echo " $id ";
                 echo "<h2>Chapter $chapter, Verse $verse</h2>";
                 echo "<p>";
                 echo $content;
@@ -72,6 +70,21 @@ $script_book=$rows[0]['book'];
                 //echo '<input type="hidden" name="name" value="'scriptures_id=$id'">';
                 //echo '<input type="submit" name="submit" value="Delete">';
             }
+                    if($_GET){
+                        if(isset($_GET['delete'])){
+                            delete();
+                        }//elseif(isset($_GET['select'])){
+                            //select();
+                        //}
+                    }
+
+                        function delete()
+                        {
+                            $delete =("DELETE FROM scriptures WHERE id = '$id'");
+                            $result = pg_query($delete) or die();
+
+                        echo "record deleted";
+                        }
             ?>
             </ul>
                     <input type="hidden" name="name" value=$id>

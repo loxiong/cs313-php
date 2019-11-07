@@ -41,15 +41,7 @@ echo $id;
         
         <main>
 
-            <?php
-            if ($results() == 1) { 
-                echo "<strong>Contact Has Been Deleted</strong>";<br /><br />
-            } else { 
-            //if it failed
-                echo "<strong>Deletion Failed</strong>" <br /><br />
-            } 
-        
-            ?>
+            
             
         </main>
     

@@ -13,6 +13,8 @@ $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchar
 require('dbConnect.php');
 $db = get_db();
 
+$id = $_GET['scriptures_id'];
+
 //$stmt = $db->prepare('SELECT * FROM scriptures WHERE content=:content');
 //$stmt->bindValue(':content', $content, PDO::PARAM_INT);
 //$stmt->execute();
@@ -25,17 +27,7 @@ $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//sends the query to delete the entry
 
-if ($rows() == 1) { 
-
-            echo <strong>Contact Has Been Deleted</strong><br /><br />
- } else { 
-//if it failed
-
-            <strong>Deletion Failed</strong><br /><br />
-
-} 
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

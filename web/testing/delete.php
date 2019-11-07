@@ -27,6 +27,8 @@ $stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 echo "done";
+
+header("Location: index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

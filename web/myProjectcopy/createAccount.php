@@ -30,7 +30,7 @@ $username = htmlspecialchars($username);
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Connect to the database
-require("dbconnect.php");
+require("dbConnection.php");
 $db = get_db();
 $query = 'INSERT INTO fakepeople (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);

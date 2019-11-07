@@ -15,9 +15,9 @@ die(); // we always include a die after redirects.
 
 
 function logout() {
-        $_SESSION["user"] = null;
-        $_SESSION["name"] = null;
-        unset($_SESSION["user"]);
+        $_SESSION["username"] = null;
+        $_SESSION["password"] = null;
+        unset($_SESSION["username"]);
         loginRedirect();
 }
 function loginRedirect() {

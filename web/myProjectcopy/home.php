@@ -55,15 +55,12 @@ require("dbconnect.php");
                     </td>
                     <td><button type="submit" class="button" formaction="event_details.php">View Details</button></td>
                     <td><button type="submit" class="button" formaction="item_to_event.php">Create Menu</button></td>
-                    <td><?php echo($name); ?></td>
                 </form>
                 </tr>
             <?php endforeach; ?>
             </table>
         <hr />
                 
-                
-        script_content.php?scriptures_id=$id'
         
         <p><a href="event_form.php">Add New Event</a></p>
         <p><a href="item_new.php">Add New Concession Item</a></p>

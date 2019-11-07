@@ -63,7 +63,7 @@ $script_book=$rows[0]['book'];
                     echo $topicRow['name'] . ' ';
                 }
                 echo "</p>";
-                //echo "<li><p><a href='delete.php?scriptures_id=$id'>Delete </a></p></li>";
+                echo "<li><p><a href='delete.php?scriptures_id=$id'><input type='hidden' name='id' value=$id>Delete </a></p></li>";
                 //echo '<input type="hidden" name="name" value="'scriptures_id=$id'">';
                 //echo '<input type="submit" name="submit" value="Delete">';
             }

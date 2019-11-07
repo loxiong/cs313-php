@@ -13,6 +13,8 @@ $scriptures_id = htmlspecialchars($_GET['scriptures_id']); //add htmlspecialchar
 require('dbConnect.php');
 $db = get_db();
 
+$id = $_GET['scriptures_id'];
+
 $stmt = $db->prepare('SELECT * FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();

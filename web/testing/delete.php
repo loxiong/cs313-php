@@ -24,7 +24,7 @@ $id = $_GET['scriptures_id'];
 
 //Define the query
 $stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
 echo "done";
 

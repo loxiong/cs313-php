@@ -1,0 +1,117 @@
+06 Prove : Assignment - PHP Data Modification
+
+PROJECT: Concession Planner
+
+Complete the database modification component of your application
+1) functionality to insert new data,
+2) updating existing data, 
+3) and deleting if necessary. 
+
+TO DO:
+1) finalize the Event Form to add a new event to the database
+2) create a form to add a new item to the database
+3) create a form or table, like a concession menu, to add items to an event
+4) have all the choosen items display on the event_details.php page
+
+---------------------------------------------------------------------------------------------
+11/02/2019 ERROR MESSAGE when trying to submit the new item:
+Error with DB. Details: PDOException: SQLSTATE[23502]: Not null violation: 7 ERROR: null value in column "item_name" violates not-null constraint DETAIL: Failing row contains (31, null, TESTING, 10.00, null, null, 10). in /app/web/myProject/item_insert.php:38 Stack trace: #0 /app/web/myProject/item_insert.php(38): PDOStatement->execute() #1 {main}
+---------------------------------------------------------------------------------------------
+
+11/02/2019 ERROR MESSAGE after creating the many-to-many relationship tables:
+Error with DB. Details: PDOException: SQLSTATE[23502]: Not null violation: 7 ERROR: null value in column "item_name" violates not-null constraint DETAIL: Failing row contains (32, null, TEST TESTING Testing Again, 5.00, null, null, 20). in /app/web/myProject/item_insert.php:38 Stack trace: #0 /app/web/myProject/item_insert.php(38): PDOStatement->execute() #1 {main}
+
+
+11/04/2019 DROPED the "NOT NULL" constraint in the item_name column in the item table
+
+Table "public.item"
+   Column   |          Type          | Collation | Nullable |                Default
+------------+------------------------+-----------+----------+---------------------------------------
+ item_id    | integer                |           | not null | nextval('item_item_id_seq'::regclass)
+ item_name  | character varying(100) |           |          |
+ item_desc  | text                   |           |          |
+ item_price | numeric(10,2)          |           | not null |
+ item_qty   | integer                |           |          |
+Indexes:
+    "item_pkey" PRIMARY KEY, btree (item_id)
+Referenced by:
+    TABLE "event" CONSTRAINT "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    TABLE "item_category" CONSTRAINT "item_category_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    TABLE "item_store" CONSTRAINT "item_store_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    
+    
+
+11/04/2019 DELETED FOREIGN KEYS from ITEM TABLE. Now the table looks like this: 
+
+ Table "public.item"
+   Column   |          Type          | Collation | Nullable |                Default
+------------+------------------------+-----------+----------+---------------------------------------
+ item_id    | integer                |           | not null | nextval('item_item_id_seq'::regclass)
+ item_name  | character varying(100) |           | not null |
+ item_desc  | text                   |           |          |
+ item_price | numeric(10,2)          |           | not null |
+ item_qty   | integer                |           |          |
+Indexes:
+    "item_pkey" PRIMARY KEY, btree (item_id)
+Referenced by:
+    TABLE "event" CONSTRAINT "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    TABLE "item_category" CONSTRAINT "item_category_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    TABLE "item_store" CONSTRAINT "item_store_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+
+
+11/01/2019 Table "public.event"
+       Column       |          Type          | Collation | Nullable |                 Default
+--------------------+------------------------+-----------+----------+-----------------------------------------
+ event_id           | integer                |           | not null | nextval('event_event_id_seq'::regclass)
+ event_date         | date                   |           |          |
+ item_id            | integer                |           |          |
+ quantity           | integer                |           |          |
+ event_name         | character varying(300) |           |          |
+ event_duration     | integer                |           |          |
+ event_participants | integer                |           |          |
+Indexes:
+    "event_pkey" PRIMARY KEY, btree (event_id)
+Foreign-key constraints:
+    "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+    
+
+11/01/2019 Table "public.item"
+   Column    |          Type          | Collation | Nullable |                Default
+-------------+------------------------+-----------+----------+---------------------------------------
+ item_id     | integer                |           | not null | nextval('item_item_id_seq'::regclass)
+ item_name   | character varying(100) |           | not null |
+ item_desc   | text                   |           |          |
+ item_price  | numeric(10,2)          |           | not null |
+ category_id | integer                |           |          |
+ store_id    | integer                |           |          |
+ item_qty    | integer                |           |          |
+Indexes:
+    "item_pkey" PRIMARY KEY, btree (item_id)
+Foreign-key constraints:
+    "item_category_id_fkey" FOREIGN KEY (category_id) REFERENCES category(category_id)
+    "item_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)
+Referenced by:
+    TABLE "event" CONSTRAINT "event_item_id_fkey" FOREIGN KEY (item_id) REFERENCES item(item_id)
+
+
+Table "public.category"
+    Column     |          Type          | Collation | Nullable |                    Default
+---------------+------------------------+-----------+----------+-----------------------------------------------
+ category_id   | integer                |           | not null | nextval('category_category_id_seq'::regclass)
+ category_name | character varying(100) |           |          |
+Indexes:
+    "category_pkey" PRIMARY KEY, btree (category_id)
+Referenced by:
+    TABLE "item" CONSTRAINT "item_category_id_fkey" FOREIGN KEY (category_id) REFERENCES category(category_id)
+
+
+Table "public.store"
+   Column   |          Type          | Collation | Nullable |                 Default
+------------+------------------------+-----------+----------+-----------------------------------------
+ store_id   | integer                |           | not null | nextval('store_store_id_seq'::regclass)
+ store_name | character varying(100) |           | not null |
+Indexes:
+    "store_pkey" PRIMARY KEY, btree (store_id)
+Referenced by:
+    TABLE "brands" CONSTRAINT "brands_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)
+    TABLE "item" CONSTRAINT "item_store_id_fkey" FOREIGN KEY (store_id) REFERENCES store(store_id)

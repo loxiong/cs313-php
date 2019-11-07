@@ -20,7 +20,7 @@ $db = get_db();
 //$script_book=$rows[0]['book'];
 
 //Define the query
-$stmt = $db->prepare('DELETE FROM scriptures WHERE WHERE id=:id');
+$stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

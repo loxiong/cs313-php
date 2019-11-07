@@ -37,3 +37,32 @@ if ($rows() == 1) {
 
 } 
 ?>
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>CS 313 Week 06 Reading</title>
+        <meta name="description" content="Week 06 Reading Activity">
+    </head>
+    
+    <body>
+        <header>      
+            
+        </header>    
+        
+        <main>
+
+            <?php
+            if ($rows() == 1) { 
+                echo "<strong>Contact Has Been Deleted</strong>";<br /><br />
+            } else { 
+            //if it failed
+                echo "<strong>Deletion Failed</strong>" <br /><br />
+            } 
+        
+            ?>
+            
+        </main>
+    
+    </body>
+</html>

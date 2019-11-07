@@ -26,9 +26,10 @@ $id = $_GET['scriptures_id'];
 $stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
 $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
 $stmt->execute();
-echo "done";
+return $stmt->rowCount();
 
 header("Location: index.php");
+die();
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -44,9 +45,19 @@ header("Location: index.php");
         </header>    
         
         <main>
+            <?php
+            try {
+                $stmt = $db->prepare('DELETE FROM scriptures WHERE id=:id');
+                $stmt->bindValue(':id', $scriptures_id, PDO::PARAM_INT);
+                $stmt->execute();
+                $result = $stmt->execute();
+                echo 'The number of row(s) deleted: ' . $result . '<br>';
 
-            
-            
+            } catch (\PDOException $e) {
+                echo $e->getMessage();
+            }
+            ?>
+ 
         </main>
     
     </body>

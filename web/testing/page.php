@@ -72,7 +72,7 @@ $script_book=$rows[0]['book'];
             }
             ?>
             </ul>
-                    <input type="hidden" name="name" value="<?php echo 'scriptures_id=$id'?>">
+                    <input type="hidden" name="name" value=$id>
                     <input type="submit" name="submit" value="Delete">
                 </form>
             

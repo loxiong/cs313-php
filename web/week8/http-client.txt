@@ -1,0 +1,82 @@
+// learnyounode tutorial exercises
+
+// HTTP CLIENT
+
+// INSTRUCTION: Create a file named http-client.js.
+
+  Write a program that performs an HTTP GET request to a URL provided to you
+  as the first command-line argument. Write the String contents of each
+  "data" event from the response to a new line on the console (stdout).
+  
+
+***********************************************************************
+// HINT 
+// For this exercise you will need to use the http core module.
+
+// Documentation on the http module can be found by pointing your browser here: file://C:\Users\Ching-PC\AppData\Roaming\npm\node_modules\learnyounode\docs-nodejs\http.html
+
+// The http.get() method is a shortcut for simple GET requests, use it to simplify your solution. The first argument to http.get() can be the URL you want to GET; provide a callback as the second argument.
+
+// Unlike other callback functions, this one has the signature:
+
+     function callback (response) { /* ... */ }
+
+// Where the response object is a Node Stream object. 
+// You can treat Node Streams as objects that emit events. The three events that are of most interest are: "data", "error" and "end". You listen to an event like so:
+
+     response.on('data', function (data) { /* ... */ })
+
+// The "data" event is emitted when a chunk of data is available and can be processed. The size of the chunk depends upon the underlying data source.
+
+// The response object / Stream that you get from http.get() also has a setEncoding() method. If you call this method with "utf8", the "data" events will emit Strings rather than the standard Node Buffer objects which you have to explicitly convert to Strings.
+
+
+***********************************************************************
+// CODE
+
+// create our http module as variable
+var http = require('http')
+
+// use a new method get() which takes 2 arguments, our url and a callback. 
+http.get(process.argv[2], function (response) {
+    // assign our event handlers to the response argument
+    // .on() method in this case takes 2 arguments, the data/error and the function to perform
+    response.on('data', console.log)
+    response.on('error', console.error)
+    // to make this a complete http get request we can add the correct encoding
+    response.setEncoding('utf8')
+})
+
+
+***********************************************************************
+// SUMMARY
+
+// http: is the required module for http requests.
+
+// .get: is one http method, which is used for making requests to a server.
+
+// The .get callback function doesn't follow the same node format that we have previously seen.
+
+// .on(): assigns our event handlers.
+
+// Its good practice to include the used encoding. You can't always get away with ommitting it like many people do in html documents.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

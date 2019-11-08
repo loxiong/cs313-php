@@ -1,0 +1,49 @@
+// learnyounode tutorial exercises
+
+// My First I/O
+
+// INSTRUCTION: Write a program that uses a single synchronous filesystem operation to read a file and print the number of newlines (\n) it contains to the console (stdout), similar to running cat file | wc -l.
+
+***********************************************************************
+// HINT 
+// To perform a filesystem operation you are going to need the fs module from the Node core library. To load this kind of module, or any other "global" module, use the following incantation:
+
+// const fs = require('fs')
+
+// Now you have the full fs module available in a variable named fs.
+
+// All synchronous (or blocking) filesystem methods in the fs module end with 'Sync'. To read a file, you'll need to use fs.readFileSync('/path/to/file'). 
+// This method will return a Buffer object containing the complete contents of the file.
+
+// Buffer objects are Node's way of efficiently representing arbitrary arrays of data, whether it be ascii, binary or some other format. Buffer objects can be converted to strings by simply calling the toString() method on them. For example:
+
+// const str = buf.toString().
+
+// If you're looking for an easy way to count the number of newlines in a string, recall that a JavaScript String can be .split() into an array of substrings and that '\n' can be used as a delimiter. 
+// Note that the test file does not have a newline character ('\n') at the end of the last line, so using this method you'll end up with an array that has one more element than the number of newlines.
+
+***********************************************************************
+// WALK-THROUGH
+// What is synchronous?
+// “a bunch of statements in sequence”; so each statement in your code is executed one after the other, in its written order
+
+***********************************************************************
+// CODE
+
+// load/create the file system module (fs)
+var fs = require('fs')
+
+// read a file that has been given as an argument in the command line, we can use our process.argv function
+// assign the contents of this file to the variable contents
+var contents = fs.readFileSync(process.argv[2])
+
+// count the number of newlines in a string
+// contents.toString(): converts the array contents into a string
+// .split('\n'): Split this string back into an array, each split should be at a newline (using the newline character '\n')
+// .length: Return the length of the array
+// -1: Deduct 1 from the result as the length will be 1 more than the number f newline characters as stated in the hints
+var lines = contents.toString().split('\n').length - 1
+
+// finally display result
+console.log(lines)
+

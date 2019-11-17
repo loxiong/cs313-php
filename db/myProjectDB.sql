@@ -59,3 +59,5 @@ CREATE TABLE item_event (
 
 /* DROP the NOT NULL constraint on the item_name column in item table */
 ALTER TABLE item ALTER COLUMN item_name DROP NOT NULL;
+
+

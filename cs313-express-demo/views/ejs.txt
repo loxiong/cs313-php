@@ -1,0 +1,4 @@
+EJS 
+is a type of view engine that CS313 will be using
+
+EJS is enbedded Javascript where rather than creating a new notation, we're just going to use Javascript to do the things that we need to do

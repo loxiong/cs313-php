@@ -1,0 +1,15 @@
+THIS IS A TUTORIAL FROM CS313 READING
+
+Express.js Part 1 - Basic Setup (18 mins)
+--> working file: server.js
+
+Express.js Part 2 - Serving Static Files (9 mins)
+--> working file: static-files.js
+
+Express.js Part 3 - Model View Controller (10 mins)
+--> working file: mvc.js
+
+Express.js Part 4 - Using EJS Templates (13 mins)
+--> working file: example-ejs.js
+
+Comparing Node.js Approaches: Single Page vs Multi-Page (11 mins)

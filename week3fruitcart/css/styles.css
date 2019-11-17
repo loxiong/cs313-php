@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Emilys+Candy|Krub|Nixie+One|Unica+One&display=swap');
+/*
+font-family: 'Krub', sans-serif;
+font-family: 'Nixie One', cursive;
+font-family: 'Emilys Candy', cursive;
+font-family: 'Unica One', cursive;
+*/
+
+body {
+    font-family: 'Krub', sans-serif;
+    font-weight: 500;
+    margin: 10px auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Emilys Candy', cursive;
+}
+
+#product-grid {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 60px;
+    justify-content: center;
+    margin: 40px;
+}
+
+#product-image {
+    width: 50px;
+    height: 50px;
+}
+
+/* buttons */
+.primary-button button {
+    background: #204161;
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+}
+button a {
+    font-family: 'Nixie One', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.secondary-button button {
+    background: #8d99a5;
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+}
+
+/* cart page */
+.shopping-cart {
+    margin: 0 auto;
+    width: 700px;
+}
+#cart-item {
+    display: flex;
+    flex-direction: column;
+    column-width: 30px;
+    margin: 60px;
+}
+.txt-heading a {
+    margin-left: 20px;
+}
+.cart-heading {
+    text-align: left;
+    font-weight: 700;
+}
+.total {
+    color: blue;
+    font-weight: 500;
+}
+
+/* checkout page */
+.checkout {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+}
+label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+input {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.primary-button input {
+    background: #204161;
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+    font-family: 'Nixie One', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+}
+/* confirmation page */
+.confirmation {
+    margin: 0 auto;
+}
+#shipping-address {
+    padding: 10px;
+    margin: 10px;
+    color: blue;
+}

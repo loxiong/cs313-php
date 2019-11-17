@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node.js Getting Started on Heroku</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div>
+        
+        <% if (typeof rate !== 'undefined') { %> 
+        <h2>Resulting rate: $ <%- rate %></h2>
+        <% } %>
+
+
+        <% if (typeof error !== 'undefined') { %> 
+        <h2><%- error %></h2>
+        <a class="btn" href="/">Try Again</a>
+        <% } %>
+
+    </div>
+
+</body>
+</html>
